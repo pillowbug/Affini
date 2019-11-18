@@ -10,10 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_075448) do
+ActiveRecord::Schema.define(version: 2019_11_18_085013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendees", force: :cascade do |t|
+    t.bigint "checkin_id"
+    t.bigint "connection_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checkin_id"], name: "index_attendees_on_checkin_id"
+    t.index ["connection_id"], name: "index_attendees_on_connection_id"
+  end
+
+  create_table "checkins", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "rating"
+    t.datetime "time"
+    t.text "description"
+    t.boolean "completed", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_checkins_on_user_id"
+  end
+
+  create_table "connection_tags", force: :cascade do |t|
+    t.bigint "connection_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["connection_id"], name: "index_connection_tags_on_connection_id"
+    t.index ["tag_id"], name: "index_connection_tags_on_tag_id"
+  end
+
+  create_table "connections", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.text "description"
+    t.date "birthday"
+    t.string "frequency"
+    t.string "email"
+    t.string "facebook"
+    t.string "linkedin"
+    t.string "phone_number"
+    t.string "instagram"
+    t.string "twitter"
+    t.string "photo"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_connections_on_user_id"
+  end
+
+  create_table "glances", force: :cascade do |t|
+    t.text "question"
+    t.text "answer"
+    t.bigint "connection_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["connection_id"], name: "index_glances_on_connection_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +86,19 @@ ActiveRecord::Schema.define(version: 2019_11_18_075448) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birthday"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attendees", "checkins"
+  add_foreign_key "attendees", "connections"
+  add_foreign_key "checkins", "users"
+  add_foreign_key "connection_tags", "connections"
+  add_foreign_key "connection_tags", "tags"
+  add_foreign_key "connections", "users"
+  add_foreign_key "glances", "connections"
 end
