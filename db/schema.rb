@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_084855) do
+ActiveRecord::Schema.define(version: 2019_11_18_085013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 2019_11_18_084855) do
     t.index ["user_id"], name: "index_connections_on_user_id"
   end
 
+  create_table "glances", force: :cascade do |t|
+    t.text "question"
+    t.text "answer"
+    t.bigint "connection_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["connection_id"], name: "index_glances_on_connection_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -91,4 +100,5 @@ ActiveRecord::Schema.define(version: 2019_11_18_084855) do
   add_foreign_key "connection_tags", "connections"
   add_foreign_key "connection_tags", "tags"
   add_foreign_key "connections", "users"
+  add_foreign_key "glances", "connections"
 end
