@@ -3,14 +3,6 @@
 .shadows { box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1); }
 .round { border-radius: 24px; }
 
-// flex order
-.f1 { order: 1; }
-.f2 { order: 2; }
-.f3 { order: 3; }
-.f4 { order: 4; }
-.f5 { order: 5; }
-.f6 { order: 6; }
-
 // text styles
 .text-left { text-align: left; }
 .text-right { text-align: right; }
@@ -37,11 +29,7 @@
 // need to clear floats instead of contain them? use this below.
 .clear, .clear-both { clear: both; }
 
-.border { border: 1px solid black; }
-
 // floats from our friends at T+T - makes responsive easy!
-.left { float: left !important; }
-.right { float: right !important; }
 .float20 { float: left; width: 20%;}
 .float25 { float: left; width: 25%;}
 .float33 { float: left; width: 33.3333%;}
@@ -67,18 +55,6 @@
 
 // content backgrounds
 
-body {
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-html {
-  height: 100%;
-  width: 100%;
-}
-
 .gradient-bg {
   background: rgb(120,213,255);
   background: -webkit-linear-gradient(66deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
@@ -87,9 +63,15 @@ html {
 }
 
 //spacing
-.pt50 { padding-top: 50px; }
-.pt100 { padding-top: 100px; }
+.pt100 {
+  padding-top: 100px;
+}
 
-.section { background-color: $light-blue; }
+.section {
+  background-color: $light-blue;
+}
 
-.breadcrumbs a { text-decoration: none; color: white; }
+.breadcrumbs a {
+  text-decoration: none;
+  color: white;
+}
