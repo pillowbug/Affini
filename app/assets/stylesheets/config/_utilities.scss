@@ -11,8 +11,8 @@
 
 
 // positioning
-.relative {position: relative;}
-.absolute {position: absolute;}
+.relative { position: relative; }
+.absolute { position: absolute; }
 
 // z-index
 .z0 {z-index: 0;}
@@ -29,7 +29,6 @@
 
 // need to clear floats instead of contain them? use this below.
 .clear, .clear-both { clear: both; }
-
 
 // floats from our friends at T+T - makes responsive easy!
 .float20 { float: left; width: 20%;}
@@ -56,6 +55,13 @@
 .fl-reverse {flex-direction: row-reverse;}
 
 // content backgrounds
+
+.gradient-bg {
+  background: rgb(120,213,255);
+  background: -webkit-linear-gradient(66deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
+  background: -o-linear-gradient(66deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
+  background: linear-gradient(156deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
+}
 
 .section {
   background-color: $light-blue;
