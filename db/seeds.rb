@@ -1,14 +1,5 @@
 require 'faker'
 
-
-def completed?(checkin)
-  if checkin[:time].to_f > Time.now.to_f
-    return false
-  else
-    return [true, false].sample
-  end
-end
-
 puts "Destroying Existing DB"
 User.destroy_all
 Connection.destroy_all
@@ -24,7 +15,7 @@ User.create!({
 })
 puts "Added #{User.last.first_name}"
 
-#Three connections
+# Three connections
 
 puts "Seeding Connections"
 
@@ -62,21 +53,23 @@ Connection.create!({
 })
 puts "Added #{Connection.all.count} connections"
 
-#Checkin
+# Checkin
 
 puts "Seeding Checkin"
 
 10.times do
+
+  time = Faker::Time.between(from: 5.days.ago, to: 5.days.from_now).to_datetime
   args = {
     user_id: User.last.id,
     rating: [1..5].sample,
-    time: Faker::Time.between_dates(from: Date.today - 5, to: Date.today + 5, format: :default),
+    time: time,
+    completed: (time.future? ? false : [true, false].sample),
     description: 'le wagon'
   }
-  args.merge!({completed: completed?(args)})
   checkin = Checkin.new(args)
   checkin.connections << Connection.all.sample(rand(1..2))
-  checkin.save
+  checkin.save!
 end
 puts "Added #{Checkin.count} checkin"
 
