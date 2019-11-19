@@ -2,7 +2,21 @@ class ConnectionsController < ApplicationController
   before_action :set_connection, only: %i[show edit update destroy]
 
   def index
-    @connections = policy_scope(Connection)
+    if params[:query].present?
+      sql_query = " \
+        connections.first_name @@ :query \
+        OR connections.last_name @@ :query \
+        OR connections.description @@ :query \
+        OR connections.email @@ :query \
+        OR connections.facebook @@ :query \
+        OR connections.linkedin @@ :query \
+        OR connections.instagram @@ :query \
+        OR connections.twitter @@ :query \
+        "
+      @connections = policy_scope(Connection).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @connections = policy_scope(Connection)
+    end
   end
 
   def show
