@@ -2,7 +2,21 @@ class ConnectionsController < ApplicationController
   before_action :set_connection, only: %i[show edit update destroy]
 
   def index
-    @connections = current_user.connections
+    if params[:query].present?
+      sql_query = " \
+        connections.first_name @@ :query \
+        OR connections.last_name @@ :query \
+        OR connections.description @@ :query \
+        OR connections.email @@ :query \
+        OR connections.facebook @@ :query \
+        OR connections.linkedin @@ :query \
+        OR connections.instagram @@ :query \
+        OR connections.twitter @@ :query \
+        "
+      @connections = current_user.connections.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @connections = current_user.connections
+    end
   end
 
   def show
