@@ -1,6 +1,14 @@
 <h1>Check-ins</h1>
+
+
 <ul>
   <% @checkins.each do |c| %>
   <li><%= c.description %></li>
   <% end %>
 </ul>
+
+<div class="container">
+  <%= month_calendar  do |date| %>
+    <%= date.day %>
+  <% end %>
+</div>
