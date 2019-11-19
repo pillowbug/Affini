@@ -1,5 +1,4 @@
 class Checkin < ApplicationRecord
   belongs_to :user
-  has_many :attendees
-  has_many :connections, through: :attendees
+  has_and_belongs_to_many :connections
 end
