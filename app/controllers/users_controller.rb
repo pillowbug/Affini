@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update]
+  skip_after_action :verify_authorized
 
   def show
     @user = current_user
