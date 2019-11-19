@@ -12,6 +12,13 @@ class Connection < ApplicationRecord
 
   before_save :data_cleanup
 
+  include PgSearch::Model
+  pg_search_scope :search,
+                  against: %i[description facebook linkedin email twitter first_name last_name],
+                  using: {
+                    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+                  }
+
   private
 
   def data_cleanup
