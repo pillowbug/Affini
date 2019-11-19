@@ -1,11 +1,22 @@
 /* Utility Classes go here! */
 
-.shadows {
-  box-shadow: 4, 4, 16px, rgba(0,0,0,0.1);
-}
-
-.round {
- border-radius: 24px;
-}
+.shadows { box-shadow: 4, 4, 16px, rgba(0,0,0,0.1); }
+.round { border-radius: 24px; }
 
 
+//text styles
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+
+
+//positioning
+.relative {position: relative;}
+.absolute {position: absolute;}
+
+// z-index
+.z0 {z-index: 0;}
+.z1 {z-index: 1;}
+.z2 {z-index: 2;}
+.z3 {z-index: 3;}
+.z4 {z-index: 4;}
