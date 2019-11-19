@@ -1,6 +1,6 @@
 class GlancePolicy < ApplicationPolicy
   def create?
-    record.connection.user == user
+    true
   end
 
   def update?

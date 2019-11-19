@@ -13,19 +13,21 @@ class ConnectionsController < ApplicationController
         OR connections.instagram @@ :query \
         OR connections.twitter @@ :query \
         "
-      @connections = current_user.connections.where(sql_query, query: "%#{params[:query]}%")
+      @connections = policy_scope(Connection).where(sql_query, query: "%#{params[:query]}%")
     else
-      @connections = current_user.connections
+      @connections = policy_scope(Connection)
     end
   end
 
   def show
+    authorize @connection
   end
 
   def new
     if user_signed_in?
       @user = current_user
       @connection = Connection.new
+      authorize @connection
     else
       redirect_to new_user_session_path
     end
@@ -36,8 +38,9 @@ class ConnectionsController < ApplicationController
       @connection = Connection.new(connection_params)
       @user = current_user
       @connection.user = @user
+      authorize @connection
       if @connection.save
-        redirect_to connection_path(@connection), :notice => "Connection was successfully added"
+        redirect_to connection_path(@connection), notice: "Connection was successfully added"
       else
         render 'new'
       end
@@ -47,17 +50,20 @@ class ConnectionsController < ApplicationController
   end
 
   def edit
+    authorize @connection
   end
 
   def update
+    authorize @connection
     if @connection.update(connection_params)
-      redirect_to connection_path(@connection), :notice => "Connection was successfully updated"
+      redirect_to connection_path(@connection), notice: "Connection was successfully updated"
     else
       render :edit
     end
   end
 
   def destroy
+    authorize @connection
     @connection.destroy
     redirect_to connections_path
   end

@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_050545) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "attendees", force: :cascade do |t|
-    t.bigint "checkin_id"
-    t.bigint "connection_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["checkin_id"], name: "index_attendees_on_checkin_id"
-    t.index ["connection_id"], name: "index_attendees_on_connection_id"
-  end
-
   create_table "checkins", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "rating"
@@ -40,15 +31,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_050545) do
     t.bigint "connection_id"
     t.index ["checkin_id"], name: "index_checkins_connections_on_checkin_id"
     t.index ["connection_id"], name: "index_checkins_connections_on_connection_id"
-  end
-
-  create_table "connection_tags", force: :cascade do |t|
-    t.bigint "connection_id"
-    t.bigint "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["connection_id"], name: "index_connection_tags_on_connection_id"
-    t.index ["tag_id"], name: "index_connection_tags_on_tag_id"
   end
 
   create_table "connections", force: :cascade do |t|
@@ -88,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_050545) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "title"
+    t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -109,13 +91,9 @@ ActiveRecord::Schema.define(version: 2019_11_19_050545) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "attendees", "checkins"
-  add_foreign_key "attendees", "connections"
   add_foreign_key "checkins", "users"
   add_foreign_key "checkins_connections", "checkins"
   add_foreign_key "checkins_connections", "connections"
-  add_foreign_key "connection_tags", "connections"
-  add_foreign_key "connection_tags", "tags"
   add_foreign_key "connections", "users"
   add_foreign_key "connections_tags", "connections"
   add_foreign_key "connections_tags", "tags"
