@@ -1,6 +1,10 @@
 class CheckinPolicy < ApplicationPolicy
-  def create?
+  def show?
     record.user == user
+  end
+
+  def create?
+    true
   end
 
   def update?
