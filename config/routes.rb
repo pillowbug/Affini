@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :users
   root to: 'pages#home'
   resources :connections do
-    resources :glances, only: [:create, :update, :destroy]
-    end
+    resources :glances, only: [:create, :update, :destroy], shallow: true
+    resources :connection_tags, only: [:create, :destroy], shallow: true
   end
   resources :checkins do
-    resources :attendees, only: [:create, :destroy]
+    resources :attendees, only: [:create, :destroy], shallow: true
   end
   # resources :tags, only: [:index, :show, :create, :update, :destroy]
-  resources :users do
-    resources :connection_tags, only [:create, :destroy]
-  end
+  resources :users
 end
