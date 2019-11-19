@@ -1,6 +1,15 @@
 <h1>Connections</h1>
 <ul>
   <% @connections.each do |c| %>
-  <li><%= c.first_name %></li>
+  <div class="connection-card">
+    <div class="connection-card-img personal">
+    </div>
+    <div class="connection-card-info general">
+      <h2><%= "#{c.first_name} #{c.last_name}" %></h2>
+      <h3>Connection</h3>
+      <h3>Last Contact</h3>
+      <h3>Tags</h3>
+    </div>
+  </div>
   <% end %>
 </ul>
