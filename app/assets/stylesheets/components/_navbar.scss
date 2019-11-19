@@ -1,12 +1,62 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
+
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }
+
+.v-nav {
+  background-color: $light-blue;
+  border-radius: 0 24px 24px 0;
+  width: 216px;
+  margin: 80px 0;
+  height: 480px;
+  padding-left: 0;
+  position: absolute;
+  z-index: 1;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.logo {
+  color: $green;
+  padding-top: 64px;
+  padding-bottom: 24px;
+  padding-left: 64px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-content ul {
+  padding-inline-start: 0px;
+  border-bottom-style: none;
+  padding-top: 16px;
 }
+
+.nav-content li {
+  padding: 16px 0;
+  color: #CDCDCD;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  padding-left: 64px;
+}
+.nav-content li:active {
+  padding-top: 24px;
+}
+
+.nav-content li:hover {
+  background-color: $green;
+  opacity: .1;
+  a {
+    color: #3F4E73;
+  }
+}
+
+.nav-content a {
+  text-decoration: none;
+  color: #CDCDCD;
+}
+
