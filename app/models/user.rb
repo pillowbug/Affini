@@ -7,11 +7,9 @@ class User < ApplicationRecord
   has_many :connections
   has_many :checkins
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :first_name, presence: true
   validates :last_name, presence: true
-
-  has_many :connections
 
   mount_uploader :photo, PhotoUploader
 end
