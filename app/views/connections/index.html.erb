@@ -12,29 +12,31 @@
     <div class="breadcrumbs">
         <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %>
     </div>
-      <h1 class="text-white">Your Connections</h1>
-      <%= link_to "Add a connection", "#connectionModal", "data-toggle" => "modal" %>
-        <div class="connection-cards">
+      <div class="d-flex align-items-center justify-content-between">
+        <h1 class="text-white">Your Connections</h1>
+        <%= link_to "+ Add a connection", "#connectionModal", "data-toggle" => "modal", class: "text-white" %>
+      </div>
       <div class="connection-cards">
         <% @connections.each do |connection| %>
           <%= link_to connection_path(connection) do %>
-            <div class="connection-card">
-              <div class="connection-card-img personal" style="background-image: url('<%= connection_image_path(connection) %>')">
-              </div>
-              <div class="connection-card-info general">
-                <h2><%= "#{connection.first_name} #{connection.last_name}" %></h2>
-                <h3>Last Contact:
-                  <%= last_checkin_date_display(connection) %>
-                </h3>
-                <h3>Tags:
-                  <% connection.tags.each do |tag| %>
-                      #<%=tag.value%>
-                  <% end %>
-                </h3>
+            <div class="float33">
+              <div class="connection-card shadow">
+                <div class="connection-card-img personal" style="background-image: url('<%= connection_image_path(connection) %>')">
+                </div>
+                <div class="connection-card-info general">
+                  <h2><%= "#{connection.first_name} #{connection.last_name}" %></h2>
+                  <h3>Last Contact:
+                    <%= last_checkin_date_display(connection) %>
+                  </h3>
+                  <h3>Tags:
+                    <% connection.tags.each do |tag| %>
+                        #<%=tag.value%>
+                    <% end %>
+                  </h3>
+                </div>
               </div>
             </div>
           <% end %>
         <% end %>
       </div>
-  </div>
 </div>
