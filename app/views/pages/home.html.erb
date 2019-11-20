@@ -3,9 +3,14 @@
       <div class="nav-content">
         <h1 class="logo">affini</h1>
         <ul>
-          <li><a href="">Dashboard</a></li>
-          <li><a href="#">Connections</a></li>
-          <li><a href="#">Activities</a></li>
+          <% if current_user %>
+              <li><a href="">Dashboard</a></li>
+              <li><a href="#">Connections</a></li>
+              <li><a href="#">Activities</a></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to "Login", new_user_session_path %></li>
+          <% end %>
         </ul>
       </div>
   </div>
