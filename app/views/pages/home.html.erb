@@ -1,4 +1,4 @@
-<div class="dashboard">
+<div class="dashboard gradient-bg">
   <div class="v-nav shadows">
       <div class="nav-content">
         <h1 class="logo">affini</h1>
@@ -10,8 +10,40 @@
       </div>
   </div>
   <div class="dashboard-content">
-    <div class="float50 round welcome shadows section">
-      test
+    <header class="text-right text-white pr-5">
+      <ul>
+        <li>Notifications</li>
+        <li>Don Tillman</li>
+      </ul>
+    </header>
+    <div class="container">
+      <div class="pt100">
+        <div class="breadcrumbs">
+          <a href="#">Dashboard</a>
+        </div>
+        <h1 style="color:white;">Howdy, Don!</h1>
+        <div class="d-flex">
+          <div class="float66 d-flex welcome section round shadow">
+            <div class="float66 right order2">
+              <h2>You've checked-in with 7 friends this week!</h2>
+              <p>Chickens don't clap! I'd rather be dead in California than alive in Arizona. The only person that gets Lucille this excited is Gene. ♪♪ And the thought of rubbin' you is getting so exciting. Sky rockets in flight! Afternoon delight! ♪♪ Why are you squeezing me with your body? It's a hug, Michael. I'm hugging you. </p>
+            </div>
+          </div>
+          <div class="float33 reminders">
+            <p class="text-white pl-3">Here are some connections you should schedule a check-in with.</p>
+            <ul>
+              <li class="text-white">one</li>
+              <li class="text-white">one</li>
+              <li class="text-white">one</li>
+              <li class="text-white">one</li>
+              <li class="text-white">one</li>
+              <li class="text-white">one</li>
+              <li class="text-white">one</li>
+              <li class="text-white">one</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
     <%= form_tag connections_path, method: :get, :class => 'searchbar-form' do %>
@@ -24,5 +56,4 @@
       <% end %>
     <% end %>
   </div>
-
 </div>
