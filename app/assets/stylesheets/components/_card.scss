@@ -1,4 +1,11 @@
+.connection-cards {
+  padding-top: 56px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .connection-card {
+  margin-right: 16px;
   height: 400px;
   width: 224px;
   border-radius: 24px;
