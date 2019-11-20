@@ -126,7 +126,7 @@ checkins:
     _connection_slugs:
       - tom
       - maxime
-    _time: 2.weeks.after + 6.hour + 30.minute
+    _time: 2.weeks.after.noon + 6.hour + 30.minute
   - _usr_slug: usr
     description: 'Ski Holidays!'
     _connection_slugs:
