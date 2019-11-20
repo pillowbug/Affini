@@ -22,6 +22,7 @@ class ConnectionsController < ApplicationController
   end
 
   def show
+    @checkin = Checkin.new
     authorize @connection
   end
 
