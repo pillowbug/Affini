@@ -1,35 +1,24 @@
+<%= render "shared/header" %>
 <div class="dashboard gradient-bg">
-  <div class="v-nav shadows">
-      <div class="nav-content">
-        <h1 class="logo">affini</h1>
-        <ul>
-          <% if current_user %>
-              <li><a href="">Dashboard</a></li>
-              <li><a href="#">Connections</a></li>
-              <li><a href="#">Activities</a></li>
-              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-              <% else %>
-              <li><%= link_to "Login", new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </div>
-  </div>
-  <div class="show-content-container">
+  <%= render "shared/vnav" %>
+  <div class="content">
+    <div class="breadcrumbs">
+        <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %> >> <%= link_to "#{@connection.first_name} #{@connection.last_name}", connection_path(@connection) %>
+    </div>
     <div class="show-content">
-      <p><%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %> >> <%= link_to "#{@connection.first_name} #{@connection.last_name}", connection_path(@connection) %></p>
-      <h2><%= "#{@connection.first_name} #{@connection.last_name}" %></h2>
-      <div class="d-flex">
-        <div class="float66 d-flex namebox section round shadow">
-          <div class="float66 right">
-            <%= image_tag "logo.png", class: "avatar-xl float33" %>
-          </div>
+      <h1 class="text-white"><%= "#{@connection.first_name} #{@connection.last_name}" %></h1 class="text-white">
+      <div class="namebox section round shadow">
+        <div class="float66 right">
+          <!-- <%= image_tag "logo.png", class: "avatar-xl float33" %> -->
         </div>
       </div>
-    <div class="d-flex">
-      <div class="d-flex flex-column float66" >
-        <h3>Notes</h3>
-        <div class="d-flex">
-          <div class="d-flex notebox section round shadow">
+      <div class="split">
+        <div class="show-left float66 d-flex flex-column">
+          <div class="d-flex justify-content-between">
+            <h3 class="text-white">Notes</h3>
+            <a href="#" class="text-white" style="padding-right: 80px;">+ Add notes</a>
+          </div>
+          <div class="d-flex notes section round shadow">
             <div class="right">
             </div>
           </div>
@@ -52,39 +41,25 @@
             </div>
         </div>
         <div class="d-flex">
+          <h3 class="text-white">Upcoming Check-ins</h3>
+          <div class="d-flex">
             <div class="d-flex checkinbox section round shadow">
               <div class="right">
               </div>
             </div>
-        </div>
-        <h3>Previous Check-ins</h3>
-        <div class="d-flex">
+          </div>
+          <h3 class="text-white">Previous Check-ins</h3>
+          <div class="d-flex">
             <div class="d-flex checkinbox faded section round shadow">
               <div class="right">
               </div>
-            </div>
-        </div>
-        <div class="d-flex">
-            <div class="d-flex checkinbox faded section round shadow">
-              <div class="right">
-              </div>
-            </div>
-        </div>
-        <div class="d-flex">
-            <div class="d-flex checkinbox faded section round shadow">
-              <div class="right">
-              </div>
-            </div>
-        </div>
-      </div>
-      <div class="show-content-right">
-        <div class="d-flex">
-          <div class="float33 d-flex glancebox section round shadow">
-            <div class="float33 right">
             </div>
           </div>
         </div>
+        <div class="show-right float33 d-flex">
+          <div class="shadows round glancebox dark-bg">
+            test
+          </div>
+        </div>
       </div>
-    </div>
   </div>
-</div>
