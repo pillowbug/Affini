@@ -1,15 +1,27 @@
-<h1>Connections</h1>
-<ul>
-  <% @connections.each do |c| %>
-  <div class="connection-card">
-    <div class="connection-card-img personal">
+<div class="gradient-bg">
+    <div class="connections-content d-flex justify-content-between">
+
+      <%= render 'shared/vnav'%>
+
+      <div class="container">
+        <h1 class="text-white">Your Connections</h1>
+        <div class="connection-cards">
+          <% @connections.each do |connection| %>
+            <%= link_to connection_path(connection) do %>
+              <div class="connection-card">
+                <!-- replace with connection.photo -->
+                <div class="connection-card-img personal">
+                </div>
+                <div class="connection-card-info general">
+                  <h2><%= "#{connection.first_name} #{connection.last_name}" %></h2>
+                  <h3>Connection</h3>
+                  <h3>Last Contact</h3>
+                  <h3>Tags</h3>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
     </div>
-    <div class="connection-card-info general">
-      <h2><%= "#{c.first_name} #{c.last_name}" %></h2>
-      <h3>Connection</h3>
-      <h3>Last Contact</h3>
-      <h3>Tags</h3>
     </div>
-  </div>
-  <% end %>
-</ul>
+</div>

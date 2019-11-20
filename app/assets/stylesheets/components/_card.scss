@@ -1,9 +1,28 @@
+.container {
+  height: 100%;
+  padding-top: 80px;
+  margin-left: 24px;
+}
+
+.connection-cards {
+  padding-top: 56px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .connection-card {
+  margin-right: 16px;
+  margin-bottom: 16px;
   height: 400px;
   width: 224px;
   border-radius: 24px;
   box-shadow: 4, 4, 16px, rgba(0,0,0,1);
   overflow: hidden;
+
+  a {
+    text-decoration: none!important;
+  }
 }
 
 .connection-card-img {
@@ -26,6 +45,8 @@
     margin-top: 16px;
     font-size: 14px;
   }
+
+
 }
 
 .general {
