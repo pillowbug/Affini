@@ -1,0 +1,134 @@
+tags:
+  - school
+  - work
+  - sports
+  - music
+  - family
+  - acquaintance
+  - friend
+
+users:
+  - _slug: usr
+    first_name: Don
+    last_name: Tillman
+    email: dontillman@org
+    password: secret
+    remote_photo_url: 'https://ksassets.timeincuk.net/wp/uploads/sites/55/2018/09/drianmalcolm-920x584.png'
+  - _slug: admin
+    first_name: Root
+    last_name: Admin
+    email: admin@affini.me
+    password: supersecret
+
+connections:
+  - _slug: tom
+    _user_slug: usr
+    first_name: Tom
+    last_name: Niblo
+    _frequency: 1.week
+    _birthday: '23 September'
+    description: 'Coding Scotsman'
+    linkedin: 'https://www.linkedin.com/in/lum555/'
+    instagram: 'https://www.instagram.com/tlum555/'
+    remote_photo_url: 'https://avatars1.githubusercontent.com/u/53204738?s=460&v=4'
+    _tags:
+      - friend
+      - work
+    _glances:
+      - question: 'Weaknesses'
+        answer: 'Mushrooms, raw tomatoes'
+      - question: 'Motto'
+        answer: 'Eat, Sleep, Code'
+  - _slug: gerard
+    first_name: Gerard
+    last_name: Cabarse
+    _frequency: 1.month
+    _birthday: '10 June'
+    description: 'Knows many Pokémons and few presidents of the USA.'
+    _user_slug: usr
+    instagram: 'https://www.instagram.com/gerardishere/'
+    remote_photo_url: 'https://avatars0.githubusercontent.com/u/16109822?s=460&v=4'
+    _tags:
+      - friend
+      - school
+      - music
+    _glances:
+      - question: 'Favourite Food?'
+        answer: 'Red Bean Bun'
+      - question: 'Celebrity Crush?'
+        answer: 'Hyuna'
+  - _slug: jy
+    _user_slug: usr
+    first_name: Jiyoung
+    last_name: Ko
+    _frequency: 1.year
+    _birthday: '4 December'
+    description: 'Undercover leader of a secret society.'
+    facebook: 'https://www.facebook.com/jko420'
+    instagram: 'https://www.instagram.com/jy_ko/'
+    email: 'jiyoung@ko.org'
+    remote_photo_url: 'https://avatars0.githubusercontent.com/u/53289659?s=460&v=4'
+    _tags:
+      - acquaintance
+      - school
+    _glances:
+      - question: 'Favourite Food?'
+        answer: 'Pizza'
+  - _slug: maxime
+    _user_slug: usr
+    first_name: Maxime
+    last_name: Froment
+    description: 'Played with dinosaurs before they became extinct.'
+    linkedin: 'https://www.linkedin.com/in/maxime-froment-99457a2/'
+    remote_photo_url: 'https://avatars3.githubusercontent.com/u/20883030?s=460&v=4'
+    _tags:
+      - acquaintance
+      - work
+    _glances:
+      - question: 'Favourite Food?'
+        answer: 'Chocolate'
+      - question: 'Dislikes?'
+        answer: 'Mustard, wasabi, mayo'
+      - question: 'Hobbies'
+        answer: 'Baking cakes, tidying things'
+
+checkins:
+  - _usr_slug: usr
+    description: 'Drinks'
+    _connection_slugs:
+      - gerard
+    _time: 2.month.ago.noon + 8.hour
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Lunch'
+    _connection_slugs:
+      - gerard
+      - tom
+    _time: 1.month.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'House warming party'
+    _connection_slugs:
+      - tom
+    _time: 1.week.ago.noon + 7.hour
+    completed: false
+  - _usr_slug: usr
+    description: 'Lunch'
+    _connection_slugs:
+      - jy
+      - gerard
+    _time: 2.week.ago.noon
+    completed: false
+  - _usr_slug: usr
+    description: 'Drinks'
+    _connection_slugs:
+      - tom
+      - maxime
+    _time: 2.weeks.after + 6.hour + 30.minute
+  - _usr_slug: usr
+    description: 'Ski Holidays!'
+    _connection_slugs:
+      - gerard
+    _time: 2.months.after.noon - 4.hour
