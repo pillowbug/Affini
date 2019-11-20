@@ -2,9 +2,11 @@
     <div class="connections-content d-flex justify-content-between">
 
       <%= render 'shared/vnav'%>
+      <%= render "shared/connectionmodal" %>
 
       <div class="container">
         <h1 class="text-white">Your Connections</h1>
+        <%= link_to "ModalTest", "#connectionModal", "data-toggle" => "modal" %>
         <div class="connection-cards">
           <% @connections.each do |connection| %>
             <%= link_to connection_path(connection) do %>
