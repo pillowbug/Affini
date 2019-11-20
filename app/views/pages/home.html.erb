@@ -1,24 +1,10 @@
 <div class="dashboard gradient-bg">
-  <div class="v-nav shadows">
-      <div class="nav-content">
-        <h1 class="logo">affini</h1>
-        <ul>
-          <% if current_user %>
-              <li><a href="">Dashboard</a></li>
-              <li><a href="#">Connections</a></li>
-              <li><a href="#">Activities</a></li>
-              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-              <% else %>
-              <li><%= link_to "Login", new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </div>
-  </div>
+  <%= render "/shared/vnav" %>
   <div class="dashboard-content">
     <header class="text-right text-white pr-5">
       <ul>
-        <li>Notifications</li>
-        <li>Don Tillman</li>
+        <%= link_to "Connections", connections_path %>
+        <%= link_to "Connection Show", connection_path(1) %>
       </ul>
     </header>
     <div class="container">
