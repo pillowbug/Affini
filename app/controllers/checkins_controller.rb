@@ -57,7 +57,7 @@ class CheckinsController < ApplicationController
   private
 
   def checkin_params
-    params.require(:checkin).permit(:first_name, :last_name, :description, :birthday, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo)
+    params.require(:checkin).permit(:description, :time, :rating, :completed)
   end
 
   def set_checkin
