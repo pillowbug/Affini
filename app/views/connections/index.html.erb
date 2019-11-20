@@ -7,8 +7,10 @@
 </header>
 <div class="gradient-bg d-flex">
   <%= render 'shared/vnav'%>
-  <div class="content d-flex justify-content-between">
-    <div class="container">
+  <div class="content">
+    <div class="breadcrumbs">
+        <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %>
+    </div>
       <h1 class="text-white">Your Connections</h1>
       <div class="connection-cards">
         <% @connections.each do |connection| %>
@@ -27,6 +29,5 @@
           <% end %>
         <% end %>
       </div>
-    </div>
   </div>
 </div>

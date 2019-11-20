@@ -67,6 +67,12 @@
 
 
 //spacing
+
+.split {
+  display: flex;
+  margin-top: 40px;
+}
+
 .pt100 {
   padding-top: 100px;
 }
@@ -78,4 +84,8 @@
 .breadcrumbs a {
   text-decoration: none;
   color: white;
+}
+
+.dark-bg {
+  background-color: $dark-blue;
 }
