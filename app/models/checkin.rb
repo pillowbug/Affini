@@ -8,6 +8,8 @@ class Checkin < ApplicationRecord
   scope :past, -> { where('time < ?', Time.now) }
   scope :future, -> { where.not('time < ?', Time.now) }
   scope :completed, -> { where(completed: true) }
+  scope :incomplete, -> { where(completed: false) }
+  scope :follow_up, -> { past.incomplete }
 
   def past?
     time < Time.now
@@ -18,8 +20,15 @@ class Checkin < ApplicationRecord
   end
 
   # completed? given by ActiveRecord
+  def incomplete?
+    !completed?
+  end
 
   def connection?(connection)
     connections.include?(connection)
+  end
+
+  def follow_up?
+    past? && incomplete?
   end
 end
