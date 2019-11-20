@@ -1,6 +1,17 @@
 <h1>Check-ins</h1>
+
+
 <ul>
   <% @checkins.each do |c| %>
-  <li><%= c.description %></li>
+  <div class="checkin-card">
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-small" %>
+    <p>Gerayoung Fromentiblo - <%= c.description %> - <%= c.time.strftime("%d/%m/%Y %k:%M%p") %></p>
+  </div>
   <% end %>
 </ul>
+
+<div class="container">
+  <%= month_calendar  do |date| %>
+    <%= date.day %>
+  <% end %>
+</div>

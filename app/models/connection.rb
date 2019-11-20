@@ -1,6 +1,6 @@
 class Connection < ApplicationRecord
   belongs_to :user
-  has_many :glances
+  has_many :glances, dependent: :destroy
   has_and_belongs_to_many :checkins
   has_and_belongs_to_many :tags
 
@@ -11,6 +11,13 @@ class Connection < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   before_save :data_cleanup
+
+  include PgSearch::Model
+  pg_search_scope :search,
+                  against: %i[description facebook linkedin email twitter first_name last_name],
+                  using: {
+                    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+                  }
 
   private
 
