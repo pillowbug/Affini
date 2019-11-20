@@ -1,27 +1,32 @@
-<div class="gradient-bg">
-    <div class="connections-content d-flex justify-content-between">
-
-      <%= render 'shared/vnav'%>
-
-      <div class="container">
-        <h1 class="text-white">Your Connections</h1>
-        <div class="connection-cards">
-          <% @connections.each do |connection| %>
-            <%= link_to connection_path(connection) do %>
-              <div class="connection-card">
-                <!-- replace with connection.photo -->
-                <div class="connection-card-img personal">
-                </div>
-                <div class="connection-card-info general">
-                  <h2><%= "#{connection.first_name} #{connection.last_name}" %></h2>
-                  <h3>Connection</h3>
-                  <h3>Last Contact</h3>
-                  <h3>Tags</h3>
-                </div>
+<header class="text-right text-white d-flex pr-5">
+    <ul>
+      <li><%= link_to "Connections", connections_path %></li>
+      <li><%= link_to "Connection Show", connection_path(1) %></li>
+    </ul>
+    <%= render "shared/searchbar" %>
+</header>
+<div class="gradient-bg d-flex">
+  <%= render 'shared/vnav'%>
+  <div class="content d-flex justify-content-between">
+    <div class="container">
+      <h1 class="text-white">Your Connections</h1>
+      <div class="connection-cards">
+        <% @connections.each do |connection| %>
+          <%= link_to connection_path(connection) do %>
+            <div class="connection-card">
+              <!-- replace with connection.photo -->
+              <div class="connection-card-img personal">
               </div>
-            <% end %>
+              <div class="connection-card-info general">
+                <h2><%= "#{connection.first_name} #{connection.last_name}" %></h2>
+                <h3>Connection</h3>
+                <h3>Last Contact</h3>
+                <h3>Tags</h3>
+              </div>
+            </div>
           <% end %>
-        </div>
+        <% end %>
+      </div>
     </div>
-    </div>
+  </div>
 </div>
