@@ -22,7 +22,7 @@ puts "Seeding Connections"
 Connection.create!({
   first_name: "Tom",
   last_name: "Niblo",
-  frequency: "once a week",
+  frequency: 1.week,
   birthday: Faker::Date.in_date_period.strftime("%d %B"),
   description: "le wagon",
   user_id: User.last.id
@@ -30,7 +30,7 @@ Connection.create!({
 Connection.create!({
   first_name: "Gerard",
   last_name: "Cabarse",
-  frequency: "once a month",
+  frequency: 1.month,
   birthday: Faker::Date.in_date_period.strftime("%d %B"),
   description: "le wagon",
   user_id: User.last.id
@@ -38,7 +38,7 @@ Connection.create!({
 Connection.create!({
   first_name: "Jiyoung",
   last_name: "Ko",
-  frequency: "once a year",
+  frequency: 1.year,
   birthday: Faker::Date.in_date_period.strftime("%d %B"),
   description: "le wagon",
   user_id: User.last.id
@@ -46,7 +46,7 @@ Connection.create!({
 Connection.create!({
   first_name: "Maxime",
   last_name: "Froment",
-  frequency: "once a week",
+  frequency: nil,
   birthday: Faker::Date.in_date_period.strftime("%d %B"),
   description: "le wagon",
   user_id: User.last.id

@@ -1,4 +1,6 @@
 class Connection < ApplicationRecord
+  attribute :frequency, :duration
+
   belongs_to :user
   has_many :glances, dependent: :destroy
   has_and_belongs_to_many :checkins
