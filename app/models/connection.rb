@@ -21,6 +21,11 @@ class Connection < ApplicationRecord
                     tsearch: { prefix: true } # <-- now `superman batm` will return something!
                   }
 
+  def last_checkin
+    # checkin with latest date, incl. in the future; nil if no checkin
+    checkins.order(time: :desc).first
+  end
+
   private
 
   def data_cleanup
