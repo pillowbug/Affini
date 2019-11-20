@@ -1,20 +1,14 @@
 header {
-  margin-right: 128px;
-  margin-top: 16px;
+  position: absolute;
+  width: 100%;
+  padding-top: 24px;
   ul {
   list-style-type: none;
   }
   li {
     display: inline;
     padding: 32px;
+    color: white;
+    text-decoration: none;
   }
-}
-
-header ul {
-  list-style-type: none;
-}
-
-header li {
-  display: inline;
-  padding: 32px;
 }
