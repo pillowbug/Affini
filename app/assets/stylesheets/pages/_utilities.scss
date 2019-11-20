@@ -3,6 +3,9 @@
 .shadows { box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1); }
 .round { border-radius: 24px; }
 
+// buttons
+
+
 // text styles
 .text-left { text-align: left; }
 .text-right { text-align: right; }
@@ -14,11 +17,11 @@
 .absolute { position: absolute; }
 
 // z-index
-.z0 {z-index: 0;}
-.z1 {z-index: 1;}
-.z2 {z-index: 2;}
-.z3 {z-index: 3;}
-.z4 {z-index: 4;}
+.z0 { z-index: 0; }
+.z1 { z-index: 1; }
+.z2 { z-index: 2; }
+.z3 { z-index: 3; }
+.z4 { z-index: 4; }
 
 // reusable classes
 .inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
@@ -79,6 +82,7 @@
 
 .section {
   background-color: $light-blue;
+  padding: 32px;
 }
 
 .breadcrumbs a {
