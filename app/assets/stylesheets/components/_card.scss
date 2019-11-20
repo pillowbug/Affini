@@ -47,11 +47,12 @@
 }
 
 .checkin-card {
-  width: 544px;
+  width: 540px;
   height: 54px;
   background-color: $light-blue;
   display: flex;
   align-items: center;
+  margin: 8px 0 8px;
   padding-left: 8px;
   border-radius: 16px;
   box-shadow: 4, 4, 16px, rgba(0,0,0,0.1);
