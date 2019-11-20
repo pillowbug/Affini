@@ -4,18 +4,22 @@
       <li><%= link_to "Connection Show", connection_path(1) %></li>
     </ul>
     <%= render "shared/searchbar" %>
+    <%= render "shared/connectionmodal" %>
 </header>
 <div class="gradient-bg d-flex">
   <%= render 'shared/vnav'%>
   <div class="content d-flex justify-content-between">
     <div class="container">
       <h1 class="text-white">Your Connections</h1>
+      <%= link_to "ModalTest", "#connectionModal", "data-toggle" => "modal" %>
+        <div class="connection-cards">
       <div class="connection-cards">
         <% @connections.each do |connection| %>
           <%= link_to connection_path(connection) do %>
             <div class="connection-card">
               <!-- replace with connection.photo -->
               <div class="connection-card-img personal">
+
               </div>
               <div class="connection-card-info general">
                 <h2><%= "#{connection.first_name} #{connection.last_name}" %></h2>

@@ -2,6 +2,8 @@ class ConnectionsController < ApplicationController
   before_action :set_connection, only: %i[show edit update destroy]
 
   def index
+    @user = current_user
+    @connection = Connection.new
     if params[:query].present?
       sql_query = " \
         connections.first_name @@ :query \
