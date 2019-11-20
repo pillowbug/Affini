@@ -1,50 +1,38 @@
 <div class="dashboard gradient-bg">
   <%= render "/shared/vnav" %>
   <div class="dashboard-content">
-    <header class="text-right text-white pr-5">
+    <!-- <header class="text-right text-white pr-5">
       <ul>
-        <%= link_to "Connections", connections_path %>
-        <%= link_to "Connection Show", connection_path(1) %>
+        <li><%= link_to "Connections", connections_path %></li>
+        <li><%= link_to "Connection Show", connection_path(1) %></li>
+        <li><%= render "shared/searchbar" %></li>
       </ul>
-    </header>
-    <div class="container">
-      <div class="pt100">
-        <div class="breadcrumbs">
-          <a href="#">Dashboard</a>
-        </div>
-        <h1 style="color:white;">Howdy, Don!</h1>
-        <div class="d-flex">
-          <div class="float66 d-flex welcome section round shadow">
-            <div class="float66 right order2">
-              <h2>You've checked-in with 7 friends this week!</h2>
-              <p>Chickens don't clap! I'd rather be dead in California than alive in Arizona. The only person that gets Lucille this excited is Gene. ♪♪ And the thought of rubbin' you is getting so exciting. Sky rockets in flight! Afternoon delight! ♪♪ Why are you squeezing me with your body? It's a hug, Michael. I'm hugging you. </p>
-            </div>
-          </div>
-          <div class="float33 reminders">
-            <p class="text-white pl-3">Here are some connections you should schedule a check-in with.</p>
-            <ul>
-              <li class="text-white">one</li>
-              <li class="text-white">one</li>
-              <li class="text-white">one</li>
-              <li class="text-white">one</li>
-              <li class="text-white">one</li>
-              <li class="text-white">one</li>
-              <li class="text-white">one</li>
-              <li class="text-white">one</li>
-            </ul>
-          </div>
+    </header> -->
+
+    <div class="breadcrumbs">
+      <a href="#">Dashboard</a>
+    </div>
+    <h1 style="color:white;">Howdy, Don!</h1>
+    <div class="d-flex">
+      <div class="float66 d-flex welcome section round shadow">
+        <div class="float66 right order2">
+          <h2>You've checked-in with 7 friends this week!</h2>
+          <p>Chickens don't clap! I'd rather be dead in California than alive in Arizona. The only person that gets Lucille this excited is Gene. ♪♪ And the thought of rubbin' you is getting so exciting. Sky rockets in flight! Afternoon delight! ♪♪ Why are you squeezing me with your body? It's a hug, Michael. I'm hugging you. </p>
         </div>
       </div>
+      <div class="float33 reminders">
+        <p class="text-white pl-3">Here are some connections you should schedule a check-in with.</p>
+        <ul>
+          <li class="text-white">one</li>
+          <li class="text-white">one</li>
+          <li class="text-white">one</li>
+          <li class="text-white">one</li>
+          <li class="text-white">one</li>
+          <li class="text-white">one</li>
+          <li class="text-white">one</li>
+          <li class="text-white">one</li>
+        </ul>
+      </div>
     </div>
-
-    <%= form_tag connections_path, method: :get, :class => 'searchbar-form' do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control searchbar"
-      %>
-      <%= button_tag type: "submit", class: "search-button" do  %>
-        <i class="fas fa-search"></i>
-      <% end %>
-    <% end %>
   </div>
 </div>

@@ -1,0 +1,9 @@
+<%= form_tag connections_path, method: :get, :class => 'searchbar-form' do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control searchbar"
+  %>
+  <%= button_tag type: "submit", class: "search-button" do  %>
+    <i class="fas fa-search"></i>
+  <% end %>
+<% end %>
