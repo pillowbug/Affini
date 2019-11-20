@@ -6,4 +6,12 @@ module ConnectionHelper
       asset_url('user_placeholder.png')
     end
   end
+
+  def last_checkin_date_display(connection)
+    if connection.last_completed_past_checkin.nil?
+      "Never"
+    else
+      connection.last_completed_past_checkin.time.strftime("%a %d %b")
+    end
+  end
 end

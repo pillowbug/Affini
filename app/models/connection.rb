@@ -26,6 +26,11 @@ class Connection < ApplicationRecord
     checkins.order(time: :desc).first
   end
 
+  def last_completed_past_checkin
+    # checkin with latest date, only past; nil if no checkin
+    checkins.past.completed.order(time: :desc).first
+  end
+
   def checkin_deadline
     # returns date by which next checkin shall be scheduled
     # nil if no target frequency, creation time stamp
