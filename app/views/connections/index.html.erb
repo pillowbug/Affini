@@ -19,9 +19,7 @@
         <% @connections.each do |connection| %>
           <%= link_to connection_path(connection) do %>
             <div class="connection-card">
-              <!-- replace with connection.photo -->
-              <div class="connection-card-img personal" style="background-image: url('<%= cl_image_path(connection.photo)%>')">
-
+              <div class="connection-card-img personal" style="background-image: url('<%= connection_image_path(connection) %>')">
               </div>
               <div class="connection-card-info general">
                 <h2><%= "#{connection.first_name} #{connection.last_name}" %></h2>
