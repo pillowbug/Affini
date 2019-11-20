@@ -19,15 +19,21 @@
         <% @connections.each do |connection| %>
           <%= link_to connection_path(connection) do %>
             <div class="connection-card">
-              <!-- replace with connection.photo -->
               <div class="connection-card-img personal" style="background-image: url('<%= cl_image_path(connection.photo)%>')">
-
               </div>
               <div class="connection-card-info general">
                 <h2><%= "#{connection.first_name} #{connection.last_name}" %></h2>
-                <h3>Connection</h3>
-                <h3>Last Contact</h3>
-                <h3>Tags</h3>
+                <h3>Last Contact:
+                  <% past_checkins = connection.checkins.select { |checkin| checkin.completed = true } %>
+                    <% past_checkins.each do |checkin| %>
+                      <%= checkin.time %>
+                    <% end %>
+                </h3>
+                <h3>Tags:
+                  <% connection.tags.each do |tag| %>
+                      #<%=tag.value%>
+                  <% end %>
+                </h3>
               </div>
             </div>
           <% end %>
