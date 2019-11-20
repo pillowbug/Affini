@@ -1,26 +1,13 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: white;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
-
 .v-nav {
   background-color: $light-blue;
   border-radius: 0 24px 24px 0;
-  width: 216px;
+  width: 240px;
   margin: 8% 0;
   height: 480px;
   padding-left: 0;
   top: 0;
-  position: absolute;
   z-index: 1;
+  position: sticky;
 }
 
 .logo {
