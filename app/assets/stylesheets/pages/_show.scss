@@ -27,11 +27,6 @@
   }
 }
 
-.show-content-flexbox {
-  display: flex;
-  flex-direction: column;
-}
-
 .show-content-left {
   width: 100%;
 }
@@ -53,7 +48,7 @@
   margin: 8px 0 8px;
 }
 
-.previous {
+.faded {
   opacity: 0.5;
 }
 
