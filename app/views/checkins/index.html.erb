@@ -1,10 +1,8 @@
-<%= render "shared/header" %>
-
 <div class="dashboard gradient-bg">
   <%= render "shared/vnav" %>
   <div class="content">
     <div class="breadcrumbs">
-      <%= link_to "Dashboard", root_path %> >> <%= link_to "Activities", connections_path %>
+      <%= link_to "Dashboard", root_path %> >> <%= link_to "Check-ins", connections_path %>
     </div>
   <h1 class= "text-white">Check-ins</h1>
   <div class="checkin-content">
@@ -18,14 +16,34 @@
 
     <div class="float50">
       <ul>
-        <% @checkins.each do |c| %>
-            <% c.connections.each do |connection| %>
-              <div class="checkin-card">
-                <%= image_tag connection.photo_url, class: "avatar-small" %>
-                <p><%= connection.first_name %> - <%= c.description %> - <%= datetime_display(c.time) %></p>
-              </div>
+        <div class="upcoming-checkins d-flex flex-column">
+          <h3 class="text-white spaced-header">Feedback</h3>
+          <div class="show-left float66 d-flex flex-column">
+            <% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
+              <%= render "/shared/checkins", :checkin => checkin %>
             <% end %>
-        <% end %>
+          </div>
+        </div>
+      </ul>
+      <ul>
+        <div class="upcoming-checkins d-flex flex-column">
+          <h3 class="text-white spaced-header">Upcoming</h3>
+          <div class="show-left float66 d-flex flex-column">
+            <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
+              <%= render "/shared/checkins", :checkin => checkin %>
+            <% end %>
+          </div>
+        </div>
+      </ul>
+      <ul>
+        <div class="upcoming-checkins d-flex flex-column">
+          <h3 class="text-white spaced-header">Past</h3>
+          <div class="show-left float66 d-flex flex-column">
+            <% @user.checkins.past.completed.order(time: :asc).limit(3).each do |checkin| %>
+              <%= render "/shared/checkins", :checkin => checkin %>
+            <% end %>
+          </div>
+        </div>
       </ul>
     </div>
   </div>
