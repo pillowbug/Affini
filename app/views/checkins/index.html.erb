@@ -16,14 +16,34 @@
 
     <div class="float50">
       <ul>
-        <% @checkins.each do |c| %>
-            <% c.connections.each do |connection| %>
-              <div class="checkin-card">
-                <%= image_tag connection.photo_url, class: "avatar-small" %>
-                <p><%= connection.first_name %> - <%= c.description %> - <%= datetime_display(c.time) %></p>
-              </div>
+        <div class="upcoming-activities d-flex flex-column">
+          <h3 class="text-white spaced-header">Feedback</h3>
+          <div class="show-left float66 d-flex flex-column">
+            <% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
+              <%= render "/shared/checkins", :checkin => checkin %>
             <% end %>
-        <% end %>
+          </div>
+        </div>
+      </ul>
+      <ul>
+        <div class="upcoming-activities d-flex flex-column">
+          <h3 class="text-white spaced-header">Upcoming Checkins</h3>
+          <div class="show-left float66 d-flex flex-column">
+            <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
+              <%= render "/shared/checkins", :checkin => checkin %>
+            <% end %>
+          </div>
+        </div>
+      </ul>
+      <ul>
+        <div class="upcoming-activities d-flex flex-column">
+          <h3 class="text-white spaced-header">Past</h3>
+          <div class="show-left float66 d-flex flex-column">
+            <% @user.checkins.past.completed.order(time: :asc).limit(3).each do |checkin| %>
+              <%= render "/shared/checkins", :checkin => checkin %>
+            <% end %>
+          </div>
+        </div>
       </ul>
     </div>
   </div>

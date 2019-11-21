@@ -2,6 +2,7 @@ class CheckinsController < ApplicationController
   before_action :set_checkin, only: %i[show edit update destroy]
 
   def index
+    @user = current_user
     @checkins = policy_scope(Checkin)
   end
 
