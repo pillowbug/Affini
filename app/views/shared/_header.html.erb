@@ -1,7 +1,7 @@
-<header class="text-right text-white d-flex pr-5">
-    <%= render "shared/searchbar" %>
+<header class="text-right text-white d-flex px-5 align-items-center justify-content-between">
+  <h1 class="text-white">affini</h1>
     <ul>
       <li><%= render "shared/usermodal" %></li>
-      <li><%= link_to "Edit your profile", "#userModal", "data-toggle" => "modal", class: "text-white" %></li>
+      <li><%= link_to "Log in", new_user_session_path, class: "btn-white" %></li>
     </ul>
 </header>
