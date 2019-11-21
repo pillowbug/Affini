@@ -2,6 +2,18 @@
   width: 100%;
   height: 240px;
   align-items: center;
+
+  .float66 {
+  display: flex;
+  }
+}
+
+.namebox-content {
+  padding-left: 32px;
+}
+
+.tag-list li {
+  display: inline;
 }
 
 // .show-content {
