@@ -2,6 +2,8 @@
 
 .shadows { box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1); }
 .round { border-radius: 24px; }
+.breadcrumbs { margin: 32px 0; }
+.breadcrumbs a { text-decoration: none; color: white; }
 
 // flex order
 .f1 { order: 1; }
@@ -85,11 +87,3 @@ html {
   background: -o-linear-gradient(66deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
   background: linear-gradient(156deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
 }
-
-//spacing
-.pt50 { padding-top: 50px; }
-.pt100 { padding-top: 100px; }
-
-.section { background-color: $light-blue; }
-
-.breadcrumbs a { text-decoration: none; color: white; }
