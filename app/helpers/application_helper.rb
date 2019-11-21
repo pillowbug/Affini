@@ -30,4 +30,8 @@ module ApplicationHelper
   def birthday_display(dte, missing = "Unknown")
     dte ? dte.strftime("%a %d %b") : missing
   end
+
+  def frequency_display(duration, missing = "Never")
+    duration ? "Every #{duration.inspect.gsub(/^1 /,'')}" : missing
+  end
 end
