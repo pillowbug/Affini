@@ -9,7 +9,44 @@
       <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white">
       <div class="namebox section round shadow">
         <div class="float66 right">
-
+          <%= cl_image_tag("#{@connection.photo}", :width => 400, :crop => "pad", :class => "avatar-xl") %>
+          <div class="namebox-content">
+            <h6><strong>Last Met:</strong> <%= @connection.checkins.past.order(time: :desc).completed.first[:time].strftime("%B #{@connection.checkins.past.order(time: :desc).completed.first[:time].day.ordinalize}, %Y") %></h6>
+            <h6><strong>Frequency:</strong> <%= @connection.frequency %></h6>
+            <h6><strong>Birthday:</strong> <%= @connection.birthday.strftime("%B #{@connection.birthday.day.ordinalize}, %Y") %></h6>
+            <h6><strong>Tags</strong>
+              <ul class="tag-list">
+                <% @connection.tags.each do |t| %>
+                  <li><%= t.value %></li>
+                <% end %>
+              </ul>
+            </h6>
+            <p>
+              <% if @connection.email.present? %>
+                <i class="fas fa-envelope"></i>
+              <% end %>
+              <% if @connection.facebook.present? %>
+                <%= link_to @connection.facebook do %>
+                  <i class="fab fa-facebook-square"></i>
+                <% end %>
+              <% end %>
+              <% if @connection.twitter.present? %>
+                <%= link_to @connection.twitter do %>
+                  <i class="fab fa-twitter-square"></i>
+                <% end %>
+              <% end %>
+              <% if @connection.instagram.present? %>
+                <%= link_to @connection.instagram do %>
+                  <i class="fab fa-instagram"></i>
+                <% end %>
+              <% end %>
+              <% if @connection.linkedin.present? %>
+                <%= link_to @connection.linkedin do %>
+                  <i class="fab fa-linkedin"></i>
+                <% end %>
+              <% end %>
+            </p>
+          </div>
         </div>
       </div>
       <div class="split">
@@ -30,18 +67,24 @@
           <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
         </div>
 
+        <% @connection.checkins.future.order(time: :asc).limit(3).each do |c| %>
         <div class="d-flex checkinbox section round shadow">
           <div class="right">
-
+            <%= c.description %>
           </div>
         </div>
+        <% end %>
+
         <h3 class="text-white">Previous Check-ins</h3>
+        <% @connection.checkins.past.order(time: :desc).completed.limit(3).each do |c| %>
         <div class="d-flex">
           <div class="d-flex checkinbox faded section round shadow">
             <div class="right">
+              <%= c.description %>
             </div>
           </div>
         </div>
+        <% end %>
 
         </div>
         <div class="show-right float33 d-flex">

@@ -1,5 +1,6 @@
 <%= simple_form_for [@checkin] do |f| %>
   <%= f.input :description, input_html: { require: true } %>
+  <%= f.input :connections, :as => :hidden, :input_html => { :value => @connection.id } %>
   <%= f.input :time, as: :string, input_html: { class: "datepicker", require: true } %>
   <%= f.submit "Submit", :class => "btn btn-primary" %>
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
