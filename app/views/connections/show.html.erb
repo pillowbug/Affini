@@ -13,7 +13,7 @@
         <div class="float66 right">
           <%= cl_image_tag("#{@connection.photo}", :width => 400, :crop => "pad", :class => "avatar-xl") %>
           <div class="namebox-content">
-            <h6><strong>Last Met:</strong> <%= date_display(@connection.last_completed_past_checkin) %></h6>
+            <h6><strong>Last Met:</strong> <%= checkin_date_display(@connection.last_completed_past_checkin) %></h6>
             <h6><strong>Frequency:</strong> <%= @connection.frequency %></h6>
             <h6><strong>Birthday:</strong> <%= birthday_display(@connection.birthday) %></h6>
             <h6><strong>Tags</strong>
