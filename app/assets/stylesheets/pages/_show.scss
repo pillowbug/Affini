@@ -1,39 +1,23 @@
 .namebox {
-  width: 100%;
+  width: 80%;
   height: 240px;
   align-items: center;
-
+  margin-top: 16px;
   .float66 {
   display: flex;
   }
 }
 
 .namebox-content {
-  padding-left: 32px;
+  padding-right: 32px;
+  ul {
+    list-style: none;
+  }
 }
 
-.tag-list li {
+.tag-list p {
   display: inline;
 }
-
-// .show-content {
-
-//   h2 {
-//     color: white;
-//     font-weight: bold;
-//   }
-
-//   h3 {
-//     color: white;
-//     margin-top: 16px;
-//   }
-
-//   a {
-//     color: white;
-//     font-size: 18px;
-//   }
-// }
-
 
 .notes {
   height: 260px;
@@ -42,12 +26,12 @@
 }
 
 .checkins {
-  margin-top: 32px;
+  margin-top: 24px;
 }
 
 .checkinbox {
   width: 90%;
-  height: 64px;
+  height: 32px;
   margin: 8px 0 8px;
 }
 
@@ -56,11 +40,10 @@
 }
 
 .glancebox {
-  height: 420px;
-  width: 100%;
-  padding: 32px;
+  height: 80%;
+  width: 70%;
+  padding: 16px;
 }
-
 
 
 .text-btn {
