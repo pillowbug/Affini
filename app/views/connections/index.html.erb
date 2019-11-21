@@ -19,7 +19,7 @@
       <div class="connection-cards">
         <% @connections.each do |connection| %>
           <%= link_to connection_path(connection) do %>
-            <div class="float33">
+
               <div class="connection-card shadow">
                 <div class="connection-card-img personal" style="background-image: url('<%= connection_image_path(connection) %>')">
                 </div>
@@ -35,7 +35,7 @@
                   </h3>
                 </div>
               </div>
-            </div>
+
           <% end %>
         <% end %>
       </div>
