@@ -5,7 +5,7 @@
         <% if current_user %>
             <li><%= link_to "Dashboard", root_path %></li>
             <li><%= link_to "Connections", connections_path %></li>
-            <li><%= link_to "Activities", checkins_path %></li>
+            <li><%= link_to "Check-ins", checkins_path %></li>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             <% else %>
             <li><%= link_to "Login", new_user_session_path %></li>
