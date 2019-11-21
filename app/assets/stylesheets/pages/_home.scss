@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .hero-section {
-  height: 67vh;
+  height: 75vh;
   width: 100vw;
   background-color: grey;
 }
@@ -10,8 +10,16 @@
   width: 640px;
 }
 
+.product-features {
+  padding-top: 32px;
+}
+
 .feature {
-  background-color: $dark-blue;
   height: 400px;
   margin: 16px;
+}
+
+.upslant {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
