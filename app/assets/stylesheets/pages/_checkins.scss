@@ -1,4 +1,29 @@
 .checkin-content {
   display: flex;
-  padding-top: 32px;
+}
+
+.simple-calendar .calendar-heading,
+.simple-calendar .calendar-heading a {
+  color: white;
+  font-family: 'Questrial', sans-serif;
+}
+
+.simple-calendar .table thead th {
+  color: white;
+}
+
+.table th, .table td {
+  border: none;
+}
+
+.simple-calendar .current-month {
+  background-color: transparent;
+}
+
+.simple-calendar .day {
+  color: white;
+}
+
+.simple-calendar .prev-month, .simple-calendar .next-month {
+  opacity: 0.1;
 }
