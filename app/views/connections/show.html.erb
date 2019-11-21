@@ -14,9 +14,9 @@
       </div>
       <div class="split">
         <div class="show-left float66 d-flex flex-column">
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between align-items-center">
             <h3 class="text-white">Notes</h3>
-            <a href="#" class="text-white" style="padding-right: 80px;">+ Add notes</a>
+            <a href="#" class="text-white" style="padding-right: 80px;">Add notes <i class="far fa-edit"></i></a>
           </div>
           <div class="d-flex notes section round shadow">
             <div class="right">
@@ -27,7 +27,7 @@
         <div class="checkins d-flex justify-content-between align-items-center">
           <h3 class="text-white">Upcoming Check-ins</h3>
           <%= render "shared/checkinmodal" %>
-          <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+          <%= link_to "Add a Check-in +", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
         </div>
 
         <div class="d-flex checkinbox section round shadow">

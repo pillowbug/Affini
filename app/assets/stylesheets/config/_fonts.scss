@@ -1,13 +1,14 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Questrial|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat:400,700,800,900&display=swap');
 
 // Define fonts for body and headers
-$body-font: 'Roboto', sans-serif;
-$headers-font: 'Questrial', sans-serif;
+$body-font: 'Lato', sans-serif;
+$headers-font: 'Montserrat', sans-serif;
 
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $headers-font;
+  font-weight: 700 !important;
 }
 
 p, li, a {
