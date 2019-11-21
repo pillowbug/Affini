@@ -14,4 +14,8 @@ module ConnectionHelper
       connection.last_completed_past_checkin.time.strftime("%a %d %b")
     end
   end
+
+  def full_name(person)
+    "#{person.first_name} #{person.last_name}"
+  end
 end
