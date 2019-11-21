@@ -20,7 +20,7 @@
         <p class="text-white pl-3">Here are some connections you should schedule a check-in with.</p>
         <ul>
           <% @connections_checkin.each do |connection| %>
-          <li class="text-white"><%= full_name(connection) %></li>
+          <li class="text-white"><%= link_to full_name(connection), connection_path(connection) %> by <%= date_display(connection.checkin_deadline) %></li>
           <% end %>
         </ul>
         <% end %>
