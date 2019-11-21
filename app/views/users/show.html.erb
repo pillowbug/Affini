@@ -34,8 +34,13 @@
         <!-- TODO: use checkin cards -->
         <div class="d-flex">
           <div class="d-flex checkin-card section round shadow">
-            <div class="right">
-              <%= checkin.description %>
+            <div class="right checkin-card-content">
+              <ul>
+              <% checkin.connections.each do |c| %>
+                <li style="background-image: url('<%= cl_image_path c.photo, height: 60, width: 60, crop: :fit %>')"></li>
+              <% end %>
+              </ul>
+              <p><%= "#{checkin.description} - #{date_display(checkin.time, missing = "Never")}" %></p>
             </div>
           </div>
         </div>
