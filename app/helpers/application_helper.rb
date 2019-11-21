@@ -11,12 +11,12 @@ module ApplicationHelper
     "#{person.first_name} #{person.last_name}"
   end
 
-  def date_display(dte)
-    dte ? dte.strftime("%a %d %b %y") : "Never"
+  def birthday_display(dte)
+    dte ? dte.strftime("%a %d %b") : "Unknown"
   end
 
-  def birthday_display(dte)
-    dte ? dte.strftime("%a %d %b") : "Never"
+  def date_display(dte)
+    dte ? dte.strftime("%a %d %b %y") : "Never"
   end
 
   def checkin_date_display(checkin)
