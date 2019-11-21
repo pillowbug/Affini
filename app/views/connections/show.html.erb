@@ -3,10 +3,10 @@
   <%= render "shared/vnav" %>
   <div class="content">
     <div class="breadcrumbs">
-        <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %> >> <%= link_to "#{@connection.first_name} #{@connection.last_name}", connection_path(@connection) %>
+        <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %> >> <%= link_to full_name(@connection), connection_path(@connection) %>
     </div>
     <div class="show-content">
-      <h1 class="text-white"><%= "#{@connection.first_name} #{@connection.last_name}" %></h1 class="text-white">
+      <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white">
       <div class="namebox section round shadow">
         <div class="float66 right">
 

@@ -24,7 +24,7 @@
                 <div class="connection-card-img personal" style="background-image: url('<%= connection_image_path(connection) %>')">
                 </div>
                 <div class="connection-card-info general">
-                  <h2><%= "#{connection.first_name} #{connection.last_name}" %></h2>
+                  <h2><%= full_name(connection) %></h2>
                   <h3>Last Contact:
                     <%= last_checkin_date_display(connection) %>
                   </h3>
