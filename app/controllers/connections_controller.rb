@@ -23,6 +23,7 @@ class ConnectionsController < ApplicationController
 
   def show
     @checkin = Checkin.new
+    @user = current_user
     authorize @connection
   end
 
