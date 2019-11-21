@@ -1,17 +1,26 @@
-<h1>Check-ins</h1>
+<%= render "shared/header" %>
 
+<div class="dashboard gradient-bg">
+  <%= render "shared/vnav" %>
+  <div class="content">
+    <h1 class= "text-white">Check-ins</h1>
+  <div class="checkin-content">
+    <div class="calendar">
+      <%= month_calendar  do |date| %>
+        <%= date.day %>
+      <% end %>
+    </div>
 
-<ul>
-  <% @checkins.each do |c| %>
-  <div class="checkin-card">
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-small" %>
-    <p>Gerayoung Fromentiblo - <%= c.description %> - <%= c.time.strftime("%d/%m/%Y %k:%M%p") %></p>
+    <ul>
+      <% @checkins.each do |c| %>
+          <% c.connections.each do |connection| %>
+            <div class="checkin-card">
+              <%= image_tag connection.photo_url, class: "avatar-small" %>
+              <p><%= connection.first_name %> - <%= c.description %> - <%= c.time.strftime("%d/%m/%Y %k:%M%p") %></p>
+            </div>
+          <% end %>
+      <% end %>
+    </ul>
   </div>
-  <% end %>
-</ul>
-
-<div class="container">
-  <%= month_calendar  do |date| %>
-    <%= date.day %>
-  <% end %>
+  </div>
 </div>
