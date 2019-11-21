@@ -9,20 +9,19 @@
         <%= render "shared/detailsmodal" %>
       <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn" %>
       <div class="namebox section round shadow">
-        <div class="d-flex ">
-          <%= cl_image_tag("#{@connection.photo}", :width => 400, :crop => "pad", :class => "avatar-xl") %>
-          <div class="namebox-content">
-            <h6><strong>Last Met:</strong> <%= checkin_date_display(@connection.last_completed_past_checkin) %></h6>
-            <h6><strong>Frequency:</strong> <%= frequency_display(@connection.frequency) %></h6>
-            <h6><strong>Birthday:</strong> <%= birthday_display(@connection.birthday) %></h6>
-            <h6><strong>Tags</strong>
-              <ul class="tag-list">
+        <div class="d-flex">
+          <div class="float25"><%= cl_image_tag("#{@connection.photo}", :width => 400, :crop => "pad", :class => "avatar-xl") %></div>
+          <div class="namebox-content float75 flex-column">
+            <ul>
+              <li><strong>Last Met:</strong> <%= checkin_date_display(@connection.last_completed_past_checkin) %></li>
+              <li><strong>Frequency:</strong> <%= frequency_display(@connection.frequency) %></li>
+              <li><strong>Birthday:</strong> <%= birthday_display(@connection.birthday) %></li>
+              <li><strong>Tags</strong>
                 <% @connection.tags.each do |t| %>
-                  <li><%= t.value %></li>
+                  <p class="badge badge-primary"><%= t.value %></p>
                 <% end %>
-              </ul>
-            </h6>
-            <p>
+              </li>
+              <li><strong>Social</strong></li>
               <% if @connection.email.present? %>
                 <i class="fas fa-envelope"></i>
               <% end %>
@@ -46,7 +45,8 @@
                   <i class="fab fa-linkedin"></i>
                 <% end %>
               <% end %>
-            </p>
+            </p></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <h3 class="text-white">Notes</h3>
             <%= render "shared/notesmodal" %>
-            <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white" %>
+            <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white text-btn" %>
           </div>
           <div class="d-flex notes section round shadow">
             <div class="right">
@@ -66,7 +66,7 @@
         <div class="checkins d-flex justify-content-between align-items-center">
           <h3 class="text-white">Feedback</h3>
             <%= render "shared/checkinmodal" %>
-          <%= link_to "Add a Check-in +", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+          <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
         </div>
         <div class="show-left float66 d-flex flex-column">
           <% @connection.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
@@ -95,7 +95,7 @@
         <div class="show-right float33 d-flex">
           <div class="shadows round glancebox dark-bg text-white">
             <div class="d-flex justify-content-between">
-              <h2>At a glance</h2>
+              <h2>At a glance +</h2>
               <h2>+</h2>
             </div>
             <% @connection.glances.each do |glance| %>

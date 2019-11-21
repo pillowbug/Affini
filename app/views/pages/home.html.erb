@@ -4,8 +4,8 @@
     <div class="breadcrumbs">
       <a href="#">Dashboard</a>
     </div>
-    <h1 style="color:white;">Howdy, Don!</h1>
-    <%#= render "shared/usermodal" %>
+    <h1 style="color:white;">Howdy, <%=@user.first_name %>!</h1>
+    <%= render "shared/usermodal" %>
     <%= link_to "Edit your profile", "#userModal", "data-toggle" => "modal", class: "text-white" %>
     <div class="d-flex">
       <div class="float66 d-flex welcome section round shadow">
@@ -70,6 +70,5 @@
         </div>
       </div>
     </div>
-    <h1 style="color:white;">Affini</h1>
   </div>
 </div>
