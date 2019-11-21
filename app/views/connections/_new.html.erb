@@ -1,6 +1,8 @@
 <%= simple_form_for [@user, @connection] do |f| %>
   <%= f.input :first_name, input_html: { require: true } %>
   <%= f.input :last_name, input_html: { require: true } %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <%= f.input :description %>
   <%= f.input :email %>
   <%= f.input :facebook %>

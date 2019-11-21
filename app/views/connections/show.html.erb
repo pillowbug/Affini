@@ -7,6 +7,8 @@
     </div>
     <div class="show-content">
       <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white">
+      <%= render "shared/detailsmodal" %>
+      <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn" %>
       <div class="namebox section round shadow">
         <div class="float66 right">
           <%= cl_image_tag("#{@connection.photo}", :width => 400, :crop => "pad", :class => "avatar-xl") %>
@@ -53,7 +55,8 @@
         <div class="show-left float66 d-flex flex-column">
           <div class="d-flex justify-content-between">
             <h3 class="text-white">Notes</h3>
-            <a href="#" class="text-white" style="padding-right: 80px;">+ Add notes</a>
+            <%= render "shared/notesmodal" %>
+            <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white" %>
           </div>
           <div class="d-flex notes section round shadow">
             <div class="right">
