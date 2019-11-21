@@ -22,7 +22,7 @@
             <% c.connections.each do |connection| %>
               <div class="checkin-card">
                 <%= image_tag connection.photo_url, class: "avatar-small" %>
-                <p><%= connection.first_name %> - <%= c.description %> - <%= c.time.strftime("%d/%m/%Y %k:%M%p") %></p>
+                <p><%= connection.first_name %> - <%= c.description %> - <%= datetime_display(c.time) %></p>
               </div>
             <% end %>
         <% end %>
