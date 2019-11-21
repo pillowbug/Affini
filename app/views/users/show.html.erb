@@ -9,7 +9,7 @@
     <div class="d-flex">
       <div class="float66 d-flex welcome section round shadow">
         <div class="float66 right order2">
-          <!-- TODO -->
+          <!-- TODO: actual report -->
           <h2>You've checked-in with 7 friends this week!</h2>
           <p>Chickens don't clap! I'd rather be dead in California than alive in Arizona. The only person that gets Lucille this excited is Gene. ♪♪ And the thought of rubbin' you is getting so exciting. Sky rockets in flight! Afternoon delight! ♪♪ Why are you squeezing me with your body? It's a hug, Michael. I'm hugging you. </p>
 
@@ -20,6 +20,7 @@
         <p class="text-white pl-3">Here are some connections you should schedule a check-in with.</p>
         <ul>
           <% @connections_checkin.each do |connection| %>
+          <!-- TODO: style, link to checkin creation -->
           <li class="text-white"><%= link_to full_name(connection), connection_path(connection) %> by <%= date_display(connection.checkin_deadline) %></li>
           <% end %>
         </ul>
@@ -27,45 +28,31 @@
       </div>
     </div>
     <div class="upcoming-activities">
-      <h3 class="text-white spaced-header">Upcoming Activities</h2>
+      <h3 class="text-white spaced-header">Upcoming Activities</h3>
       <div class="show-left float66 d-flex flex-column">
+        <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
+        <!-- TODO: use checkin cards -->
         <div class="d-flex">
           <div class="d-flex checkin-card section round shadow">
             <div class="right">
+              <%= checkin.description %>
             </div>
           </div>
         </div>
-        <div class="d-flex">
-          <div class="d-flex checkin-card section round shadow">
-            <div class="right">
-            </div>
-          </div>
-        </div>
-        <div class="d-flex">
-          <div class="d-flex checkin-card section round shadow">
-            <div class="right">
-            </div>
-          </div>
-        </div>
-        <h3 class="text-white spaced-header">Past Activities</h2>
+        <% end %>
+      </div>
+      <h3 class="text-white spaced-header">Past Activities</h3>
+      <div class="show-left float66 d-flex flex-column">
+        <% @user.checkins.past.order(time: :asc).limit(3).each do |checkin| %>
+        <!-- TODO: use checkin cards -->
         <div class="d-flex">
           <div class="d-flex checkin-card faded section round shadow">
             <div class="right">
+              <%= checkin.description %>
             </div>
           </div>
         </div>
-        <div class="d-flex">
-          <div class="d-flex checkin-card faded section round shadow">
-            <div class="right">
-            </div>
-          </div>
-        </div>
-         <div class="d-flex">
-          <div class="d-flex checkin-card faded section round shadow">
-            <div class="right">
-            </div>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
