@@ -1,0 +1,9 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :birthday %>
+  <%= f.input :photo %>
+  <%= f.submit "Submit", :class => "btn btn-primary" %>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<% end %>
