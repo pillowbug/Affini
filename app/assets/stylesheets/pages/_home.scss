@@ -1,3 +1,17 @@
 // Specific CSS for your home-page
+.hero-section {
+  height: 67vh;
+  width: 100vw;
+  background-color: grey;
+}
 
+.hero-content h1 {
+  font-size: 64px;
+  width: 640px;
+}
 
+.feature {
+  background-color: $dark-blue;
+  height: 400px;
+  margin: 16px;
+}
