@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="upcoming-activities">
-      <h3 class="text-white spaced-header">Upcoming Activities</h3>
+      <h3 class="text-white spaced-header">Upcoming</h3>
       <div class="show-left float66 d-flex flex-column">
         <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
         <!-- TODO: use checkin cards -->
@@ -41,9 +41,22 @@
         </div>
         <% end %>
       </div>
-      <h3 class="text-white spaced-header">Past Activities</h3>
+      <h3 class="text-white spaced-header">Follow-up</h3>
       <div class="show-left float66 d-flex flex-column">
-        <% @user.checkins.past.order(time: :asc).limit(3).each do |checkin| %>
+        <% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
+        <!-- TODO: use checkin cards -->
+        <div class="d-flex">
+          <div class="d-flex checkin-card faded section round shadow">
+            <div class="right">
+              <%= checkin.description %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <h3 class="text-white spaced-header">Past</h3>
+      <div class="show-left float66 d-flex flex-column">
+        <% @user.checkins.past.completed.order(time: :asc).limit(3).each do |checkin| %>
         <!-- TODO: use checkin cards -->
         <div class="d-flex">
           <div class="d-flex checkin-card faded section round shadow">
