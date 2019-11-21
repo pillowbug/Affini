@@ -29,7 +29,7 @@ class CheckinsController < ApplicationController
       @checkin.time.past? ? @checkin.completed = true : @checkin.completed = false
       authorize @checkin
       if @checkin.save
-        redirect_to connection_path(@user), notice: "Checkin was successfully added"
+        redirect_to connection_path(@connection), notice: "Checkin was successfully added"
       else
         render 'new'
       end
