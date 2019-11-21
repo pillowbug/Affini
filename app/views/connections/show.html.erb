@@ -1,4 +1,3 @@
-<%= render "shared/header" %>
 <div class="dashboard gradient-bg">
   <%= render "shared/vnav" %>
   <div class="content">
@@ -7,10 +6,10 @@
     </div>
     <div class="show-content">
       <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white">
-      <%= render "shared/detailsmodal" %>
+        <%= render "shared/detailsmodal" %>
       <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn" %>
       <div class="namebox section round shadow">
-        <div class="float66 right">
+        <div class="d-flex ">
           <%= cl_image_tag("#{@connection.photo}", :width => 400, :crop => "pad", :class => "avatar-xl") %>
           <div class="namebox-content">
             <h6><strong>Last Met:</strong> <%= checkin_date_display(@connection.last_completed_past_checkin) %></h6>
@@ -103,4 +102,6 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
+</div>

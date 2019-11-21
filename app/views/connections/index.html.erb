@@ -1,20 +1,13 @@
-<header class="text-right text-white d-flex pr-5">
-    <ul>
-      <li><%= link_to "Connections", connections_path %></li>
-      <li><%= link_to "Connection Show", connection_path(1) %></li>
-    </ul>
-    <%= render "shared/searchbar" %>
-    <%= render "shared/connectionmodal" %>
-</header>
 <div class="gradient-bg d-flex">
   <%= render 'shared/vnav'%>
 
-  <div class="content">
+  <div class="content pr-5">
     <div class="breadcrumbs">
         <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %>
     </div>
       <div class="d-flex align-items-center justify-content-between">
         <h1 class="text-white">Your Connections</h1>
+        <%= render "shared/connectionmodal" %>
         <%= link_to "+ Add a connection", "#connectionModal", "data-toggle" => "modal", class: "text-white" %>
       </div>
       <div class="connection-cards">
