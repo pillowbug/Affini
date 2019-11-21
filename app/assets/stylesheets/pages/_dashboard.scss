@@ -11,4 +11,9 @@
 .reminders {
   border-left: 1px solid white;
   margin-left: 32px;
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+  }
 }

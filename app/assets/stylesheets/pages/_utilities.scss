@@ -2,6 +2,8 @@
 
 .shadows { box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1); }
 .round { border-radius: 24px; }
+.list-none { list-style-type: none; }
+.breadcrumbs { margin: 24px 0; }
 
 // buttons
 
@@ -59,10 +61,10 @@
 // content backgrounds
 
 .gradient-bg {
-  background: rgb(120,213,255);
-  background: -webkit-linear-gradient(66deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
-  background: -o-linear-gradient(66deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
-  background: linear-gradient(156deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
+  // background: rgb(120,213,255);
+  // background: -webkit-linear-gradient(66deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
+  // background: -o-linear-gradient(66deg, rgba(120,213,255,1) 0%, rgba(177,71,141,1) 100%);
+  background: linear-gradient(156deg, rgba(139,198,225,1) 0%, rgba(156,141,188,1) 75%, rgba(171,92,155,1) 100%);
 }
 
 .content { min-height: 100vh; height: 100%; width: 75%; position: relative; padding-top: 80px; padding-left: 80px;

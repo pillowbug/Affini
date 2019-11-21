@@ -53,7 +53,7 @@
       </div>
       <div class="split">
         <div class="show-left float66 d-flex flex-column">
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between align-items-center">
             <h3 class="text-white">Notes</h3>
             <%= render "shared/notesmodal" %>
             <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white" %>
@@ -67,7 +67,7 @@
         <div class="checkins d-flex justify-content-between align-items-center">
           <h3 class="text-white">Upcoming Check-ins</h3>
           <%= render "shared/checkinmodal" %>
-          <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+          <%= link_to "Add a Check-in +", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
         </div>
 
         <% @connection.checkins.future.order(time: :asc).limit(3).each do |c| %>

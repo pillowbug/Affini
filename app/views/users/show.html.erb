@@ -5,7 +5,7 @@
     <div class="breadcrumbs">
       <a href="#">Dashboard</a>
     </div>
-    <h1 style="color:white;">Hello, <%= @user.first_name %>!</h1>
+    <h1 class="text-white">Hello, <%= @user.first_name %>!</h1>
     <div class="d-flex">
       <div class="float66 d-flex welcome section round shadow">
         <div class="float66 right order2">
@@ -21,14 +21,14 @@
         <ul>
           <% @connections_checkin.each do |connection| %>
           <!-- TODO: style, link to checkin creation -->
-          <li class="text-white"><%= link_to full_name(connection), connection_path(connection) %> by <%= date_display(connection.checkin_deadline) %></li>
+          <li class="text-white list-none"><i class="fas fa-arrow-right"></i> <%= link_to full_name(connection), connection_path(connection) %> by <%= date_display(connection.checkin_deadline) %></li>
           <% end %>
         </ul>
         <% end %>
       </div>
     </div>
-    <div class="upcoming-activities">
-      <h3 class="text-white spaced-header">Upcoming</h3>
+    <div class="upcoming-activities d-flex flex-column">
+      <h3 class="text-white spaced-header">Upcoming Checkins</h3>
       <div class="show-left float66 d-flex flex-column">
         <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
         <!-- TODO: use checkin cards -->
