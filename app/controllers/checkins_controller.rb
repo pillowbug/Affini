@@ -23,10 +23,13 @@ class CheckinsController < ApplicationController
     if user_signed_in?
       @checkin = Checkin.new(checkin_params)
       @user = current_user
+      @connection = Connection.find(params[:checkin][:connections])
       @checkin.user = @user
+      @checkin.connections << @connection
+      @checkin.time.past? ? @checkin.completed = true : @checkin.completed = false
       authorize @checkin
       if @checkin.save
-        redirect_to checkin_path(@checkin), notice: "Checkin was successfully added"
+        redirect_to connection_path(@connection), notice: "Checkin was successfully added"
       else
         render 'new'
       end

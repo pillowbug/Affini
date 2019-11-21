@@ -7,16 +7,56 @@
     </div>
     <div class="show-content">
       <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white">
+      <%= render "shared/detailsmodal" %>
+      <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn" %>
       <div class="namebox section round shadow">
         <div class="float66 right">
-
+          <%= cl_image_tag("#{@connection.photo}", :width => 400, :crop => "pad", :class => "avatar-xl") %>
+          <div class="namebox-content">
+            <h6><strong>Last Met:</strong> <%= checkin_date_display(@connection.last_completed_past_checkin) %></h6>
+            <h6><strong>Frequency:</strong> <%= frequency_display(@connection.frequency) %></h6>
+            <h6><strong>Birthday:</strong> <%= birthday_display(@connection.birthday) %></h6>
+            <h6><strong>Tags</strong>
+              <ul class="tag-list">
+                <% @connection.tags.each do |t| %>
+                  <li><%= t.value %></li>
+                <% end %>
+              </ul>
+            </h6>
+            <p>
+              <% if @connection.email.present? %>
+                <i class="fas fa-envelope"></i>
+              <% end %>
+              <% if @connection.facebook.present? %>
+                <%= link_to @connection.facebook do %>
+                  <i class="fab fa-facebook-square"></i>
+                <% end %>
+              <% end %>
+              <% if @connection.twitter.present? %>
+                <%= link_to @connection.twitter do %>
+                  <i class="fab fa-twitter-square"></i>
+                <% end %>
+              <% end %>
+              <% if @connection.instagram.present? %>
+                <%= link_to @connection.instagram do %>
+                  <i class="fab fa-instagram"></i>
+                <% end %>
+              <% end %>
+              <% if @connection.linkedin.present? %>
+                <%= link_to @connection.linkedin do %>
+                  <i class="fab fa-linkedin"></i>
+                <% end %>
+              <% end %>
+            </p>
+          </div>
         </div>
       </div>
       <div class="split">
         <div class="show-left float66 d-flex flex-column">
           <div class="d-flex justify-content-between align-items-center">
             <h3 class="text-white">Notes</h3>
-            <a href="#" class="text-white" style="padding-right: 80px;">Add notes <i class="far fa-edit"></i></a>
+            <%= render "shared/notesmodal" %>
+            <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white" %>
           </div>
           <div class="d-flex notes section round shadow">
             <div class="right">
@@ -30,18 +70,24 @@
           <%= link_to "Add a Check-in +", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
         </div>
 
+        <% @connection.checkins.future.order(time: :asc).limit(3).each do |c| %>
         <div class="d-flex checkinbox section round shadow">
           <div class="right">
-
+            <%= c.description %>
           </div>
         </div>
+        <% end %>
+
         <h3 class="text-white">Previous Check-ins</h3>
+        <% @connection.checkins.past.order(time: :desc).completed.limit(3).each do |c| %>
         <div class="d-flex">
           <div class="d-flex checkinbox faded section round shadow">
             <div class="right">
+              <%= c.description %>
             </div>
           </div>
         </div>
+        <% end %>
 
         </div>
         <div class="show-right float33 d-flex">
