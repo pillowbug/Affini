@@ -56,15 +56,10 @@
   border-radius: 16px;
   box-shadow: 4, 4, 16px, rgba(0,0,0,0.1);
   color: #616161;
-  transition: 0.1s;
   p {
     margin-left: 8px;
     font-size: 14px;
   }
-}
-
-.checkin-card:hover {
-  transform: scale(1.01);
 }
 
 .checkin-card-content {
@@ -118,4 +113,12 @@ position: relative;
   left: 170px;
   bottom: 8px;
   border-radius: 16px;
+}
+
+.checkin-card-relative {
+  transition: 0.1s;
+}
+
+.checkin-card-relative:hover {
+  transform: scale(1.01);
 }
