@@ -4,9 +4,9 @@
       <ul>
 
         <% checkin.connections.each do |c| %>
-        <%= link_to connection_path(c) do %>
+          <%= link_to connection_path(c) do %>
           <li style="background-image: url('<%= cl_image_path c.photo, height: 60, width: 60, crop: :scale %>')"></li>
-        <% end %>
+          <% end %>
         <% end %>
 
       </ul>
