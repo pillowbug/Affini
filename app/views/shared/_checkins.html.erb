@@ -1,10 +1,6 @@
 <div class="d-flex checkin-card-relative">
   <div class="d-flex checkin-card section round shadow">
     <div class="checkin-card-content">
-      <%= link_to "#editCheckinModal", "data-toggle" => "modal", class: "btn-white" do %>
-        <div class="modal-link">
-        </div>
-      <% end %>
         <ul>
           <% checkin.connections.each do |c| %>
             <li>
