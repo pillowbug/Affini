@@ -37,7 +37,7 @@ module ApplicationHelper
   end
 
   def birthday_display(dte, missing = "Unknown")
-    dte ? dte.strftime("%a %d %b") : missing
+    dte ? dte.strftime("%d %b") : missing
   end
 
   def frequency_display(duration, missing = "Never")
