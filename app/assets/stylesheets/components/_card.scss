@@ -58,9 +58,8 @@
   color: #616161;
   transition: 0.1s;
   p {
-    margin-top: 18px;
-    font-size: 14px;
     margin-left: 8px;
+    font-size: 14px;
   }
 }
 
@@ -87,6 +86,10 @@
   box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
   -webkit-transition: .2s ease;
   transition: .2s ease;
+
+  a {
+    text-decoration: none;
+  }
   }
 
   li:nth-child(n+2) { margin-left: -40px; }

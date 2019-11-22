@@ -25,7 +25,7 @@ connections:
     _user_slug: usr
     first_name: Tom
     last_name: Niblo
-    _frequency: 1.week
+    frequency: <%= 1.week.iso8601 %>
     _birthday: '23 September'
     description: 'Coding Scotsman'
     linkedin: 'https://www.linkedin.com/in/lum555/'
@@ -42,7 +42,7 @@ connections:
   - _slug: gerard
     first_name: Gerard
     last_name: Cabarse
-    _frequency: 1.month
+    frequency: <%= 1.month.iso8601 %>
     _birthday: '10 June'
     description: 'Knows many Pokémons and few presidents of the USA.'
     _user_slug: usr
@@ -61,7 +61,7 @@ connections:
     _user_slug: usr
     first_name: Jiyoung
     last_name: Ko
-    _frequency: 1.year
+    frequency: <%= 1.year.iso8601 %>
     _birthday: '4 December'
     description: 'Undercover leader of a secret society.'
     facebook: 'https://www.facebook.com/jko420'
