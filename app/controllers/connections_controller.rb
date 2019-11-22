@@ -40,7 +40,9 @@ class ConnectionsController < ApplicationController
   def create
     if user_signed_in?
       # TODO: sanitize me
-      params[:connection][:frequency] = params[:other][:frequency_value] == "0" ? nil : params[:other][:frequency_value].to_i.send(params[:other][:frequency_unit])
+      if params[:other].present? && params[:other][:frequency_value].present? && params[:other][:frequency_unit].present?
+        params[:connection][:frequency] = params[:other][:frequency_value] == "0" ? nil : params[:other][:frequency_value].to_i.send(params[:other][:frequency_unit])
+      end
       @connection = Connection.new(connection_params)
       @user = current_user
       @connection.user = @user
@@ -62,7 +64,9 @@ class ConnectionsController < ApplicationController
   def update
     authorize @connection
     # TODO: sanitize me
-    params[:connection][:frequency] = params[:other][:frequency_value] == "0" ? nil : params[:other][:frequency_value].to_i.send(params[:other][:frequency_unit])
+      if params[:other].present? && params[:other][:frequency_value].present? && params[:other][:frequency_unit].present?
+        params[:connection][:frequency] = params[:other][:frequency_value] == "0" ? nil : params[:other][:frequency_value].to_i.send(params[:other][:frequency_unit])
+      end
     if @connection.update(connection_params)
       redirect_to connection_path(@connection), notice: "Connection was successfully updated"
     else
