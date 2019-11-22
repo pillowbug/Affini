@@ -20,33 +20,36 @@
       </div>
       <div class="float33 reminders">
         <% if @connections_checkin %>
-        <p class="text-white pl-3">Here are some connections you should schedule a check-in with.</p>
-        <ul>
+        <h3 class="text-white pl-3">People to check-in with</h3>
           <% @connections_checkin.each do |connection| %>
-          <!-- TODO: style, link to checkin creation -->
-          <li class="text-white list-none"><i class="fas fa-arrow-right"></i> <%= link_to full_name(connection), connection_path(connection) %> by <%= date_display(connection.checkin_deadline) %></li>
+            <%= render "/shared/connection_due", :connection => connection %>
           <% end %>
-        </ul>
         <% end %>
       </div>
     </div>
     <div class="upcoming-checkins d-flex flex-column">
-      <h3 class="text-white spaced-header">Upcoming</h3>
-      <div class="show-left float66 d-flex flex-column">
-        <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
-          <%= render "/shared/checkins", :checkin => checkin %>
-        <% end %>
-      </div>
-      <h3 class="text-white spaced-header">Feedback</h3>
+      <h3 class="text-white spaced-header border-bot">Feedback</h3>
       <div class="show-left float66 d-flex flex-column">
         <% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
           <%= render "/shared/checkins", :checkin => checkin %>
         <% end %>
       </div>
+      <h3 class="text-white spaced-header border-top ">Upcoming</h3>
+      <div class="show-left float66 d-flex flex-column">
+        <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
+          <%= render "/shared/checkins", :checkin => checkin %>
+        <% end %>
+      </div>
       <h3 class="text-white spaced-header">Past</h3>
       <div class="show-left float66 d-flex flex-column">
-        <% @user.checkins.past.completed.order(time: :asc).limit(3).each do |checkin| %>
+        <% @user.checkins.past.order(time: :asc).limit(3).each do |checkin| %>
+          <% if checkin.completed? %>
+          <div class="faded">
+          <% end %>
           <%= render "/shared/checkins", :checkin => checkin %>
+          <% if checkin.completed? %>
+          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
