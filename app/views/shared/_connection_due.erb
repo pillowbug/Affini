@@ -1,0 +1,10 @@
+<div class="d-flex">
+  <div class="d-flex checkin-card section round shadow">
+    <div class="right checkin-card-content">
+      <ul>
+        <li style="background-image: url('<%= cl_image_path connection.photo, height: 60, width: 60, crop: :scale %>')"></li>
+      </ul>
+       <p><%= link_to full_name(connection), connection_path(connection) %> <%= checkin_deadline_display(connection)%></p>
+    </div>
+  </div>
+</div>

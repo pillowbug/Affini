@@ -27,6 +27,15 @@ module ApplicationHelper
     checkin_date_display(connection.last_completed_past_checkin, missing)
   end
 
+  def checkin_deadline_display(connection, missing = "Never", past = "ASAP", prefix = "by ")
+    dte = connection.checkin_deadline
+    if dte
+      dte > Time.now ? "#{prefix}#{date_display(dte)}" : past
+    else
+      missing
+    end
+  end
+
   def birthday_display(dte, missing = "Unknown")
     dte ? dte.strftime("%a %d %b") : missing
   end
