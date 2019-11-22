@@ -4,7 +4,10 @@
     <div class="breadcrumbs">
       <a href="#">Dashboard</a>
     </div>
-    <h1 class="text-white">Hello, <%= @user.first_name %>!</h1>
+    <div class="split justify-content-between">
+      <h1 class="text-white">Hello, <%= @user.first_name %>!</h1>
+      <%= link_to "New Connection +", new_user_connection_path(current_user), class: "btn-white" %>
+    </div>
     <div class="d-flex">
       <div class="float66 d-flex welcome section round shadow">
         <div class="float66 right order2">
