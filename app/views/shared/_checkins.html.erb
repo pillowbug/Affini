@@ -6,7 +6,7 @@
           <% checkin.connections.each do |c| %>
             <li>
               <%= link_to(connection_path(c)) do %>
-                <%= cl_image_tag c.photo, height: 60, width: 60, crop: :scale, class: "checkin-av" %>
+                <%= connection_image_tag(c, height: 60, width: 60, crop: :scale, class: "checkin-av") %>
               <% end %>
             </li>
           <% end %>

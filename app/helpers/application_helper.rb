@@ -1,9 +1,17 @@
 module ApplicationHelper
-  def connection_image_path(connection)
+  def connection_image_path(connection, args = {})
     if connection.photo.file
-      cl_image_path(connection.photo)
+      cl_image_path(connection.photo, args)
     else
-      asset_url('user_placeholder.png')
+      asset_url('user_placeholder.png', args)
+    end
+  end
+
+  def connection_image_tag(connection, args = {})
+    if connection.photo.file
+      cl_image_tag(connection.photo, args)
+    else
+      image_tag('user_placeholder.png', args)
     end
   end
 
