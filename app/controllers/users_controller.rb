@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
 
   def show
+    @checkin = Checkin.new
     @user = current_user
     @connection = Connection.new
     # TODO: investigate doing below with scopes
