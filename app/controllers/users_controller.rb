@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   skip_after_action :verify_authorized
 
   def show
+    @checkin = Checkin.new
     @user = current_user
     # TODO: investigate doing below with scopes
     @connections_checkin = @user.connections.select(&:checkin_deadline).sort_by(&:checkin_deadline).first(10)
