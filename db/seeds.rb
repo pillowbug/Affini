@@ -7,16 +7,6 @@ class Hash
 end
 
 class String
-  def to_duration
-    # TODO: implement safely for '3.week'
-    # nu = self.gsub(/\s+/,'').split('.')
-    # raise ArgumentError, 'Not a duration' unless nu.length == 2
-    # res = nu[0].to_i.send(nu[1])
-    res = eval(self)
-    raise ArgumentError, 'Not a duration' unless res.is_a? ActiveSupport::Duration
-    res
-  end
-
   def to_timeshift
     # TODO: implement safely '2.days.ago.noon + 6.hour'
     # nud = self.gsub(/\s+/,'').split('.')
@@ -37,7 +27,7 @@ end
 # -- seeding --
 puts "Start seeding"
 
-seed_data = YAML::load(File.open(File.join(__dir__, 'data/seed.yml')))
+seed_data = YAML::load(ERB.new(File.read(File.join(__dir__, 'data/seed.yml'))).result)
 
 # destroy DB
 puts "Destroying Existing DB"
@@ -72,7 +62,6 @@ seed_data['connections'].each do |c_def|
   c_id = c_def['_slug']
   connections[c_id] = Connection.new(c_def.mslice)
   connections[c_id].user = users[c_def['_user_slug']]
-  connections[c_id].frequency = c_def['_frequency']&.to_duration if c_def['_frequency']
   connections[c_id].birthday = c_def['_birthday']&.to_yearless_date if c_def['_birthday']
   connections[c_id].tags = c_def['_tags'].map { |t_id| tags[t_id] } if c_def['_tags']
   connections[c_id].glances = c_def['_glances'].map { |g_def| Glance.new(g_def) } if c_def['_glances']
