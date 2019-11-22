@@ -1,5 +1,5 @@
 <div class="d-flex checkin-card-relative">
-  <div class="d-flex checkin-card section round shadow">
+  <div class="d-flex checkin-card section round shadow" id="checkin-card">
     <div class="checkin-card-content">
         <ul>
           <% checkin.connections.each do |c| %>
@@ -15,7 +15,7 @@
     <div class="checkin-card-content"></div>
   </div>
   <%= render "/shared/editcheckinmodal", :checkin => checkin %>
-  <%= link_to "#editCheckinModal", "data-toggle" => "modal" do %>
+  <%= link_to "#editCheckinModal", "data-toggle" => "modal" do  %>
     <div class="modal-overlay-link"></div>
   <% end %>
 </div>
