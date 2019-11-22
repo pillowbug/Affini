@@ -105,3 +105,17 @@
   border-radius: 50%;
 }
 
+.checkin-card-relative {
+position: relative;
+}
+
+.modal-overlay-link {
+    width: 65%;
+  height: 64px;
+  background-color: black;
+  opacity: 0;
+  position: absolute;
+  left: 170px;
+  bottom: 8px;
+  border-radius: 16px;
+}

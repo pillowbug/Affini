@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex checkin-card-relative">
   <div class="d-flex checkin-card section round shadow">
     <div class="right checkin-card-content">
       <ul>
@@ -13,4 +13,8 @@
       <p><%= "#{checkin.description} - #{date_display(checkin.time, missing = "Never")}" %></p>
     </div>
   </div>
+  <%= render "/shared/editcheckinmodal", :checkin => checkin %>
+  <%= link_to "#editCheckinModal", "data-toggle" => "modal" do %>
+    <div class="modal-overlay-link"></div>
+  <% end %>
 </div>
