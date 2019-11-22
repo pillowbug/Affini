@@ -15,7 +15,8 @@
           <h2><%= dashboard_message(n_feedbacks: @user.checkins.past.incomplete.count,
                                     n_upcomings: @user.checkins.future.where('time < ?', 1.week.after).count,
                                     n_connections_checkin: @connections_checkin.count) %></h2>
-          <p>Chickens don't clap! I'd rather be dead in California than alive in Arizona. The only person that gets Lucille this excited is Gene. ♪♪ And the thought of rubbin' you is getting so exciting. Sky rockets in flight! Afternoon delight! ♪♪ Why are you squeezing me with your body? It's a hug, Michael. I'm hugging you. </p>
+          <p>Need to keep track of your upcoming activities? Visit the calendar to help you get organized.</p>
+          <a href="/checkins" class="btn-green">Visit the Calendar</a>
 
         </div>
       </div>
