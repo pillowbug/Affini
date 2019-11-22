@@ -9,6 +9,12 @@
   <%= f.input :linkedin %>
   <%= f.input :instagram %>
   <%= f.input :twitter %>
+  <div class="d-flex justify-content-start">
+  <%= simple_fields_for :other do |o| %>
+    <%= o.input :frequency_value, as: :integer, label:'Frequency', input_html: { value: 1, min: 0 }, class: "flex-fill"  %>
+    <%= o.input :frequency_unit, as: :select, label: '', collection: ['day', 'week', 'month', 'year'], include_blank: false, selected: 1 , class: "flex-fill" %>
+  <% end %>
+  </div>
   <%= f.submit "Submit", :class => "btn btn-primary" %>
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 <% end %>
