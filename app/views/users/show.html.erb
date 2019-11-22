@@ -12,8 +12,9 @@
     <div class="d-flex">
       <div class="float66 d-flex welcome section round shadow">
         <div class="float66 right order2">
-          <!-- TODO: actual report -->
-          <h2>You've checked-in with 7 friends this week!</h2>
+          <h2><%= dashboard_message(n_feedbacks: @user.checkins.past.incomplete.count,
+                                    n_upcomings: @user.checkins.future.where('time < ?', 1.week.after).count,
+                                    n_connections_checkin: @connections_checkin.count) %></h2>
           <p>Chickens don't clap! I'd rather be dead in California than alive in Arizona. The only person that gets Lucille this excited is Gene. ♪♪ And the thought of rubbin' you is getting so exciting. Sky rockets in flight! Afternoon delight! ♪♪ Why are you squeezing me with your body? It's a hug, Michael. I'm hugging you. </p>
 
         </div>
