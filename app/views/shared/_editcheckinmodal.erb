@@ -8,9 +8,12 @@
         </button>
       </div>
       <div class="modal-body modal-bg">
-        <%= simple_form_for checkin, :method => :patch do |f| %>
-          <%= f.input :description %>
-          <%= f.input_field :completed, as: :boolean %>
+        <%= simple_form_for [@checkin] do |f| %>
+          <%= f.input :description, label_html: { class: 'text-white' } %>
+          <%= f.input :rating %>
+          <%= f.input :notes %>
+          <%= f.input :completed, as: :boolean %>
+          <%= f.submit 'Update Check-In' %>
         <% end %>
       </div>
     </div>
