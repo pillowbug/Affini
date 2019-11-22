@@ -2,8 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[edit update]
   skip_after_action :verify_authorized
 
+
   def show
     @user = current_user
+    @connection = Connection.new
     # TODO: investigate doing below with scopes
     @connections_checkin = @user.connections.select(&:checkin_deadline).sort_by(&:checkin_deadline).first(10)
   end
