@@ -9,3 +9,14 @@
   text-decoration: none !important;
   color: #76CEDB;
 }
+
+.btn-green {
+  padding: 12px 24px;
+  background-color: $green;
+  border-radius: 64px;
+  margin: 16px 0;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  text-decoration: none !important;
+  color: white;
+}

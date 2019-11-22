@@ -5,13 +5,11 @@
 .list-none { list-style-type: none; }
 .breadcrumbs { margin: 24px 0; }
 
-// buttons
-
-
 // text styles
 .text-left { text-align: left; }
 .text-right { text-align: right; }
 .text-center { text-align: center; }
+.text-white { color: white; }
 
 
 // positioning
@@ -68,3 +66,17 @@
 .breadcrumbs a { text-decoration: none; color: white; }
 .dark-bg { background-color: $dark-blue; }
 .spaced-header { margin: 16px 0 16px; }
+.full-height { min-height: 100vh; }
+.margin-auto { margin: 0 auto; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
