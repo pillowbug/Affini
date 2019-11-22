@@ -1,20 +1,26 @@
 <div class="d-flex checkin-card-relative">
   <div class="d-flex checkin-card section round shadow">
-    <div class="right checkin-card-content">
-      <ul>
-        <% checkin.connections.each do |c| %>
-          <li>
-            <%= link_to(connection_path(c)) do %>
-              <%= cl_image_tag c.photo, height: 60, width: 60, crop: :scale, class: "checkin-av" %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+    <div class="checkin-card-content">
+      <%= link_to "#editCheckinModal", "data-toggle" => "modal", class: "btn-white" do %>
+        <div class="modal-link">
+        </div>
+      <% end %>
+        <ul>
+          <% checkin.connections.each do |c| %>
+            <li>
+              <%= link_to(connection_path(c)) do %>
+                <%= cl_image_tag c.photo, height: 60, width: 60, crop: :scale, class: "checkin-av" %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
       <p><%= "#{checkin.description} - #{date_display(checkin.time, missing = "Never")}" %></p>
     </div>
+    <div class="checkin-card-content"></div>
   </div>
   <%= render "/shared/editcheckinmodal", :checkin => checkin %>
   <%= link_to "#editCheckinModal", "data-toggle" => "modal" do %>
     <div class="modal-overlay-link"></div>
   <% end %>
 </div>
+
