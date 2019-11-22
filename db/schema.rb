@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_050545) do
+ActiveRecord::Schema.define(version: 2019_11_22_015926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 2019_11_19_050545) do
     t.bigint "user_id"
     t.integer "rating"
     t.datetime "time"
-    t.text "description"
+    t.string "description"
     t.boolean "completed", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "notes"
     t.index ["user_id"], name: "index_checkins_on_user_id"
   end
 
