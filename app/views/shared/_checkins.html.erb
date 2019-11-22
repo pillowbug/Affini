@@ -1,3 +1,4 @@
+<%= render "/shared/editcheckinmodal", :checkin => checkin %>
 <div class="d-flex checkin-card-relative">
   <div class="d-flex checkin-card section round shadow" id="checkin-card">
     <div class="checkin-card-content">
@@ -14,7 +15,6 @@
     </div>
     <div class="checkin-card-content"></div>
   </div>
-  <%= render "/shared/editcheckinmodal", :checkin => checkin %>
   <%= link_to "#editCheckinModal", "data-toggle" => "modal" do  %>
     <div class="modal-overlay-link"></div>
   <% end %>
