@@ -15,9 +15,9 @@ class ConnectionsController < ApplicationController
         OR connections.instagram @@ :query \
         OR connections.twitter @@ :query \
         "
-      @connections = policy_scope(Connection).where(sql_query, query: "%#{params[:query]}%")
+      @connections = policy_scope(Connection).live.where(sql_query, query: "%#{params[:query]}%")
     else
-      @connections = policy_scope(Connection)
+      @connections = policy_scope(Connection).live
     end
   end
 

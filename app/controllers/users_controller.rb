@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @checkin = Checkin.new
     @connection = Connection.new
     # TODO: investigate doing below with scopes
-    @connections_checkin = @connections.select(&:checkin_deadline).sort_by(&:checkin_deadline).first(10)
+    @connections_checkin = @user.connections.live.select(&:checkin_deadline).sort_by(&:checkin_deadline).first(10)
   end
 
   def edit
