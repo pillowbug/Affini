@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @checkin = Checkin.new
     @connection = Connection.new
     # TODO: investigate doing below with scopes
-    @connections_checkin = @connections.select(&:checkin_deadline).sort_by(&:checkin_deadline).first(10)
+    @connections_checkin = @user.connections.select(&:checkin_deadline).sort_by(&:checkin_deadline).first(10)
   end
 
   def edit
@@ -29,8 +29,6 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    # will not work for auth root redirect to user#show
-    # @user = User.find(params[:id])
-    @user = current_user
+    @user = params[:id].present? ? User.find(params[:id]) : current_user
   end
 end
