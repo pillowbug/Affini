@@ -83,7 +83,7 @@ class ConnectionsController < ApplicationController
   private
 
   def connection_params
-    params.require(:connection).permit(:first_name, :last_name, :description, :birthday, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo)
+    params.require(:connection).permit(:first_name, :last_name, :description, :birthday, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo, :live)
   end
 
   def set_connection
