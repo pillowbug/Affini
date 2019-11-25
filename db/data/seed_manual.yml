@@ -92,6 +92,16 @@ connections:
       - question: 'Hobbies'
         answer: 'Baking cakes, tidying things'
 
+  - _slug: sylvain
+    _user_slug: usr
+    first_name: Sylvain
+    last_name: Pierre
+    remote_photo_url: 'https://tacchi-canvas-prod.s3.amazonaws.com/uploads/user/avatar/1031/Sylvain_Pierre_-_Entrepreneur_in_Tokyo__Japan.jpg'
+    _tags:
+      - school
+      - acquaintance
+
+
 checkins:
   - _usr_slug: usr
     description: 'Drinks'

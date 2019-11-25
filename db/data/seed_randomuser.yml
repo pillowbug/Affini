@@ -1,0 +1,397 @@
+connections:
+  - _slug: happysnake410
+    _user_slug: usr
+    first_name: Lucy
+    last_name: Wilson
+    _birthday: 2 June
+    email: lucy.wilson@example.com
+    phone_number: (392)-614-5598
+    # remote_photo_url: https://randomuser.me/api/portraits/women/26.jpg
+    # onboarded: 2015-05-02T05:27:27.748Z
+    _tags:
+      - work
+  - _slug: purpledog426
+    _user_slug: usr
+    first_name: Francis
+    last_name: Montgomery
+    _birthday: 9 August
+    email: francis.montgomery@example.com
+    phone_number: 08-0497-5656
+    # remote_photo_url: https://randomuser.me/api/portraits/men/18.jpg
+    # onboarded: 2006-11-11T05:17:17.911Z
+    _tags:
+      - friend
+  - _slug: redpanda373
+    _user_slug: usr
+    first_name: Onni
+    last_name: Saarinen
+    _birthday: 6 June
+    email: onni.saarinen@example.com
+    phone_number: 03-826-782
+    # remote_photo_url: https://randomuser.me/api/portraits/men/78.jpg
+    # onboarded: 2014-09-16T02:34:56.637Z
+    _tags:
+      - work
+  - _slug: angryelephant577
+    _user_slug: usr
+    first_name: Zohra
+    last_name: Rubingh
+    _birthday: 7 October
+    email: zohra.rubingh@example.com
+    phone_number: (033)-048-6704
+    # remote_photo_url: https://randomuser.me/api/portraits/women/70.jpg
+    # onboarded: 2004-07-20T01:52:03.692Z
+    _tags:
+      - friend
+  - _slug: silverpanda355
+    _user_slug: usr
+    first_name: Tomislav
+    last_name: Kahlert
+    _birthday: 27 September
+    email: tomislav.kahlert@example.com
+    phone_number: 0102-0924457
+    # remote_photo_url: https://randomuser.me/api/portraits/men/38.jpg
+    # onboarded: 2003-11-14T05:30:02.142Z
+    _tags:
+      - work
+  - _slug: brownpeacock532
+    _user_slug: usr
+    first_name: Jade
+    last_name: Jesus
+    _birthday: 25 February
+    email: jade.jesus@example.com
+    phone_number: (73) 6847-3142
+    # remote_photo_url: https://randomuser.me/api/portraits/women/57.jpg
+    # onboarded: 2017-10-24T05:24:51.139Z
+    _tags:
+      - work
+  - _slug: happymouse657
+    _user_slug: usr
+    first_name: Alex
+    last_name: Noe
+    _birthday: 28 August
+    email: alex.noe@example.com
+    phone_number: 0300-6216282
+    # remote_photo_url: https://randomuser.me/api/portraits/men/21.jpg
+    # onboarded: 2016-08-01T02:14:00.524Z
+    _tags:
+      - work
+  - _slug: yellowrabbit739
+    _user_slug: usr
+    first_name: Nathaniel
+    last_name: Green
+    _birthday: 21 June
+    email: nathaniel.green@example.com
+    phone_number: (854)-700-6127
+    # remote_photo_url: https://randomuser.me/api/portraits/men/46.jpg
+    # onboarded: 2002-06-08T18:32:59.509Z
+    _tags:
+      - friend
+  - _slug: redrabbit570
+    _user_slug: usr
+    first_name: Stephanie
+    last_name: Mason
+    _birthday: 21 April
+    email: stephanie.mason@example.com
+    phone_number: (822)-392-4772
+    # remote_photo_url: https://randomuser.me/api/portraits/women/91.jpg
+    # onboarded: 2009-12-24T23:18:29.416Z
+    _tags:
+      - friend
+  - _slug: yellowmouse235
+    _user_slug: usr
+    first_name: Amar
+    last_name: Kirkerud
+    _birthday: 20 August
+    email: amar.kirkerud@example.com
+    phone_number: 59531671
+    # remote_photo_url: https://randomuser.me/api/portraits/men/40.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: blueleopard908
+    _user_slug: usr
+    first_name: Taha
+    last_name: Solstrand
+    _birthday: 17 June
+    email: taha.solstrand@example.com
+    phone_number: 56928453
+    # remote_photo_url: https://randomuser.me/api/portraits/men/63.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: ticklishbird222
+    _user_slug: usr
+    first_name: Willow
+    last_name: Green
+    _birthday: 7 October
+    email: willow.green@example.com
+    phone_number: (814)-321-0870
+    # remote_photo_url: https://randomuser.me/api/portraits/women/29.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: purpleostrich319
+    _user_slug: usr
+    first_name: Décio
+    last_name: Moura
+    _birthday: 19 January
+    email: decio.moura@example.com
+    phone_number: (48) 6141-8492
+    # remote_photo_url: https://randomuser.me/api/portraits/men/82.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: beautifulbear930
+    _user_slug: usr
+    first_name: Vår
+    last_name: Rokstad
+    _birthday: 25 August
+    email: var.rokstad@example.com
+    phone_number: 56654778
+    # remote_photo_url: https://randomuser.me/api/portraits/women/30.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: purplelion715
+    _user_slug: usr
+    first_name: Lilja
+    last_name: Kyllo
+    _birthday: 19 October
+    email: lilja.kyllo@example.com
+    phone_number: 07-327-519
+    # remote_photo_url: https://randomuser.me/api/portraits/women/61.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: whitefrog740
+    _user_slug: usr
+    first_name: Enni
+    last_name: Paavola
+    _birthday: 7 July
+    email: enni.paavola@example.com
+    phone_number: 07-919-636
+    # remote_photo_url: https://randomuser.me/api/portraits/women/12.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: bluezebra698
+    _user_slug: usr
+    first_name: Grace
+    last_name: White
+    _birthday: 18 September
+    email: grace.white@example.com
+    phone_number: (505)-898-5412
+    # remote_photo_url: https://randomuser.me/api/portraits/women/86.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: yellowlion166
+    _user_slug: usr
+    first_name: Rose
+    last_name: Smith
+    _birthday: 26 August
+    email: rose.smith@example.com
+    phone_number: 615-067-9682
+    # remote_photo_url: https://randomuser.me/api/portraits/women/72.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: redswan657
+    _user_slug: usr
+    first_name: Ismahane
+    last_name: Consten
+    _birthday: 13 July
+    email: ismahane.consten@example.com
+    phone_number: (356)-595-7464
+    # remote_photo_url: https://randomuser.me/api/portraits/women/60.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: angrywolf741
+    _user_slug: usr
+    first_name: Juan
+    last_name: Douglas
+    _birthday: 4 October
+    email: juan.douglas@example.com
+    phone_number: (482)-841-9045
+    # remote_photo_url: https://randomuser.me/api/portraits/men/48.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: biggoose440
+    _user_slug: usr
+    first_name: Roselinde
+    last_name: Lohmann
+    _birthday: 18 November
+    email: roselinde.lohmann@example.com
+    phone_number: 0422-1005715
+    # remote_photo_url: https://randomuser.me/api/portraits/women/78.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: whitebutterfly118
+    _user_slug: usr
+    first_name: Christoffer
+    last_name: Thomsen
+    _birthday: 14 July
+    email: christoffer.thomsen@example.com
+    phone_number: 21080046
+    # remote_photo_url: https://randomuser.me/api/portraits/men/72.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: organicpanda763
+    _user_slug: usr
+    first_name: Theodore
+    last_name: Terry
+    _birthday: 18 June
+    email: theodore.terry@example.com
+    phone_number: (093)-321-7681
+    # remote_photo_url: https://randomuser.me/api/portraits/men/74.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: tinyelephant554
+    _user_slug: usr
+    first_name: Mila
+    last_name: Aubert
+    _birthday: 29 January
+    email: mila.aubert@example.com
+    phone_number: 05-42-98-75-38
+    # remote_photo_url: https://randomuser.me/api/portraits/women/23.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: blackkoala249
+    _user_slug: usr
+    first_name: Naël
+    last_name: Boyer
+    _birthday: 23 June
+    email: nael.boyer@example.com
+    phone_number: 03-92-91-25-24
+    # remote_photo_url: https://randomuser.me/api/portraits/men/47.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: ticklishrabbit145
+    _user_slug: usr
+    first_name: Irmtraut
+    last_name: Wick
+    _birthday: 6 June
+    email: irmtraut.wick@example.com
+    phone_number: 0403-5500824
+    # remote_photo_url: https://randomuser.me/api/portraits/women/5.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: redrabbit611
+    _user_slug: usr
+    first_name: Daniel
+    last_name: Harju
+    _birthday: 14 October
+    email: daniel.harju@example.com
+    phone_number: 02-797-540
+    # remote_photo_url: https://randomuser.me/api/portraits/men/16.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: happyrabbit400
+    _user_slug: usr
+    first_name: Pauline
+    last_name: Louis
+    _birthday: 7 June
+    email: pauline.louis@example.com
+    phone_number: 078 609 18 92
+    # remote_photo_url: https://randomuser.me/api/portraits/women/59.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: beautifulzebra244
+    _user_slug: usr
+    first_name: Deborah
+    last_name: Nguyen
+    _birthday: 6 July
+    email: deborah.nguyen@example.com
+    phone_number: 013873 72566
+    # remote_photo_url: https://randomuser.me/api/portraits/women/36.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: orangebird621
+    _user_slug: usr
+    first_name: Connor
+    last_name: Bowman
+    _birthday: 22 September
+    email: connor.bowman@example.com
+    phone_number: 016974 30714
+    # remote_photo_url: https://randomuser.me/api/portraits/men/69.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: bigmouse918
+    _user_slug: usr
+    first_name: Alexander
+    last_name: Liu
+    _birthday: 6 May
+    email: alexander.liu@example.com
+    phone_number: 370-471-6673
+    # remote_photo_url: https://randomuser.me/api/portraits/men/25.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: beautifulbutterfly994
+    _user_slug: usr
+    first_name: Chloe
+    last_name: Johnson
+    _birthday: 18 March
+    email: chloe.johnson@example.com
+    phone_number: 787-304-8939
+    # remote_photo_url: https://randomuser.me/api/portraits/women/94.jpg
+    # onboarded:
+    _tags:
+      - friend
+  - _slug: beautifulzebra886
+    _user_slug: usr
+    first_name: Katrin
+    last_name: Andre
+    _birthday: 20 September
+    email: katrin.andre@example.com
+    phone_number: 077 106 47 04
+    # remote_photo_url: https://randomuser.me/api/portraits/women/18.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: blackgorilla263
+    _user_slug: usr
+    first_name: Harper
+    last_name: Wood
+    _birthday: 4 August
+    email: harper.wood@example.com
+    phone_number: (750)-170-0738
+    # remote_photo_url: https://randomuser.me/api/portraits/women/51.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: smallmeercat218
+    _user_slug: usr
+    first_name: Virgil
+    last_name: Ward
+    _birthday: 1 December
+    email: virgil.ward@example.com
+    phone_number: (475)-470-0562
+    # remote_photo_url: https://randomuser.me/api/portraits/men/58.jpg
+    # onboarded:
+    _tags:
+      - work
+  - _slug: beautifulpanda433
+    _user_slug: usr
+    first_name: Lois
+    last_name: Lynch
+    _birthday: 4 May
+    email: lois.lynch@example.com
+    phone_number: 09-0821-7359
+    # remote_photo_url: https://randomuser.me/api/portraits/women/39.jpg
+    # onboarded:
+    _tags:
+      - work

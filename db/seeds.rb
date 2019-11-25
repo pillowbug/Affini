@@ -26,8 +26,13 @@ end
 
 # -- seeding --
 puts "Start seeding"
-
-seed_data = YAML::load(ERB.new(File.read(File.join(__dir__, 'data/seed.yml'))).result)
+seed_data = {}
+Dir[File.join(__dir__,'data','seed*.yml' )].each do |seed_file|
+  YAML::load(ERB.new(File.read(seed_file)).result).each do |k, v|
+    seed_data[k] = [] unless seed_data.key? k
+    seed_data[k] += v
+  end
+end
 
 # destroy DB
 puts "Destroying Existing DB"
