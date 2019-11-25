@@ -7,7 +7,7 @@ connections:
     email: lucy.wilson@example.com
     phone_number: (392)-614-5598
     # remote_photo_url: https://randomuser.me/api/portraits/women/26.jpg
-    # onboarded: 2015-05-02T05:27:27.748Z
+    live: 2015-05-02T05:27:27.748Z
     _tags:
       - work
   - _slug: purpledog426
@@ -18,7 +18,7 @@ connections:
     email: francis.montgomery@example.com
     phone_number: 08-0497-5656
     # remote_photo_url: https://randomuser.me/api/portraits/men/18.jpg
-    # onboarded: 2006-11-11T05:17:17.911Z
+    live: 2006-11-11T05:17:17.911Z
     _tags:
       - friend
   - _slug: redpanda373
@@ -29,7 +29,7 @@ connections:
     email: onni.saarinen@example.com
     phone_number: 03-826-782
     # remote_photo_url: https://randomuser.me/api/portraits/men/78.jpg
-    # onboarded: 2014-09-16T02:34:56.637Z
+    live: 2014-09-16T02:34:56.637Z
     _tags:
       - work
   - _slug: angryelephant577
@@ -40,7 +40,7 @@ connections:
     email: zohra.rubingh@example.com
     phone_number: (033)-048-6704
     # remote_photo_url: https://randomuser.me/api/portraits/women/70.jpg
-    # onboarded: 2004-07-20T01:52:03.692Z
+    live: 2004-07-20T01:52:03.692Z
     _tags:
       - friend
   - _slug: silverpanda355
@@ -51,7 +51,7 @@ connections:
     email: tomislav.kahlert@example.com
     phone_number: 0102-0924457
     # remote_photo_url: https://randomuser.me/api/portraits/men/38.jpg
-    # onboarded: 2003-11-14T05:30:02.142Z
+    live: 2003-11-14T05:30:02.142Z
     _tags:
       - work
   - _slug: brownpeacock532
@@ -62,7 +62,7 @@ connections:
     email: jade.jesus@example.com
     phone_number: (73) 6847-3142
     # remote_photo_url: https://randomuser.me/api/portraits/women/57.jpg
-    # onboarded: 2017-10-24T05:24:51.139Z
+    live: 2017-10-24T05:24:51.139Z
     _tags:
       - work
   - _slug: happymouse657
@@ -73,7 +73,7 @@ connections:
     email: alex.noe@example.com
     phone_number: 0300-6216282
     # remote_photo_url: https://randomuser.me/api/portraits/men/21.jpg
-    # onboarded: 2016-08-01T02:14:00.524Z
+    live: 2016-08-01T02:14:00.524Z
     _tags:
       - work
   - _slug: yellowrabbit739
@@ -84,7 +84,7 @@ connections:
     email: nathaniel.green@example.com
     phone_number: (854)-700-6127
     # remote_photo_url: https://randomuser.me/api/portraits/men/46.jpg
-    # onboarded: 2002-06-08T18:32:59.509Z
+    live: 2002-06-08T18:32:59.509Z
     _tags:
       - friend
   - _slug: redrabbit570
@@ -95,7 +95,7 @@ connections:
     email: stephanie.mason@example.com
     phone_number: (822)-392-4772
     # remote_photo_url: https://randomuser.me/api/portraits/women/91.jpg
-    # onboarded: 2009-12-24T23:18:29.416Z
+    live: 2009-12-24T23:18:29.416Z
     _tags:
       - friend
   - _slug: yellowmouse235
@@ -106,7 +106,7 @@ connections:
     email: amar.kirkerud@example.com
     phone_number: 59531671
     # remote_photo_url: https://randomuser.me/api/portraits/men/40.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: blueleopard908
@@ -117,7 +117,7 @@ connections:
     email: taha.solstrand@example.com
     phone_number: 56928453
     # remote_photo_url: https://randomuser.me/api/portraits/men/63.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: ticklishbird222
@@ -128,7 +128,7 @@ connections:
     email: willow.green@example.com
     phone_number: (814)-321-0870
     # remote_photo_url: https://randomuser.me/api/portraits/women/29.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: purpleostrich319
@@ -139,7 +139,7 @@ connections:
     email: decio.moura@example.com
     phone_number: (48) 6141-8492
     # remote_photo_url: https://randomuser.me/api/portraits/men/82.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: beautifulbear930
@@ -150,7 +150,7 @@ connections:
     email: var.rokstad@example.com
     phone_number: 56654778
     # remote_photo_url: https://randomuser.me/api/portraits/women/30.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: purplelion715
@@ -161,7 +161,7 @@ connections:
     email: lilja.kyllo@example.com
     phone_number: 07-327-519
     # remote_photo_url: https://randomuser.me/api/portraits/women/61.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: whitefrog740
@@ -172,7 +172,7 @@ connections:
     email: enni.paavola@example.com
     phone_number: 07-919-636
     # remote_photo_url: https://randomuser.me/api/portraits/women/12.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: bluezebra698
@@ -183,7 +183,7 @@ connections:
     email: grace.white@example.com
     phone_number: (505)-898-5412
     # remote_photo_url: https://randomuser.me/api/portraits/women/86.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: yellowlion166
@@ -194,7 +194,7 @@ connections:
     email: rose.smith@example.com
     phone_number: 615-067-9682
     # remote_photo_url: https://randomuser.me/api/portraits/women/72.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: redswan657
@@ -205,7 +205,7 @@ connections:
     email: ismahane.consten@example.com
     phone_number: (356)-595-7464
     # remote_photo_url: https://randomuser.me/api/portraits/women/60.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: angrywolf741
@@ -216,7 +216,7 @@ connections:
     email: juan.douglas@example.com
     phone_number: (482)-841-9045
     # remote_photo_url: https://randomuser.me/api/portraits/men/48.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: biggoose440
@@ -227,7 +227,7 @@ connections:
     email: roselinde.lohmann@example.com
     phone_number: 0422-1005715
     # remote_photo_url: https://randomuser.me/api/portraits/women/78.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: whitebutterfly118
@@ -238,7 +238,7 @@ connections:
     email: christoffer.thomsen@example.com
     phone_number: 21080046
     # remote_photo_url: https://randomuser.me/api/portraits/men/72.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: organicpanda763
@@ -249,7 +249,7 @@ connections:
     email: theodore.terry@example.com
     phone_number: (093)-321-7681
     # remote_photo_url: https://randomuser.me/api/portraits/men/74.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: tinyelephant554
@@ -260,7 +260,7 @@ connections:
     email: mila.aubert@example.com
     phone_number: 05-42-98-75-38
     # remote_photo_url: https://randomuser.me/api/portraits/women/23.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: blackkoala249
@@ -271,7 +271,7 @@ connections:
     email: nael.boyer@example.com
     phone_number: 03-92-91-25-24
     # remote_photo_url: https://randomuser.me/api/portraits/men/47.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: ticklishrabbit145
@@ -282,7 +282,7 @@ connections:
     email: irmtraut.wick@example.com
     phone_number: 0403-5500824
     # remote_photo_url: https://randomuser.me/api/portraits/women/5.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: redrabbit611
@@ -293,7 +293,7 @@ connections:
     email: daniel.harju@example.com
     phone_number: 02-797-540
     # remote_photo_url: https://randomuser.me/api/portraits/men/16.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: happyrabbit400
@@ -304,7 +304,7 @@ connections:
     email: pauline.louis@example.com
     phone_number: 078 609 18 92
     # remote_photo_url: https://randomuser.me/api/portraits/women/59.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: beautifulzebra244
@@ -315,7 +315,7 @@ connections:
     email: deborah.nguyen@example.com
     phone_number: 013873 72566
     # remote_photo_url: https://randomuser.me/api/portraits/women/36.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: orangebird621
@@ -326,7 +326,7 @@ connections:
     email: connor.bowman@example.com
     phone_number: 016974 30714
     # remote_photo_url: https://randomuser.me/api/portraits/men/69.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: bigmouse918
@@ -337,7 +337,7 @@ connections:
     email: alexander.liu@example.com
     phone_number: 370-471-6673
     # remote_photo_url: https://randomuser.me/api/portraits/men/25.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: beautifulbutterfly994
@@ -348,7 +348,7 @@ connections:
     email: chloe.johnson@example.com
     phone_number: 787-304-8939
     # remote_photo_url: https://randomuser.me/api/portraits/women/94.jpg
-    # onboarded:
+    live: 
     _tags:
       - friend
   - _slug: beautifulzebra886
@@ -359,7 +359,7 @@ connections:
     email: katrin.andre@example.com
     phone_number: 077 106 47 04
     # remote_photo_url: https://randomuser.me/api/portraits/women/18.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: blackgorilla263
@@ -370,7 +370,7 @@ connections:
     email: harper.wood@example.com
     phone_number: (750)-170-0738
     # remote_photo_url: https://randomuser.me/api/portraits/women/51.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: smallmeercat218
@@ -381,7 +381,7 @@ connections:
     email: virgil.ward@example.com
     phone_number: (475)-470-0562
     # remote_photo_url: https://randomuser.me/api/portraits/men/58.jpg
-    # onboarded:
+    live: 
     _tags:
       - work
   - _slug: beautifulpanda433
@@ -392,6 +392,6 @@ connections:
     email: lois.lynch@example.com
     phone_number: 09-0821-7359
     # remote_photo_url: https://randomuser.me/api/portraits/women/39.jpg
-    # onboarded:
+    live: 
     _tags:
       - work

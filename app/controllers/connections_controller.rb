@@ -15,9 +15,9 @@ class ConnectionsController < ApplicationController
         OR connections.instagram @@ :query \
         OR connections.twitter @@ :query \
         "
-      @connections = policy_scope(Connection).where(sql_query, query: "%#{params[:query]}%")
+      @connections = policy_scope(Connection).live.where(sql_query, query: "%#{params[:query]}%")
     else
-      @connections = policy_scope(Connection)
+      @connections = policy_scope(Connection).live
     end
   end
 
@@ -83,7 +83,7 @@ class ConnectionsController < ApplicationController
   private
 
   def connection_params
-    params.require(:connection).permit(:first_name, :last_name, :description, :birthday, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo)
+    params.require(:connection).permit(:first_name, :last_name, :description, :birthday, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo, :live)
   end
 
   def set_connection
