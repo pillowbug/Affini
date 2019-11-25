@@ -10,16 +10,19 @@
       <%= render "shared/connectionmodal" %>
       <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
     </div>
-    <%= link_to connection_path(@top_connection) do %>
-      <%= render 'shared/connection_card', connection: @top_connection %>
-    <% end %>
-    <%= render 'shared/connection_onboard_form', connection: @top_connection %>
-    <div class="connection-cards">
-      <% @remaining_connections.each do |connection| %>
+    <div class="top-connection-interface">
+      <%= render 'shared/connection_onboard_form', connection: @top_connection %>
+      <%= link_to connection_path(@top_connection) do %>
+        <%= render 'shared/connection_card', connection: @top_connection %>
+      <% end %>
+      <%= render 'shared/connection_onboard_footer', connection: @top_connection %>
+    </div>
+    <!-- <div class="connection-cards">
+      <% @remaining_connections.limit(3).each do |connection| %>
         <%= link_to connection_path(connection) do %>
-          <%= render 'shared/connection_card', connection: connection %>
+            <%= render 'shared/connection_card', connection: connection %>
         <% end %>
       <% end %>
-    </div>
+    </div> -->
   </div>
 </div>
