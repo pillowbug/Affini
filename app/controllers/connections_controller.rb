@@ -1,5 +1,5 @@
 class ConnectionsController < ApplicationController
-  before_action :set_connection, only: %i[show edit update destroy]
+  before_action :set_connection, only: %i[show edit update destroy onboard_edit]
 
   def index
     @user = current_user
@@ -23,7 +23,7 @@ class ConnectionsController < ApplicationController
 
   def show
     @checkin = Checkin.new
-    @user = current_user
+    @user = @connection.user
     authorize @connection
   end
 
@@ -79,6 +79,33 @@ class ConnectionsController < ApplicationController
     authorize @connection
     @connection.destroy
     redirect_to connections_path
+  end
+
+  def onboard
+    @user = current_user
+    @connection = Connection.new
+    connections = policy_scope(Connection).pending.order(created_at: :desc)
+    @top_connection = connections[0]
+    @remaining_connections = connections.offset(1)
+  end
+
+  def onboard_edit
+    authorize @connection
+    if params[:target].present?
+      @connection.live = Time.now
+      case params[:target]
+      when 'weekly' then @connection.frequency = 1.week
+      when 'monthly' then @connection.frequency = 1.month
+      when 'quarterly' then @connection.frequency = 3.month
+      when 'yearly' then @connection.frequency = 1.year
+      when 'never' then @connection.frequency = nil
+      else @connection.live = nil
+      end
+      if @connection.live && @connection.save
+        # all good
+      end
+    end
+    redirect_to onboard_connections_path
   end
 
   private
