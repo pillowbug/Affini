@@ -54,7 +54,11 @@
         <div class="show-left float66 d-flex flex-column">
         <div class="mail-section">
           <h2 class="text-white">Send an e-mail</h2>
-          <%= render '/shared/connectionmailform' %>
+          <% if @connection.email %>
+            <%= render '/shared/connectionmailform' %>
+          <% else %>
+            <p class="text-white faded">Add an email address for <%= @connection.first_name%> to send them a message through Affini.</p>
+          <% end %>
         </div>
 
         <div class="checkins d-flex justify-content-between align-items-center">

@@ -17,7 +17,8 @@ class ConnectionMailController < ApplicationController
     @checkin = Checkin.new(
       user_id: current_user.id,
       time: Time.now,
-      description: params[:email][:subject]
+      description: 'Email Sent: ' + params[:email][:subject],
+      completed: true
     )
     @checkin.user = current_user
     @checkin.connections << @connection
