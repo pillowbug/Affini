@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def set_show
     @checkin = Checkin.new
-    @connection = Connection.new
+    @connection = Connection.new(frequency: 1.month)
     # TODO: investigate doing below with scopes
     @connections_checkin = @user.connections.live.select(&:checkin_deadline).sort_by(&:checkin_deadline).first(10)
   end
