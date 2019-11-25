@@ -48,8 +48,8 @@ end
 connections_live = generate_connections('usr', 'affini', 10, live: true)
 connections_pending = generate_connections('usr', 'affini-backlog', 30, live: false)
 
-# puts live.length
-# puts backlog.length
+# puts connections_live.length
+# puts connections_pending.length
 
 # puts UNIQ_SLUGS.count
 # puts UNIQ_PICS.count
