@@ -6,8 +6,4 @@ class ConnectionMailMailer < ApplicationMailer
     @body = params[:body]
     mail to: @connection.email, subject: params[:subject], body: params[:body]
   end
-
-  def test_mail
-    assert !ActionMailer::Base.deliveries.empty?
-  end
 end
