@@ -19,6 +19,7 @@ users:
     last_name: Admin
     email: admin@affini.me
     password: supersecret
+    admin: true
 
 connections:
   - _slug: tom
