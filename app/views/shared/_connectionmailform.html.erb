@@ -1,0 +1,8 @@
+<div class="section round shadow" style="width: 90%;">
+  <%= simple_form_for :email, url: connection_send_connection_email_path(@connection)  do |e| %>
+    <%= e.input :subject, class: "round" %>
+    <%= e.input :body, as: :text, class: "round" %>
+    <%= e.submit "Send Email", class: "btn-white" %>
+  <% end %>
+</div>
+

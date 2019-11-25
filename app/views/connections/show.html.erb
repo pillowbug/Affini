@@ -5,9 +5,9 @@
         <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %> >> <%= link_to full_name(@connection), connection_path(@connection) %>
     </div>
     <div class="show-content">
-      <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white">
+      <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white text-right">
         <%= render "shared/detailsmodal" %>
-      <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+      <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn text-right" %>
       <div class="namebox section round shadow">
         <div class="d-flex">
           <div class="float25"><%= connection_image_tag(@connection, :width => 400, :crop => "pad", :class => "avatar-xl") %></div>
@@ -52,16 +52,10 @@
       </div>
       <div class="split mb-5">
         <div class="show-left float66 d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-center">
-            <h3 class="text-white">Notes</h3>
-            <%= render "shared/notesmodal" %>
-            <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white text-btn" %>
-          </div>
-          <div class="d-flex notes section round shadow">
-            <div class="right">
-              <%= @connection.description %>
-            </div>
-          </div>
+        <div class="mail-section">
+          <h2 class="text-white">Send an e-mail</h2>
+          <%= render '/shared/connectionmailform' %>
+        </div>
 
         <div class="checkins d-flex justify-content-between align-items-center">
           <h3 class="text-white">Feedback</h3>
@@ -103,7 +97,17 @@
           </div>
 
         </div>
-        <div class="show-right float33 d-flex">
+        <div class="show-right float33 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2 class="text-white">Notes</h2>
+            <%= render "shared/notesmodal" %>
+            <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white" %>
+          </div>
+          <div class="d-flex notes section round shadow mb-4">
+            <div class="right">
+              <%= @connection.description %>
+            </div>
+          </div>
           <div class="shadows round glancebox dark-bg text-white">
             <div class="d-flex justify-content-between">
               <h2>At a glance </h2>

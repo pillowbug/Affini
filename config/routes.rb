@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
     resources :glances, only: [:create, :update, :destroy], shallow: true
     resources :connection_tags, only: [:create, :destroy], shallow: true
+    post 'send_connection_email', to: "connection_mail#send_connection_email"
   end
   resources :checkins do
     resources :attendees, only: [:create, :destroy], shallow: true

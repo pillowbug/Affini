@@ -49,6 +49,10 @@ class Connection < ApplicationRecord
 
   private
 
+  # def send_connection_email
+  #   ConnectionMailer.
+  # end
+
   def data_cleanup
     self.email = email.strip if email
   end
