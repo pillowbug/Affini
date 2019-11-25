@@ -122,3 +122,31 @@ position: relative;
 .checkin-card-relative:hover {
   transform: scale(1.01);
 }
+
+@-webkit-keyframes slide-out-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    } 100% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+    }
+  }
+@keyframes slide-out-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  } 100% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+}
+
+  // animation-name: slide-out-top;
+  // animation-duration: 1.3s;
+  // iteration-count: 1;
+  // animation--direction: normal;
