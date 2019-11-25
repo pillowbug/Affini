@@ -3,7 +3,7 @@ module ApplicationHelper
     if connection.photo.file
       cl_image_path(connection.photo, args)
     else
-      asset_url('user', args)
+      asset_url('user_placeholder.png', args)
     end
   end
 
