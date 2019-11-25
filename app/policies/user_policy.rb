@@ -1,6 +1,10 @@
 class UserPolicy < ApplicationPolicy
-  def show?
+  def dashboard?
     record.id == user.id
+  end
+
+  def show?
+    record.id == user.id || user.admin?
   end
 
   def create?
@@ -8,11 +12,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    record.id == user.id
+    record.id == user.id || user.admin?
   end
 
   def destroy?
-    record.id == user.id
+    record.id == user.id || user.admin?
   end
 
   class Scope < Scope
