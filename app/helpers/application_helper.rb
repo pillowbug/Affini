@@ -49,11 +49,23 @@ module ApplicationHelper
   end
 
   def frequency_display(duration, missing = "Never")
-    duration ? "Every #{duration.inspect.gsub(/^1 /,'')}" : missing
+    duration ? "Every #{duration.inspect.gsub(/^1 /, '')}" : missing
   end
 
   def pluralize_with_no(word, count)
     count.zero? ? "no #{word}" : "#{count} #{word.pluralize(count)}"
+  end
+
+  def duration_units
+    [:days, :weeks, :months, :years]
+  end
+
+  def duration_value(duration)
+    duration&.is_a?(ActiveSupport::Duration) ? duration.parts.first[1] : 0
+  end
+
+  def duration_unit_index(duration)
+    duration&.is_a?(ActiveSupport::Duration) ? duration.parts.first[0] : :months
   end
 
   # def dashboard_message(args = {})
