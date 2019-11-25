@@ -40,6 +40,10 @@ class Connection < ApplicationRecord
     last_time.in frequency
   end
 
+  def to_s
+    first_name
+  end
+
   private
 
   def data_cleanup

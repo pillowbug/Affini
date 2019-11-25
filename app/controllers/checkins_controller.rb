@@ -4,6 +4,7 @@ class CheckinsController < ApplicationController
   def index
     @user = current_user
     @checkins = policy_scope(Checkin)
+    @checkin = Checkin.new
   end
 
   def show
@@ -20,17 +21,17 @@ class CheckinsController < ApplicationController
     end
   end
 
-  def create
+   def create
     if user_signed_in?
       @checkin = Checkin.new(checkin_params)
       @user = current_user
-      @connection = Connection.find(params[:checkin][:connections])
+      @connection = Connection.find(whitelist_connections)
       @checkin.user = @user
       @checkin.connections << @connection
       @checkin.time.past? ? @checkin.completed = true : @checkin.completed = false
       authorize @checkin
       if @checkin.save
-        redirect_to connection_path(@connection), notice: "Checkin was successfully added"
+        redirect_to checkins_path, notice: "Checkin was successfully added"
       else
         render 'new'
       end
@@ -59,6 +60,14 @@ class CheckinsController < ApplicationController
   end
 
   private
+
+  def whitelist_connections
+    if params[:checkin][:connections].class == Array
+      params[:checkin][:connections].reject{ |id| id.blank? }
+    else
+      params[:checkin][:connections]
+    end
+  end
 
   def checkin_params
     params.require(:checkin).permit(:description, :time, :rating, :completed)
