@@ -15,6 +15,10 @@ class ConnectionPolicy < ApplicationPolicy
     record.user == user || user.admin?
   end
 
+  def onboard_edit?
+    record.user == user || user.admin?
+  end
+
   class Scope < Scope
     def resolve
       scope.where(user: user)

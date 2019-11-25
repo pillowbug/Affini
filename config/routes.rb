@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   authenticated { root to: 'users#dashboard' }
   root to: 'pages#home'
   resources :connections, only: [:index, :show, :update, :destroy, :edit] do
+    collection do
+      get :onboard
+    end
+    member do
+      get :onboard_edit
+    end
     resources :glances, only: [:create, :update, :destroy], shallow: true
     resources :connection_tags, only: [:create, :destroy], shallow: true
   end
