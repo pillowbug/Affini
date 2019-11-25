@@ -32,4 +32,8 @@ class Checkin < ApplicationRecord
   def feedback?
     past? && incomplete?
   end
+
+  def start_time
+    self.time
+  end
 end

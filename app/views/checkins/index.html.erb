@@ -12,8 +12,13 @@
   <div class="checkin-content">
     <div class="float50">
       <div class="calendar">
-        <%= month_calendar  do |date| %>
-          <%= date.day %>
+        <%= month_calendar events: @checkins do |date, checkins| %>
+          <div class ="calendar-items">
+            <%= date.day %>
+            <% checkins.each do |checkin| %>
+              <i class="far fa-bell"></i>
+            <% end %>
+          </div>
         <% end %>
       </div>
       <ul>
