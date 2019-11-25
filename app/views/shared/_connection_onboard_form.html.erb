@@ -1,12 +1,14 @@
-<div class="btn-toolbar" role="toolbar" aria-label="Target check-in frequency">
-  <div class="btn-group-vertical mr-2" role="group" aria-label="Frequencies">
-    <%= link_to "Every Week", onboard_edit_connection_path(connection, target: 'weekly'), class: "btn btn-secondary" %>
-    <%= link_to "Every Month", onboard_edit_connection_path(connection, target: 'monthly'), class: "btn btn-secondary" %>
-    <%= link_to "Every 3 Month", onboard_edit_connection_path(connection, target: 'quarterly'), class: "btn btn-secondary" %>
-    <%= link_to "Every Year", onboard_edit_connection_path(connection, target: 'yearly'), class: "btn btn-secondary" %>
-  </div>
-  <div class="btn-group-vertical mr-2" role="group" aria-label="Second group">
-    <%= link_to "Do not follow", onboard_edit_connection_path(connection, target: 'never'), class: "btn btn-secondary" %>
-    <%= link_to "Dismiss", onboard_edit_connection_path(connection, action: 'dismiss'), class: "btn btn-secondary" %>
-  </div>
+<div class="top-connection-frequencies">
+  <%= link_to onboard_edit_connection_path(connection, target: 'weekly'), class: 'schedule-btn' do %>
+    <h2>Weekly <i class="fas fa-calendar-alt"></i></h2>
+  <% end %>
+  <%= link_to onboard_edit_connection_path(connection, target: 'monthly') do %>
+    <h2>Monthly <i class="fas fa-calendar-week"></i></h2>
+  <% end %>
+  <%= link_to onboard_edit_connection_path(connection, target: 'quarterly') do %>
+    <h2>Quarterly <i class="fas fa-calendar-minus"></i></h2>
+  <% end %>
+  <%= link_to onboard_edit_connection_path(connection, target: 'yearly') do %>
+    <h2>Yearly <i class="fas fa-calendar-day"></i></h2>
+  <% end %>
 </div>
