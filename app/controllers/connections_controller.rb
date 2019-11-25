@@ -70,6 +70,11 @@ class ConnectionsController < ApplicationController
     end
   end
 
+  def send_connection_email
+    authorize(@user)
+    render :show
+  end
+
   def destroy
     authorize @connection
     @connection.destroy

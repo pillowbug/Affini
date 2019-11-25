@@ -7,6 +7,10 @@ class ConnectionPolicy < ApplicationPolicy
     true
   end
 
+  def send_connection_email?
+    true
+  end
+
   def update?
     record.user == user
   end
