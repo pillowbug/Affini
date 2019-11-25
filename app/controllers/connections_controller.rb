@@ -46,6 +46,7 @@ class ConnectionsController < ApplicationController
       @connection = Connection.new(connection_params)
       @user = current_user
       @connection.user = @user
+      @connection.live = Time.now
       authorize @connection
       if @connection.save
         redirect_to connection_path(@connection), notice: "Connection was successfully added"
@@ -83,7 +84,7 @@ class ConnectionsController < ApplicationController
   private
 
   def connection_params
-    params.require(:connection).permit(:first_name, :last_name, :description, :birthday, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo, :live)
+    params.require(:connection).permit(:first_name, :last_name, :description, :birthday, :live, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo)
   end
 
   def set_connection
