@@ -3,7 +3,7 @@ module ApplicationHelper
     if connection.photo.file
       cl_image_path(connection.photo, args)
     else
-      asset_url('user_placeholder.png', args)
+      asset_url('user', args)
     end
   end
 
@@ -11,7 +11,7 @@ module ApplicationHelper
     if connection.photo.file
       cl_image_tag(connection.photo, args)
     else
-      image_tag('user_placeholder.png', args)
+      image_tag('user_placeholder.png', class: 'checkin-placeholder')
     end
   end
 

@@ -2,7 +2,11 @@
   <div class="d-flex checkin-card section round shadow">
     <div class="right checkin-card-content">
       <ul>
-        <li style="background-image: url('<%= connection_image_path(connection, height: 60, width: 60, crop: :scale) %>')"></li>
+        <li>
+          <%= link_to(connection_path(connection)) do %>
+            <%= connection_image_tag(connection, { height: 60, width: 60, crop: :scale, class: "checkin-av" } ) %>
+          <% end %>
+        </li>
       </ul>
        <p><%= link_to full_name(connection), connection_path(connection) %> <%= checkin_deadline_display(connection)%></p>
     </div>
