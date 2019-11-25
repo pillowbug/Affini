@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
+  def dashboard
+    @user = current_user
+    authorize current_user
+    set_show
+    render 'users/show'
+  end
+
   def show
     authorize @user
-    @checkin = Checkin.new
-    @connection = Connection.new
-    # TODO: investigate doing below with scopes
-    @connections_checkin = @user.connections.select(&:checkin_deadline).sort_by(&:checkin_deadline).first(10)
+    set_show
   end
 
   def edit
@@ -29,6 +33,13 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = params[:id].present? ? User.find(params[:id]) : current_user
+    @user = User.find(params[:id])
+  end
+
+  def set_show
+    @checkin = Checkin.new
+    @connection = Connection.new
+    # TODO: investigate doing below with scopes
+    @connections_checkin = @user.connections.select(&:checkin_deadline).sort_by(&:checkin_deadline).first(10)
   end
 end
