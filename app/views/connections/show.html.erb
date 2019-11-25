@@ -52,16 +52,9 @@
       </div>
       <div class="split mb-5">
         <div class="show-left float66 d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-center">
-            <h3 class="text-white">Notes</h3>
-            <%= render "shared/notesmodal" %>
-            <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white text-btn" %>
-          </div>
-          <div class="d-flex notes section round shadow">
-            <div class="right">
-              <%= @connection.description %>
-            </div>
-          </div>
+        <div class="mail-section">
+          <%= render '/shared/connectionmailform' %>
+        </div>
 
         <div class="checkins d-flex justify-content-between align-items-center">
           <h3 class="text-white">Feedback</h3>
@@ -103,7 +96,17 @@
           </div>
 
         </div>
-        <div class="show-right float33 d-flex">
+        <div class="show-right float33 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="text-white">Notes</h3>
+            <%= render "shared/notesmodal" %>
+            <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+          </div>
+          <div class="d-flex notes section round shadow">
+            <div class="right">
+              <%= @connection.description %>
+            </div>
+          </div>
           <div class="shadows round glancebox dark-bg text-white">
             <div class="d-flex justify-content-between">
               <h2>At a glance </h2>

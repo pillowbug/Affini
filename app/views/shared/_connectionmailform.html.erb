@@ -1,0 +1,6 @@
+<%= simple_form_for :email, url: send_connection_email_path  do |e| %>
+  <%= e.input :subject %>
+  <%= e.input :body %>
+  <%= e.submit %>
+<% end %>
+
