@@ -4,12 +4,22 @@
       <%= render "shared/searchbar" %>
       <ul>
         <% if current_user %>
-            <li><%= link_to "Dashboard", root_path %></li>
-            <li><%= link_to "Connections", connections_path %></li>
-            <li><%= link_to "Check-ins", checkins_path %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <%= link_to root_path do %>
+            <li>Dashboard</li>
+          <% end %>
+          <%= link_to connections_path do %>
+            <li>Connections</li>
+          <% end %>
+          <%= link_to checkins_path do %>
+            <li>Check-ins</li>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <li>Log out</li>
+          <% end %>
             <% else %>
-            <li><%= link_to "Login", new_user_session_path %></li>
+          <%= link_to new_user_session_path do %>
+            <li>Login</li>
+          <% end %>
         <% end %>
       </ul>
     </div>
