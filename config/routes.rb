@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :users, except: [:show, :index ] do
     resources :connections, only: [:new, :create]
   end
+  post 'send_connection_email' => "connection_mailer#send_connection_email"
 end
