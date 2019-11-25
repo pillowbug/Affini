@@ -56,19 +56,19 @@ module ApplicationHelper
     count.zero? ? "no #{word}" : "#{count} #{word.pluralize(count)}"
   end
 
-  def dashboard_message(args = {})
-    return "Nothing requires your immediate attention. Good job!" if args.empty? || args.sum{ |_, n| n }.zero?
+  # def dashboard_message(args = {})
+  #   return "Nothing requires your immediate attention. Good job!" if args.empty? || args.sum{ |_, n| n }.zero?
 
-    actions = []
-    if args[:n_feedbacks] && args[:n_feedbacks].positive?
-      actions << ("have " + pluralize_with_no("past check-in", args[:n_feedbacks]) + " to give feedback on")
-    end
-    if args[:n_connections_checkin] && args[:n_connections_checkin].positive?
-      actions << ("should get back in touch with " + pluralize_with_no("connection", args[:n_connections_checkin]))
-    end
-    if args[:n_upcomings] && args[:n_upcomings].positive?
-      actions << ("have " + pluralize_with_no("upcoming check-in", args[:n_upcomings]) + " next week")
-    end
-    "You " + actions.to_sentence + "."
-  end
+  #   actions = []
+  #   if args[:n_feedbacks] && args[:n_feedbacks].positive?
+  #     actions << ("have " + pluralize_with_no("past check-in", args[:n_feedbacks]) + " to give feedback on")
+  #   end
+  #   if args[:n_connections_checkin] && args[:n_connections_checkin].positive?
+  #     actions << ("should get back in touch with " + pluralize_with_no("connection", args[:n_connections_checkin]))
+  #   end
+  #   if args[:n_upcomings] && args[:n_upcomings].positive?
+  #     actions << ("have " + pluralize_with_no("upcoming check-in", args[:n_upcomings]) + " next week")
+  #   end
+  #   "You " + actions.to_sentence + "."
+  # end
 end
