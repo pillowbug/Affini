@@ -1,0 +1,21 @@
+<%= simple_form_for [@connection] do |f| %>
+  <%= f.input :first_name, input_html: { require: true } %>
+  <%= f.input :last_name, input_html: { require: true } %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :email %>
+  <%= f.input :phone_number %>
+  <%= f.input :facebook %>
+  <%= f.input :twitter %>
+  <%= f.input :instagram %>
+  <%= f.input :linkedin %>
+  <div class="d-flex justify-content-start">
+    <%= simple_fields_for :other do |o| %>
+      <%= o.input :frequency_value, as: :integer, label:'Frequency', input_html: { value: 1, min: 0 }, class: "flex-fill"  %>
+      <%= o.input :frequency_unit, as: :select, label: '', collection: ['day', 'week', 'month', 'year'], include_blank: false, selected: 1 , class: "flex-fill" %>
+    <% end %>
+  </div>
+  <%= f.input :birthday, as: :string, input_html: { class: "datepicker" } %>
+  <%= f.submit "Submit", :class => "btn btn-primary" %>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<% end %>
