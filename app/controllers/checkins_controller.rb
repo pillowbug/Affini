@@ -46,7 +46,7 @@ class CheckinsController < ApplicationController
   def update
     authorize @checkin
     if @checkin.update(checkin_params)
-      redirect_to root_path, notice: "Checkin was successfully updated"
+      redirect_to checkins_path, notice: "Checkin was successfully updated"
     else
       render :edit
     end
