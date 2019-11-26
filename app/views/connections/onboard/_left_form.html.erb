@@ -1,0 +1,14 @@
+<div class="top-connection-frequencies text-right">
+  <%= button_to onboard_connection_path(connection, target: 'weekly'), method: :patch do %>
+    <h2>Weekly <i class="fas fa-calendar-alt"></i></h2>
+  <% end %>
+  <%= button_to onboard_connection_path(connection, target: 'monthly'), method: :patch do %>
+    <h2>Monthly <i class="fas fa-calendar-week"></i></h2>
+  <% end %>
+  <%= button_to onboard_connection_path(connection, target: 'quarterly'), method: :patch do %>
+    <h2>Quarterly <i class="fas fa-calendar-minus"></i></h2>
+  <% end %>
+  <%= button_to onboard_connection_path(connection, target: 'yearly'), method: :patch do %>
+    <h2>Yearly <i class="fas fa-calendar-day"></i></h2>
+  <% end %>
+</div>

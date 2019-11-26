@@ -1,4 +1,4 @@
-<%= simple_form_for [@connection] do |f| %>
+<%= simple_form_for [@connection], remote: true   do |f| %>
   <%= f.input :first_name, input_html: { require: true } %>
   <%= f.input :last_name, input_html: { require: true } %>
   <%= f.input :photo %>
@@ -17,5 +17,5 @@
   <%= f.input :linkedin %>
   <%= f.input :birthday, as: :string, input_html: { class: "datepicker" } %>
   <%= f.submit "Submit", :class => "btn btn-primary" %>
-  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" id='connection-close-button' class="btn btn-secondary" data-dismiss="modal">Close</button>
 <% end %>

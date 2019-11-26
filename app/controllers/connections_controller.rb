@@ -1,9 +1,12 @@
 class ConnectionsController < ApplicationController
-  before_action :set_connection, only: %i[show edit update destroy onboard_edit]
+  before_action :set_connection, only: %i[show edit update destroy onboard_update]
 
   def index
+    # for new connection creation
     @user = current_user
     @connection = Connection.new(frequency: 1.month)
+    # for page proper
+    @connections = policy_scope(Connection).live
     if params[:query].present?
       sql_query = " \
         connections.first_name @@ :query \
@@ -15,10 +18,9 @@ class ConnectionsController < ApplicationController
         OR connections.instagram @@ :query \
         OR connections.twitter @@ :query \
         "
-      @connections = policy_scope(Connection).live.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @connections = policy_scope(Connection).live
+      @connections = @connections.where(sql_query, query: "%#{params[:query]}%")
     end
+    @connections = @connections.order(live: :desc)
   end
 
   def show
@@ -45,18 +47,24 @@ class ConnectionsController < ApplicationController
       @connection.live = Time.now
       authorize @connection
       if @connection.save
-        redirect_to connection_path(@connection), notice: "Connection was successfully added"
-      else
-        render 'new'
+        respond_to do |format|
+          format.html { redirect_to connections_path, notice: "Connection was successfully added" }
+          format.js
+        end
+        else
+          respond_to do |format|
+          format.html { render 'new' }
+          format.js
+        end
       end
     else
       redirect_to new_user_session_path
     end
   end
 
-  def edit
-    authorize @connection
-  end
+  # def edit
+  #   authorize @connection
+  # end
 
   def update
     authorize @connection
@@ -74,14 +82,16 @@ class ConnectionsController < ApplicationController
   end
 
   def onboard
+    # for new connection creation
     @user = current_user
     @connection = Connection.new(frequency: 1.month)
+    # for page proper
     connections = policy_scope(Connection).pending.order(created_at: :desc)
     @top_connection = connections[0]
     @remaining_connections = connections.offset(1)
   end
 
-  def onboard_edit
+  def onboard_update
     authorize @connection
     if params[:target].present?
       @connection.live = Time.now
