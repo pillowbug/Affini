@@ -1,5 +1,9 @@
 <%= simple_form_for @checkin do |f| %>
-  <%= f.input :description, input_html: { require: true } %>
+  <% if @checkin.description %>
+    <%= f.input :description, input_html: { require: true, value: @checkin.description } %>
+  <% else %>
+    <%= f.input :description, input_html: { require: true } %>
+  <% end %>
   <%= f.input :notes %>
     <% if @connection.present? %>
       <%= f.input :connections, :as => :hidden, :input_html => { :value => @connection.id }, include_blank: false %>

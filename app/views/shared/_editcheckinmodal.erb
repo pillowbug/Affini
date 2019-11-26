@@ -1,4 +1,4 @@
-<div class="modal fade" id="editCheckinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editCheckinModal-<%= checkin.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-header-bg">
@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body modal-bg">
         <%= simple_form_for checkin, :method => :patch do |f| %>
-          <%= f.input :description %>
+          <%= f.input :description, input_html: { value: checkin.description } %>
           <%= f.input :rating %>
           <%= f.input :notes %>
           <%= f.input :completed, as: :boolean %>
