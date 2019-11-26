@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get :onboard
     end
     member do
-      get :onboard_edit
+      patch :onboard, to: 'connections#onboard_update'
     end
     resources :glances, only: [:create, :update, :destroy], shallow: true
     resources :connection_tags, only: [:create, :destroy], shallow: true
