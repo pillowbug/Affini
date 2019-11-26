@@ -13,21 +13,15 @@
         </ul>
       <p><%= "#{checkin.description} - #{date_display(checkin.time, missing = "Never")}" %></p>
       <% if checkin.rating.present? %>
-        <% if checkin.rating === 1 %>
-          <p class="rating"><i class="fas fa-star"></i></p>
-        <% elsif checkin.rating === 2 %>
-          <p class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i></p>
-        <% elsif checkin.rating === 3 %>
-          <p class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></p>
-        <% elsif checkin.rating === 4 %>
-          <p class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></p>
-        <% elsif checkin.rating === 5 %>
-          <p class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></p>
-        <% end %>
+        <p class="rating">
+          <% checkin.rating.to_i.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </p>
       <% end %>
     </div>
   </div>
-  <%= link_to "#editCheckinModal-#{checkin.id}", "data-toggle" => "modal" do  %>
+  <%= link_to "#editCheckinModal-#{checkin.id}", class: "hidden-link", "data-toggle" => "modal" do  %>
     <div class="modal-overlay-link"></div>
   <% end %>
 </div>
