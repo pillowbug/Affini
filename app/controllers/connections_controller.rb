@@ -45,9 +45,15 @@ class ConnectionsController < ApplicationController
       @connection.live = Time.now
       authorize @connection
       if @connection.save
-        redirect_to connection_path(@connection), notice: "Connection was successfully added"
-      else
-        render 'new'
+        respond_to do |format|
+          format.html { redirect_to connections_path, notice: "Connection was successfully added" }
+          format.js
+        end
+        else
+          respond_to do |format|
+          format.html { render 'new' }
+          format.js
+        end
       end
     else
       redirect_to new_user_session_path
