@@ -1,21 +1,19 @@
-<div class="float33">
-  <div class="connection-card shadow">
-    <%= link_to connection_path(connection) do %>
-      <div class="connection-card-img personal" style="background-image: url('<%= connection_image_path(connection) %>')">
-      </div>
-      <div class="connection-card-info general">
-        <h2><%= full_name(connection) %></h2>
-        <% if connection.live? %>
-          <h3>Last Contact:
-          <%= last_checkin_date_display(connection) %>
-          </h3>
-        <% end %>
-        <h3>Tags:
-        <% connection.tags.each do |tag| %>
-            #<%=tag.value%>
-        <% end %>
-      </h3>
+<div class="connection-card shadow">
+  <%= link_to connection_path(connection) do %>
+    <div class="connection-card-img personal" style="background-image: url('<%= connection_image_path(connection) %>')">
     </div>
-  <% end %>
+    <div class="connection-card-info general">
+      <h2><%= full_name(connection) %></h2>
+      <% if connection.live? %>
+        <h3>Last Contact:
+        <%= last_checkin_date_display(connection) %>
+        </h3>
+      <% end %>
+      <h3>Tags:
+      <% connection.tags.each do |tag| %>
+          #<%=tag.value%>
+      <% end %>
+    </h3>
   </div>
+  <% end %>
 </div>
