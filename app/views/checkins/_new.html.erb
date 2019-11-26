@@ -11,7 +11,7 @@
       <%= f.input :connections, as: :select, include_blank: false, collection: @user.connections, input_html: { multiple: true } %>
     <% end %>
   <%= f.input :completed, as: :boolean %>
-  <%= f.input :time, as: :string, input_html: { class: "datepicker", require: true } %>
+  <%= f.input :time, as: :string, input_html: { class: "datetimepicker", require: true } %>
   <%= f.submit "Submit", :class => "btn btn-primary" %>
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 <% end %>
