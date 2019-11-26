@@ -9,22 +9,24 @@ import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
 import '@fullcalendar/list/main.css';
 
+const fetchTime = () => {
+  fetch('./checkins.json')
+  .then(response => response.json())
+  .then((data) => {
+    getCalendar(data);
+  });
+};
 
-
-
-document.addEventListener('DOMContentLoaded', function() {
+const getCalendar = (data) => {
   const calendarEl = document.getElementById('calendar');
   const calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
     selectable: true,
-    header: {
-      left: 'prev,next',
-      center: 'title',
-      right: 'dayGridMonth'
-    },
-
-  });
+    events: data
+  })
   calendar.render();
-});
+};
+
+fetchTime();
 
 
