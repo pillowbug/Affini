@@ -12,9 +12,36 @@
     <div class="d-flex">
       <div class="float66 d-flex welcome section round shadow">
         <div class="float66 right order2">
-          <h2><%= dashboard_message(n_feedbacks: @user.checkins.past.incomplete.count,
-                                    n_upcomings: @user.checkins.future.where('time < ?', 1.week.after).count,
-                                    n_connections_checkin: @connections_checkin.count) %></h2>
+          <% if @user.checkins.past.incomplete %>
+            <%= link_to "#{root_path}#feedback" do %>
+              <div class="notification-card feedback round">
+                <div class="notification-card-content">
+                  <i class="fas fa-comment-dots"></i><h2>Pending Feedback</h2>
+                </div>
+              <div class="numberCircle"><%= @user.checkins.past.incomplete.count %></div>
+            </div>
+          <% end %>
+        <% end %>
+          <% if @user.checkins.future.where('time < ?', 1.week.after) %>
+            <%= link_to "#{root_path}#upcoming" do %>
+              <div class="notification-card upcoming round">
+                <div class="notification-card-content">
+                  <i class="fas fa-calendar-alt"></i><h2>Upcoming Check-ins</h2>
+                </div>
+                <div class="numberCircle"><%= @user.checkins.future.where('time < ?', 1.week.after).count %></div>
+              </div>
+            <% end %>
+          <% end %>
+          <% if @connections_checkin %>
+            <%= link_to "#{root_path}#awaiting" do %>
+              <div class="notification-card awaiting round">
+                <div class="notification-card-content">
+                  <i class="fas fa-user-clock"></i><h2>Awaiting Check-in</h2>
+                </div>
+                <div class="numberCircle"><%= @connections_checkin.count %></div>
+              </div>
+            <% end %>
+          <% end %>
           <p>Need to keep track of your upcoming activities? Visit the calendar to help you get organized.</p>
           <a href="/checkins" class="btn-green">Visit the Calendar</a>
 
@@ -31,19 +58,19 @@
     </div>
     <div class="upcoming-checkins d-flex flex-column">
       <h3 class="text-white spaced-header border-bot">Feedback</h3>
-      <div class="show-left float66 d-flex flex-column">
+      <div class="show-left float66 d-flex flex-column" id="feedback">
         <% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
           <%= render "/shared/checkins", :checkin => checkin %>
         <% end %>
       </div>
       <h3 class="text-white spaced-header border-top ">Upcoming</h3>
-      <div class="show-left float66 d-flex flex-column">
+      <div class="show-left float66 d-flex flex-column" id="upcoming">
         <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
           <%= render "/shared/checkins", :checkin => checkin %>
         <% end %>
       </div>
       <h3 class="text-white spaced-header">Past</h3>
-      <div class="show-left float66 d-flex flex-column">
+      <div class="show-left float66 d-flex flex-column" id="awaiting">
         <% @user.checkins.past.order(time: :asc).limit(3).each do |checkin| %>
           <% if checkin.completed? %>
           <div class="faded">

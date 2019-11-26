@@ -1,3 +1,4 @@
+
 .simple-calendar {
   text-align: center;
 
@@ -5,9 +6,7 @@
     color: $dark-blue;
   }
 
-  .wday-0 {
-
-  }
+  .wday-0 {}
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
@@ -21,8 +20,7 @@
   .past {}
   .future {}
 
-  .start-date {
-  }
+  .start-date {}
 
   .calendar-heading {
     display: flex;
@@ -59,6 +57,12 @@
   }
 
 
-  .has-events {}
+
+
+  // .table tbody td {
+  //   .has-events {
+  //     color: $green;
+  //   }
+  // }
 }
 

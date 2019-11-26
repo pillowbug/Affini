@@ -1,9 +1,9 @@
 class ConnectionsController < ApplicationController
-  before_action :set_connection, only: %i[show edit update destroy]
+  before_action :set_connection, only: %i[show edit update destroy onboard_edit]
 
   def index
     @user = current_user
-    @connection = Connection.new
+    @connection = Connection.new(frequency: 1.month)
     if params[:query].present?
       sql_query = " \
         connections.first_name @@ :query \
@@ -15,35 +15,34 @@ class ConnectionsController < ApplicationController
         OR connections.instagram @@ :query \
         OR connections.twitter @@ :query \
         "
-      @connections = policy_scope(Connection).where(sql_query, query: "%#{params[:query]}%")
+      @connections = policy_scope(Connection).live.where(sql_query, query: "%#{params[:query]}%")
     else
-      @connections = policy_scope(Connection)
+      @connections = policy_scope(Connection).live
     end
   end
 
   def show
     @checkin = Checkin.new
-    @user = current_user
+    @user = @connection.user
     authorize @connection
   end
 
-  def new
-    if user_signed_in?
-      @user = current_user
-      @connection = Connection.new
-      authorize @connection
-    else
-      redirect_to new_user_session_path
-    end
-  end
+  # def new
+  #   if user_signed_in?
+  #     @user = current_user
+  #     @connection = Connection.new(frequency: 1.month)
+  #     authorize @connection
+  #   else
+  #     redirect_to new_user_session_path
+  #   end
+  # end
 
   def create
     if user_signed_in?
-      # TODO: sanitize me
-      params[:connection][:frequency] = params[:other][:frequency_value] == "0" ? nil : params[:other][:frequency_value].to_i.send(params[:other][:frequency_unit])
       @connection = Connection.new(connection_params)
       @user = current_user
       @connection.user = @user
+      @connection.live = Time.now
       authorize @connection
       if @connection.save
         redirect_to connection_path(@connection), notice: "Connection was successfully added"
@@ -61,8 +60,6 @@ class ConnectionsController < ApplicationController
 
   def update
     authorize @connection
-    # TODO: sanitize me
-    params[:connection][:frequency] = params[:other][:frequency_value] == "0" ? nil : params[:other][:frequency_value].to_i.send(params[:other][:frequency_unit])
     if @connection.update(connection_params)
       redirect_to connection_path(@connection), notice: "Connection was successfully updated"
     else
@@ -76,10 +73,43 @@ class ConnectionsController < ApplicationController
     redirect_to connections_path
   end
 
+  def onboard
+    @user = current_user
+    @connection = Connection.new(frequency: 1.month)
+    connections = policy_scope(Connection).pending.order(created_at: :desc)
+    @top_connection = connections[0]
+    @remaining_connections = connections.offset(1)
+  end
+
+  def onboard_edit
+    authorize @connection
+    if params[:target].present?
+      @connection.live = Time.now
+      case params[:target]
+      when 'weekly' then @connection.frequency = 1.week
+      when 'monthly' then @connection.frequency = 1.month
+      when 'quarterly' then @connection.frequency = 3.month
+      when 'yearly' then @connection.frequency = 1.year
+      when 'never' then @connection.frequency = nil
+      else @connection.live = nil
+      end
+      if @connection.live && @connection.save
+        # all good
+      end
+    end
+    redirect_to onboard_connections_path
+  end
+
   private
 
   def connection_params
-    params.require(:connection).permit(:first_name, :last_name, :description, :birthday, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo)
+    if params[:other].present? && params[:other][:frequency_value].present? &&
+       params[:other][:frequency_unit].present? &&
+       helpers.duration_units.include?(params[:other][:frequency_unit].to_sym)
+      params[:connection][:frequency] = params[:other][:frequency_value].to_i.zero? ?
+        nil : params[:other][:frequency_value].to_i.send(params[:other][:frequency_unit].to_sym)
+    end
+    params.require(:connection).permit(:first_name, :last_name, :description, :birthday, :live, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo)
   end
 
   def set_connection

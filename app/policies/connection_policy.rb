@@ -1,6 +1,6 @@
 class ConnectionPolicy < ApplicationPolicy
   def show?
-    record.user == user
+    record.user == user || user.admin?
   end
 
   def create?
@@ -12,11 +12,15 @@ class ConnectionPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.user == user || user.admin?
   end
 
   def destroy?
-    record.user == user
+    record.user == user || user.admin?
+  end
+
+  def onboard_edit?
+    record.user == user || user.admin?
   end
 
   class Scope < Scope

@@ -1,9 +1,17 @@
 module ApplicationHelper
-  def connection_image_path(connection)
+  def connection_image_path(connection, args = {})
     if connection.photo.file
-      cl_image_path(connection.photo)
+      cl_image_path(connection.photo, args)
     else
-      asset_url('user_placeholder.png')
+      asset_url('user_placeholder.png', args)
+    end
+  end
+
+  def connection_image_tag(connection, args = {})
+    if connection.photo.file
+      cl_image_tag(connection.photo, args)
+    else
+      image_tag('user_placeholder.png', class: 'checkin-placeholder')
     end
   end
 
@@ -41,26 +49,38 @@ module ApplicationHelper
   end
 
   def frequency_display(duration, missing = "Never")
-    duration ? "Every #{duration.inspect.gsub(/^1 /,'')}" : missing
+    duration ? "Every #{duration.inspect.gsub(/^1 /, '')}" : missing
   end
 
   def pluralize_with_no(word, count)
     count.zero? ? "no #{word}" : "#{count} #{word.pluralize(count)}"
   end
 
-  def dashboard_message(args = {})
-    return "Nothing requires your immediate attention. Good job!" if args.empty? || args.sum{ |_, n| n }.zero?
-
-    actions = []
-    if args[:n_feedbacks] && args[:n_feedbacks].positive?
-      actions << ("have " + pluralize_with_no("past check-in", args[:n_feedbacks]) + " to give feedback on")
-    end
-    if args[:n_connections_checkin] && args[:n_connections_checkin].positive?
-      actions << ("should get back in touch with " + pluralize_with_no("connection", args[:n_connections_checkin]))
-    end
-    if args[:n_upcomings] && args[:n_upcomings].positive?
-      actions << ("have " + pluralize_with_no("upcoming check-in", args[:n_upcomings]) + " next week")
-    end
-    "You " + actions.to_sentence + "."
+  def duration_units
+    [:days, :weeks, :months, :years]
   end
+
+  def duration_value(duration)
+    duration&.is_a?(ActiveSupport::Duration) ? duration.parts.first[1] : 0
+  end
+
+  def duration_unit_index(duration)
+    duration&.is_a?(ActiveSupport::Duration) ? duration.parts.first[0] : :months
+  end
+
+  # def dashboard_message(args = {})
+  #   return "Nothing requires your immediate attention. Good job!" if args.empty? || args.sum{ |_, n| n }.zero?
+
+  #   actions = []
+  #   if args[:n_feedbacks] && args[:n_feedbacks].positive?
+  #     actions << ("have " + pluralize_with_no("past check-in", args[:n_feedbacks]) + " to give feedback on")
+  #   end
+  #   if args[:n_connections_checkin] && args[:n_connections_checkin].positive?
+  #     actions << ("should get back in touch with " + pluralize_with_no("connection", args[:n_connections_checkin]))
+  #   end
+  #   if args[:n_upcomings] && args[:n_upcomings].positive?
+  #     actions << ("have " + pluralize_with_no("upcoming check-in", args[:n_upcomings]) + " next week")
+  #   end
+  #   "You " + actions.to_sentence + "."
+  # end
 end

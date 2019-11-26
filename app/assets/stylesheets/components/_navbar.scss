@@ -24,7 +24,7 @@
 
 .nav-content li {
   padding: 16px 0;
-  color: #CDCDCD;
+  color: #CDCDCD !important;
   margin: 0;
   list-style: none;
   width: 100%;
@@ -37,9 +37,7 @@
 .nav-content li:hover {
   background-color: $green;
   opacity: .6;
-  a {
-    color: #3F4E73;
-  }
+  color: #3F4E73 !important;
 }
 
 .nav-content a {

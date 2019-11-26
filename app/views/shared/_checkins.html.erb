@@ -6,14 +6,26 @@
           <% checkin.connections.each do |c| %>
             <li>
               <%= link_to(connection_path(c)) do %>
-                <%= cl_image_tag c.photo, height: 60, width: 60, crop: :scale, class: "checkin-av" %>
+                <%= connection_image_tag(c, { height: 60, width: 60, crop: :scale, class: "checkin-av" } ) %>
               <% end %>
             </li>
           <% end %>
         </ul>
       <p><%= "#{checkin.description} - #{date_display(checkin.time, missing = "Never")}" %></p>
+      <% if checkin.rating.present? %>
+        <% if checkin.rating === 1 %>
+          <p class="rating"><i class="fas fa-star"></i></p>
+        <% elsif checkin.rating === 2 %>
+          <p class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i></p>
+        <% elsif checkin.rating === 3 %>
+          <p class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></p>
+        <% elsif checkin.rating === 4 %>
+          <p class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></p>
+        <% elsif checkin.rating === 5 %>
+          <p class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i></p>
+        <% end %>
+      <% end %>
     </div>
-    <div class="checkin-card-content"></div>
   </div>
   <%= link_to "#editCheckinModal-#{checkin.id}", "data-toggle" => "modal" do  %>
     <div class="modal-overlay-link"></div>

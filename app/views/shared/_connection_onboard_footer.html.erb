@@ -1,0 +1,8 @@
+<div class="top-connection-frequencies">
+  <%= link_to onboard_edit_connection_path(connection, action: 'dismiss') do %>
+    <h2 class="never-button"><i class="fas fa-clock"></i> Later</h2>
+  <% end %>
+  <%= link_to onboard_edit_connection_path(connection, target: 'never') do %>
+    <h2 class="never-button"><i class="fas fa-undo-alt"></i> Skip</h2>
+  <% end %>
+</div>

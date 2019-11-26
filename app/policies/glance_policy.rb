@@ -4,11 +4,11 @@ class GlancePolicy < ApplicationPolicy
   end
 
   def update?
-    record.connection.user == user
+    record.connection.user == user || user.admin?
   end
 
   def destroy?
-    record.connection.user == user
+    record.connection.user == user || user.admin?
   end
 
   class Scope < Scope

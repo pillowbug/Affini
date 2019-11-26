@@ -19,12 +19,14 @@ users:
     last_name: Admin
     email: admin@affini.me
     password: supersecret
+    admin: true
 
 connections:
   - _slug: tom
     _user_slug: usr
     first_name: Tom
     last_name: Niblo
+    live: <%= 3.year.ago.to_s %>
     frequency: <%= 1.week.iso8601 %>
     _birthday: '23 September'
     description: 'Coding Scotsman'
@@ -42,6 +44,7 @@ connections:
   - _slug: gerard
     first_name: Gerard
     last_name: Cabarse
+    live: <%= 1.year.ago.to_s %>
     frequency: <%= 1.month.iso8601 %>
     _birthday: '10 June'
     description: 'Knows many Pokémons and few presidents of the USA.'
@@ -61,6 +64,7 @@ connections:
     _user_slug: usr
     first_name: Jiyoung
     last_name: Ko
+    live: <%= 6.month.ago.to_s %>
     frequency: <%= 1.year.iso8601 %>
     _birthday: '4 December'
     description: 'Undercover leader of a secret society.'
@@ -78,6 +82,7 @@ connections:
     _user_slug: usr
     first_name: Maxime
     last_name: Froment
+    live: <%= 10.week.ago.to_s %>
     description: 'Played with dinosaurs before they became extinct.'
     linkedin: 'https://www.linkedin.com/in/maxime-froment-99457a2/'
     remote_photo_url: 'https://avatars3.githubusercontent.com/u/20883030?s=460&v=4'
@@ -91,6 +96,16 @@ connections:
         answer: 'Mustard, wasabi, mayo'
       - question: 'Hobbies'
         answer: 'Baking cakes, tidying things'
+
+  - _slug: sylvain
+    _user_slug: usr
+    first_name: Sylvain
+    last_name: Pierre
+    remote_photo_url: 'https://tacchi-canvas-prod.s3.amazonaws.com/uploads/user/avatar/1031/Sylvain_Pierre_-_Entrepreneur_in_Tokyo__Japan.jpg'
+    _tags:
+      - school
+      - acquaintance
+
 
 checkins:
   - _usr_slug: usr
