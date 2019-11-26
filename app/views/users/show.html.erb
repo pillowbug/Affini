@@ -12,8 +12,8 @@
     <div class="split">
       <div class="d-flex float66 flex-column">
         <div class="checkin-accordion d-flex flex-column">
-          <div class="accordion-item">
-            <a><h3 class="text-white spaced-header">Feedback</h3></a>
+          <div class="accordion-item first-selected">
+            <a><h3 class="text-white spaced-header"><i class="far fa-comment-dots text-white"></i> Feedback</h3></a>
             <div class="accordion-content show-left d-flex flex-column" id="feedback">
               <% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
                 <%= render "/shared/checkins", :checkin => checkin %>
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="accordion-item">
-            <a><h3 class="text-white spaced-header">Upcoming</h3></a>
+            <a><h3 class="text-white spaced-header"><i class="far fa-calendar-alt text-white"></i> Upcoming</h3></a>
             <div class="accordion-content show-left d-flex flex-column" id="upcoming">
               <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
                 <%= render "/shared/checkins", :checkin => checkin %>
@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="accordion-item">
-            <a><h3 class="text-white spaced-header">Past</h3></a>
+            <a><h3 class="text-white spaced-header"><i class="fas fa-user-clock text-white"></i> Past</h3></a>
             <div class="accordion-content show-left d-flex flex-column" id="awaiting">
               <% @user.checkins.past.order(time: :asc).limit(3).each do |checkin| %>
                 <% if checkin.completed? %>
@@ -56,6 +56,15 @@
 </div>
 <script>
   // accordion js
+
+  const first = document.querySelector(".checkin-accordion a");
+
+  function firstActive() {
+    first.classList.add("active");
+  }
+
+  firstActive();
+
   const items = document.querySelectorAll(".checkin-accordion a");
 
   function toggleAccordion(){

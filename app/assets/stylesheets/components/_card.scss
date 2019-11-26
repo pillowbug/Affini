@@ -32,6 +32,10 @@
   }
 }
 
+.check-in-link {
+  z-index: 4;
+}
+
 .general {
   background-color: $pink;
 }
@@ -117,11 +121,11 @@
 //   z-index: 2;
 // }
 
-// .hidden-link {
-//   position: aboslute;
-//   height: 100%;
-//   width: 100%;
-// }
+.hidden-link {
+  position: aboslute;
+  height: 100%;
+  width: 100%;
+}
 
 .checkin-card-relative {
   transition: 0.1s;

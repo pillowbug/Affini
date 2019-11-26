@@ -1,5 +1,5 @@
 <%= render "/shared/editcheckinmodal", :checkin => checkin %>
-<div class="d-flex checkin-card-relative">
+<div class="d-flex checkin-card-relative" data-toggle="modal" data-target="#editCheckinModal-<%= checkin.id %>">
   <div class="d-flex checkin-card section round shadow" id="checkin-card">
     <div class="checkin-card-content">
         <ul>
@@ -21,8 +21,5 @@
       <% end %>
     </div>
   </div>
-  <%= link_to "#editCheckinModal-#{checkin.id}", class: "hidden-link", "data-toggle" => "modal" do  %>
-    <div class="modal-overlay-link"></div>
-  <% end %>
 </div>
 
