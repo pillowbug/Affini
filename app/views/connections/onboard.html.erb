@@ -6,23 +6,22 @@
         <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %>
     </div>
     <div class="d-flex align-items-center justify-content-between">
-      <h1 class="text-white">Onboard Connection</h1>
+      <h1 class="text-white"><%= pluralize_with_no("Pending Connection", @connections.count).titleize %></h1>
       <%= render "shared/connectionmodal" %>
       <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
     </div>
-    <% if @top_connection %>
+    <% unless @connections.empty? %>
+    <% next_connection = @connections.first %>
     <div class="top-connection-interface">
-      <%= render 'connections/onboard/left_form', connection: @top_connection %>
-      <%= link_to connection_path(@top_connection) do %>
-        <%= render 'shared/connection_card', connection: @top_connection %>
+      <%= render 'connections/onboard/left_form', connection: next_connection %>
+      <%= link_to connection_path(next_connection) do %>
+        <%= render 'shared/connection_card', connection: next_connection %>
       <% end %>
-      <%= render 'connections/onboard/right_form', connection: @top_connection %>
+      <%= render 'connections/onboard/right_form', connection: next_connection %>
     </div>
-    <% else %>
-     <h3 class="text-white">Queue is empty</h3>
     <% end %>
     <!-- <div class="connection-cards">
-      <%# @remaining_connections.limit(3).each do |connection| %>
+      <%# @connections.offset(1).limit(3).each do |connection| %>
         <%#= link_to connection_path(connection) do %>
             <%#= render 'shared/connection_card', connection: connection %>
         <%# end %>
