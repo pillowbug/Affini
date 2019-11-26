@@ -35,7 +35,7 @@ def generate_connections(usr_slug, seed, n_user_max, args = {live: true} )
     _birthday: #{birthday}
     email: #{email}
     phone_number: #{phone}
-    # remote_photo_url: #{pic}
+    remote_photo_url: #{pic}
     live: #{live}
     _tags:
       - #{tag}
