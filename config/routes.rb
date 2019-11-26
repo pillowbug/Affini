@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   authenticated { root to: 'users#dashboard' }
   root to: 'pages#home'
+  get 'home', to: 'pages#home'
+
   resources :connections, only: [:index, :show, :create, :update, :destroy] do
     collection do
       get :onboard
