@@ -4,16 +4,21 @@
     </div>
     <div class="connection-card-info general">
       <h2><%= full_name(connection) %></h2>
-      <% if connection.live? %>
-        <h3>Last Contact:
-        <%= last_checkin_date_display(connection) %>
-        </h3>
-      <% end %>
-      <h3>Tags:
+      <% if connection.tags %>
+      <h3>
       <% connection.tags.each do |tag| %>
           #<%=tag.value%>
       <% end %>
-    </h3>
+      </h3>
+      <% end %>
+      <% connection_status(connection).each do |entry| %>
+        <h3>
+          <%= entry[0] %>
+        <% if entry[1] %>
+          <%= entry[1] %>
+        <% end %>
+        </h3>
+      <% end %>
   </div>
   <% end %>
 </div>

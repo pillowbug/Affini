@@ -68,6 +68,28 @@ module ApplicationHelper
     duration&.is_a?(ActiveSupport::Duration) ? duration.parts.first[0] : :months
   end
 
+  def connection_status(connection)
+    status = []
+    if connection.live?
+      if connection.frequency?
+        status << ['Frequency:', frequency_display(connection.frequency)]
+        last_checkin = connection.last_checkin
+        if last_checkin && last_checkin.time > Time.now
+          status << ['Next:', date_display(last_checkin.time)]
+        else
+          if last_checkin
+            # status << ['Last:', date_display(last_checkin.time)]
+          end
+          status << ['Next due by:', date_display(connection.checkin_deadline)]
+        end
+      end
+    else
+      status << ['Pending', '']
+      # status << ['Imported on:', date_display(connection.created_at)]
+    end
+    return status
+  end
+
   # def dashboard_message(args = {})
   #   return "Nothing requires your immediate attention. Good job!" if args.empty? || args.sum{ |_, n| n }.zero?
 
