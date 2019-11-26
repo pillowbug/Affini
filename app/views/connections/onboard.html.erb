@@ -10,6 +10,7 @@
       <%= render "shared/connectionmodal" %>
       <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
     </div>
+    <% if @top_connection %>
     <div class="top-connection-interface">
       <%= render 'shared/connection_onboard_form', connection: @top_connection %>
       <%= link_to connection_path(@top_connection) do %>
@@ -17,12 +18,15 @@
       <% end %>
       <%= render 'shared/connection_onboard_footer', connection: @top_connection %>
     </div>
+    <% else %>
+     <h3 class="text-white">Queue is empty</h3>
+    <% end %>
     <!-- <div class="connection-cards">
-      <% @remaining_connections.limit(3).each do |connection| %>
-        <%= link_to connection_path(connection) do %>
-            <%= render 'shared/connection_card', connection: connection %>
-        <% end %>
-      <% end %>
+      <%# @remaining_connections.limit(3).each do |connection| %>
+        <%#= link_to connection_path(connection) do %>
+            <%#= render 'shared/connection_card', connection: connection %>
+        <%# end %>
+      <%# end %>
     </div> -->
   </div>
 </div>
