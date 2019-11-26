@@ -3,7 +3,7 @@
 }
 
 .welcome {
-  min-height: 320px;
+  min-height: 160px;
   padding: 32px;
   p {
     margin-top: 16px;
@@ -11,11 +11,66 @@
 }
 
 .reminders {
-  // border-left: 1px solid white;
+  border-left: 1px solid white;
   margin-left: 32px;
   a {
-    color: $green;
+    color: white;
     text-decoration: none;
     font-weight: bolder;
   }
+}
+
+.connection-due {
+  padding: 8px 0;
+}
+
+.connection-due img {
+  margin-left: 24px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.connection-due p {
+  margin-left: 16px;
+  color: white;
+}
+
+// accordion styling + function
+
+.checkin-accordion h3 {
+  padding-bottom: 16px;
+  border-bottom: 1px solid white;
+}
+
+.checkin-accordion a {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.checkin-accordion .accordion-content {
+  opacity: 0;
+  padding: 0 1rem;
+  max-height: 0;
+  overflow: hidden;
+  clear: both;
+  -webkit-transition: all 0.2s ease 0.15s;
+  -o-transition: all 0.2s ease 0.15s;
+  transition: all 0.2s ease 0.15s;
+}
+
+.checkin-accordion .accordion-content.active {
+  opacity: 1;
+  padding: 1rem;
+  max-height: 100%;
+  -webkit-transition: all 0.35s ease 0.15s;
+  -o-transition: all 0.35s ease 0.15s;
+  transition: all 0.35s ease 0.15s;
 }

@@ -7,7 +7,7 @@
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
   display: inline-block;
   text-decoration: none !important;
-  color: #76CEDB;
+  color: #76CEDB !important;
 }
 
 .btn-green {
@@ -18,5 +18,6 @@
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
   display: inline-block;
   text-decoration: none !important;
-  color: white;
+  color: white !important;
+  width: 180px;
 }
