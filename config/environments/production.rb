@@ -64,11 +64,10 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "Affini_#{Rails.env}"
 
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.perform_caching = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :port => 1025 }
+  config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings   = { api_token: ENV['b9ead5d1-121e-4bbd-bd18-82d5afa60ed1'] }
+  config.action_mailer.default_url_options = { host: "affini.herokuapp.com" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
