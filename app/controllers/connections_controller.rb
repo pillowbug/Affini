@@ -56,9 +56,9 @@ class ConnectionsController < ApplicationController
     end
   end
 
-  def edit
-    authorize @connection
-  end
+  # def edit
+  #   authorize @connection
+  # end
 
   def update
     authorize @connection
