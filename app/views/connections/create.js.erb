@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const newConnectionForm = document.getElementById('new_connection');
+  newConnectionForm.innerHTML = innerHTML;
+}
+
+function addConnection(connectionHTML) {
+  const connections = document.querySelector('.connection-cards');
+  connections.insertAdjacentHTML('afterbegin', connectionHTML);
+  document.querySelector('#connection-close-button').click();
+}
+
+<% if @connection.errors.any? %>
+  refreshForm("<%= j render 'connections/form', connection: @connection %>");
+<% else %>
+  addConnection("<%= j render 'shared/connection_card', connection: @connection %>");
+<% end %>

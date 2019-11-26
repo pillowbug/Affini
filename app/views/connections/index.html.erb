@@ -15,9 +15,7 @@
     </div>
     <div class="connection-cards">
       <% @connections.each do |connection| %>
-        <div class="float33">
-          <%= render 'shared/connection_card', connection: connection %>
-        </div>
+        <%= render 'shared/connection_card', connection: connection %>
       <% end %>
     </div>
   </div>
