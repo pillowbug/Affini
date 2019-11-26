@@ -12,11 +12,11 @@
     </div>
     <% if @top_connection %>
     <div class="top-connection-interface">
-      <%= render 'shared/connection_onboard_form', connection: @top_connection %>
+      <%= render 'connections/onboard/left_form', connection: @top_connection %>
       <%= link_to connection_path(@top_connection) do %>
         <%= render 'shared/connection_card', connection: @top_connection %>
       <% end %>
-      <%= render 'shared/connection_onboard_footer', connection: @top_connection %>
+      <%= render 'connections/onboard/right_form', connection: @top_connection %>
     </div>
     <% else %>
      <h3 class="text-white">Queue is empty</h3>
