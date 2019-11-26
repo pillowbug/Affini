@@ -1,7 +1,23 @@
-<%= simple_form_for [@checkin] do |f| %>
-  <%= f.input :description, input_html: { require: true } %>
-  <%= f.input :connections, :as => :hidden, :input_html => { :value => @connection.id } %>
+<%= simple_form_for @checkin do |f| %>
+  <% if @checkin.description %>
+    <%= f.input :description, input_html: { require: true, value: @checkin.description } %>
+  <% else %>
+    <%= f.input :description, input_html: { require: true } %>
+  <% end %>
+  <%= f.input :notes %>
+    <% if @connection.present? %>
+      <%= f.input :connections, :as => :hidden, :input_html => { :value => @connection.id }, include_blank: false %>
+    <% else %>
+      <%= f.input :connections, as: :select, include_blank: false, collection: @user.connections, input_html: { multiple: true } %>
+    <% end %>
+  <%= f.input :completed, as: :boolean %>
   <%= f.input :time, as: :string, input_html: { class: "datepicker", require: true } %>
   <%= f.submit "Submit", :class => "btn btn-primary" %>
   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 <% end %>
+
+
+
+
+
+
