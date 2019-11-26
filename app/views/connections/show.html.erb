@@ -50,86 +50,90 @@
           </div>
         </div>
       </div>
-      <div class="split mb-5">
-        <div class="show-left float66 d-flex flex-column">
-        <div class="mail-section">
-          <h2 class="text-white">Send an e-mail</h2>
-          <% if @connection.email %>
-            <%= render '/shared/connectionmailform' %>
-          <% else %>
-            <p class="text-white faded">Add an email address for <%= @connection.first_name%> to send them a message through Affini.</p>
-          <% end %>
-        </div>
-
-        <div class="checkins d-flex justify-content-between align-items-center">
-          <h3 class="text-white">Feedback</h3>
-            <%= render "shared/checkinmodal" %>
-          <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
-        </div>
-        <div class="show-left d-flex flex-column">
-          <% if @connection.checkins.past.incomplete.any? %>
-            <% @connection.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
-              <%= render "/shared/checkins", :checkin => checkin %>
+      <% if @connection.live? %>
+        <div class="split mb-5">
+          <div class="show-left float66 d-flex flex-column">
+          <div class="mail-section">
+            <h2 class="text-white">Send an e-mail</h2>
+            <% if @connection.email %>
+              <%= render '/shared/connectionmailform' %>
+            <% else %>
+              <p class="text-white faded">Add an email address for <%= @connection.first_name%> to send them a message through Affini.</p>
             <% end %>
-          <% else %>
-            <p class="text-white faded">You're up to date with <%= @connection.first_name%>. Nice job! </p>
-          <% end %>
-        </div>
+          </div>
 
-        <div class="checkins d-flex justify-content-between align-items-center">
-          <h3 class="text-white">Upcoming</h3>
-        </div>
-        <div class="show-left d-flex flex-column">
-          <% if @connection.checkins.future.any?  %>
-            <% @connection.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
-              <%= render "/shared/checkins", :checkin => checkin %>
-            <% end %>
-          <% else %>
-            <p class="text-white faded">You have no upcoming check-ins with <%= @connection.first_name%>. Why not schedule one? </p>
-          <% end %>
-        </div>
-
-        <h3 class="text-white">Past</h3>
+          <div class="checkins d-flex justify-content-between align-items-center">
+            <h3 class="text-white">Feedback</h3>
+              <%= render "shared/checkinmodal" %>
+            <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+          </div>
           <div class="show-left d-flex flex-column">
-            <% if @connection.checkins.past.any? %>
-              <% @connection.checkins.past.order(time: :desc).completed.limit(3).each do |checkin| %>
+            <% if @connection.checkins.past.incomplete.any? %>
+              <% @connection.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
                 <%= render "/shared/checkins", :checkin => checkin %>
               <% end %>
             <% else %>
-            <p class="text-white faded">This is where you will see previously completed check-ins.</p>
+              <p class="text-white faded">You're up to date with <%= @connection.first_name%>. Nice job! </p>
             <% end %>
           </div>
 
-        </div>
-        <div class="show-right float33 d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-center">
-            <h2 class="text-white">Notes</h2>
-            <%= render "shared/notesmodal" %>
-            <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white" %>
+          <div class="checkins d-flex justify-content-between align-items-center">
+            <h3 class="text-white">Upcoming</h3>
           </div>
-          <div class="d-flex notes section round shadow mb-4">
-            <div class="right">
-              <%= @connection.description %>
-            </div>
-          </div>
-          <div class="shadows round glancebox dark-bg text-white">
-            <div class="d-flex justify-content-between">
-              <h2>At a glance </h2>
-              <h2>+</h2>
-            </div>
-            <p class="text-white faded">This is where you can answer some quick questions to help remember helpful things about this connection.</p>
-            <% if @connection.glances.any? %>
-              <% @connection.glances.each do |glance| %>
-                <h4><%= glance.question  %></h4>
-                <p class="text-white"><%= glance.answer %></p>
+          <div class="show-left d-flex flex-column">
+            <% if @connection.checkins.future.any?  %>
+              <% @connection.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
+                <%= render "/shared/checkins", :checkin => checkin %>
               <% end %>
             <% else %>
-              <h4 class="faded">Favorite Planet?</h4>
-              <p class="text-white faded">Jupiter</p>
+              <p class="text-white faded">You have no upcoming check-ins with <%= @connection.first_name%>. Why not schedule one? </p>
             <% end %>
           </div>
+
+          <h3 class="text-white">Past</h3>
+            <div class="show-left d-flex flex-column">
+              <% if @connection.checkins.past.any? %>
+                <% @connection.checkins.past.order(time: :desc).completed.limit(3).each do |checkin| %>
+                  <%= render "/shared/checkins", :checkin => checkin %>
+                <% end %>
+              <% else %>
+              <p class="text-white faded">This is where you will see previously completed check-ins.</p>
+              <% end %>
+            </div>
+
+          </div>
+          <div class="show-right float33 d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="text-white">Notes</h2>
+              <%= render "shared/notesmodal" %>
+              <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white" %>
+            </div>
+            <div class="d-flex notes section round shadow mb-4">
+              <div class="right">
+                <%= @connection.description %>
+              </div>
+            </div>
+            <div class="shadows round glancebox dark-bg text-white">
+              <div class="d-flex justify-content-between">
+                <h2>At a glance </h2>
+                <h2>+</h2>
+              </div>
+              <p class="text-white faded">This is where you can answer some quick questions to help remember helpful things about this connection.</p>
+              <% if @connection.glances.any? %>
+                <% @connection.glances.each do |glance| %>
+                  <h4><%= glance.question  %></h4>
+                  <p class="text-white"><%= glance.answer %></p>
+                <% end %>
+              <% else %>
+                <h4 class="faded">Favorite Planet?</h4>
+                <p class="text-white faded">Jupiter</p>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <h2 class="text-white show-unimported-user"><strong><%= link_to "Import this connection", onboard_connections_path %></strong> to schedule a check-in, add notes or send messages.</h2>
+      <% end %>
     </div>
   </div>
 </div>

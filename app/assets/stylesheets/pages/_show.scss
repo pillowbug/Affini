@@ -48,3 +48,13 @@
 .text-btn {
   padding-right: 80px;
 }
+
+.show-unimported-user a {
+  text-decoration: none !important;
+  color: $pink;
+  opacity: 0.8;
+}
+
+.show-unimported-user a:hover {
+  opacity: 1;
+}
