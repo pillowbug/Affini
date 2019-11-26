@@ -47,15 +47,15 @@ a {
 
 .numberCircle {
   position: absolute;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  background-color: $pink;
-  font-size: 24px;
+  border-radius: 64%;
+  width: 16px;
+  height: 16px;
+  background-color: $orange;
+  font-size: 12px;
   color: #666;
   text-align: center;
-  top: 5px;
-  left: 70px;
+  top: 16px;
+  left: 16px;
   font-weight: bolder;
   color: white;
 }
