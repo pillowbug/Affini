@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   authenticated { root to: 'users#dashboard' }
   root to: 'pages#home'
-  resources :connections, only: [:index, :show, :update, :destroy, :edit] do
+  resources :connections, only: [:index, :show, :create, :update, :destroy] do
     collection do
       get :onboard
     end
@@ -18,7 +18,5 @@ Rails.application.routes.draw do
     resources :attendees, only: [:create, :destroy], shallow: true
   end
   # resources :tags, only: [:index, :show, :create, :update, :destroy]
-  resources :users, except: [ :index ] do
-    resources :connections, only: [:new, :create]
-  end
+  resources :users, except: [ :index ]
 end
