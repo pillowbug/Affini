@@ -11,7 +11,8 @@ module ApplicationHelper
     if connection.photo.file
       cl_image_tag(connection.photo, args)
     else
-      image_tag('user_placeholder.png', class: 'checkin-placeholder')
+      # raise
+      image_tag('user_placeholder.png', class: 'avatar-xl')
     end
   end
 
