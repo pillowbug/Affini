@@ -1,8 +1,8 @@
 <div class="top-connection-frequencies">
-  <%= button_to onboard_connection_path(connection, action: 'dismiss'), method: :patch do %>
+  <%= button_to onboard_connection_path(connection, target: 'dismiss'), method: :patch, remote: true do %>
     <h2 class="never-button"><i class="fas fa-clock"></i> Later</h2>
   <% end %>
-  <%= button_to onboard_connection_path(connection, target: 'never'), method: :patch do %>
+  <%= button_to onboard_connection_path(connection, target: 'never'), method: :patch, remote: true do %>
     <h2 class="never-button"><i class="fas fa-undo-alt"></i> Skip</h2>
   <% end %>
 </div>
