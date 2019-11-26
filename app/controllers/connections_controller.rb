@@ -2,8 +2,10 @@ class ConnectionsController < ApplicationController
   before_action :set_connection, only: %i[show edit update destroy onboard_update]
 
   def index
+    # for new connection creation
     @user = current_user
     @connection = Connection.new(frequency: 1.month)
+    # for page proper
     if params[:query].present?
       sql_query = " \
         connections.first_name @@ :query \
@@ -74,8 +76,10 @@ class ConnectionsController < ApplicationController
   end
 
   def onboard
+    # for new connection creation
     @user = current_user
     @connection = Connection.new(frequency: 1.month)
+    # for page proper
     connections = policy_scope(Connection).pending.order(created_at: :desc)
     @top_connection = connections[0]
     @remaining_connections = connections.offset(1)
