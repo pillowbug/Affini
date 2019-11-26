@@ -6,6 +6,7 @@ class ConnectionsController < ApplicationController
     @user = current_user
     @connection = Connection.new(frequency: 1.month)
     # for page proper
+    @connections = policy_scope(Connection).live
     if params[:query].present?
       sql_query = " \
         connections.first_name @@ :query \
@@ -17,10 +18,9 @@ class ConnectionsController < ApplicationController
         OR connections.instagram @@ :query \
         OR connections.twitter @@ :query \
         "
-      @connections = policy_scope(Connection).live.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @connections = policy_scope(Connection).live
+      @connections = @connections.where(sql_query, query: "%#{params[:query]}%")
     end
+    @connections = @connections.order(live: :desc)
   end
 
   def show
