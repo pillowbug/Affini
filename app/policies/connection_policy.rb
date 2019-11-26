@@ -19,7 +19,7 @@ class ConnectionPolicy < ApplicationPolicy
     record.user == user || user.admin?
   end
 
-  def onboard_edit?
+  def onboard_update?
     record.user == user || user.admin?
   end
 

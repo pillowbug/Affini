@@ -1,5 +1,5 @@
 class ConnectionsController < ApplicationController
-  before_action :set_connection, only: %i[show edit update destroy onboard_edit]
+  before_action :set_connection, only: %i[show edit update destroy onboard_update]
 
   def index
     @user = current_user
@@ -81,7 +81,7 @@ class ConnectionsController < ApplicationController
     @remaining_connections = connections.offset(1)
   end
 
-  def onboard_edit
+  def onboard_update
     authorize @connection
     if params[:target].present?
       @connection.live = Time.now
