@@ -4,9 +4,9 @@
     <div class="breadcrumbs">
         <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %> >> <%= link_to full_name(@connection), connection_path(@connection) %>
     </div>
-    <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white text-right">
+    <h1 class="text-white text-right"><%= full_name(@connection) %></h1>
     <div class="show-content fade-in-bottom-disabled">
-        <%= render "shared/detailsmodal" %>
+      <%= render "shared/detailsmodal" %>
       <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn text-right" %>
       <div class="namebox section round shadow">
         <div class="d-flex">
@@ -45,7 +45,6 @@
                   <i class="fab fa-linkedin"></i>
                 <% end %>
               <% end %>
-            </p></li>
             </ul>
           </div>
         </div>
@@ -53,6 +52,7 @@
       <% if @connection.live? %>
         <div class="split mb-5">
           <div class="show-left float66 d-flex flex-column">
+
             <div class="mail-section">
               <h2 class="text-white">Send an e-mail</h2>
               <% if @connection.email %>
@@ -100,6 +100,7 @@
     </div>
   </div>
 </div>
+
 <script>
   // accordion
   const items = document.querySelectorAll(".checkin-accordion a");
@@ -109,4 +110,5 @@
   }
   items.forEach(item => item.addEventListener('click', toggleAccordion));
 </script>
+
 
