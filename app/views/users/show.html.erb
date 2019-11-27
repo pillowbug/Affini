@@ -17,13 +17,13 @@
     </div>
       <div class="float33 reminders">
         <% if @connections_checkin %>
-        <h3 class="text-white pl-3">People to check-in with</h3>
+          <h3 class="text-white pl-3">People to check-in with</h3>
           <% @connections_checkin.each do |connection| %>
             <%= render "/shared/connection_due", :connection => connection %>
           <% end %>
         <% end %>
       </div>
-      </div>
+    </div>
 </div>
 <script>
   // accordion

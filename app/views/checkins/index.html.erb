@@ -15,25 +15,42 @@
         <div id='calendar'>
         </div>
       </div>
+    </div>
+
+    <div class="float33">
       <ul>
         <div class="upcoming-checkins d-flex flex-column">
           <h3 class="text-white spaced-header">Feedback</h3>
           <div class="show-left d-flex flex-column">
             <% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
-              <%= render "/shared/checkins", :checkin => checkin %>
+              <%= render "/shared/editcheckinmodal", :checkin => checkin %>
+              <%= link_to "#editCheckinModal", "data-toggle" => "modal" do %>
+              <p class="checkin-index-message">
+                + <strong><%= "#{checkin.connections.first.first_name}" %>
+                <% if checkin.connections.count > 1 %>
+                +<%= checkin.connections.count - 1 %> more
+                <% end %>:</strong>
+                <%= "#{checkin.description} - #{date_display(checkin.time, missing = "Never")}" %>
+              </p>
+              <% end %>
             <% end %>
           </div>
         </div>
       </ul>
-    </div>
-
-    <div class="float50">
       <ul>
         <div class="upcoming-checkins d-flex flex-column">
           <h3 class="text-white spaced-header">Upcoming</h3>
           <div class="show-left d-flex flex-column">
             <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
-              <%= render "/shared/checkins", :checkin => checkin %>
+              <%= link_to "#editCheckinModal", "data-toggle" => "modal" do %>
+              <p class="checkin-index-message">
+                + <strong><%= "#{checkin.connections.first.first_name}" %>
+                <% if checkin.connections.count > 1 %>
+                +<%= checkin.connections.count - 1 %> more
+                <% end %>:</strong>
+                <%= "#{checkin.description} - #{date_display(checkin.time, missing = "Never")}" %>
+              </p>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -43,7 +60,15 @@
           <h3 class="text-white spaced-header">Past</h3>
           <div class="show-left d-flex flex-column">
             <% @user.checkins.past.completed.order(time: :asc).limit(3).each do |checkin| %>
-              <%= render "/shared/checkins", :checkin => checkin %>
+              <%= link_to "#editCheckinModal", "data-toggle" => "modal" do %>
+              <p class="checkin-index-message">
+                + <strong><%= "#{checkin.connections.first.first_name}" %>
+                <% if checkin.connections.count > 1 %>
+                +<%= checkin.connections.count - 1 %> more
+                <% end %>:</strong>
+                <%= "#{checkin.description} - #{date_display(checkin.time, missing = "Never")}" %>
+              </p>
+              <% end %>
             <% end %>
           </div>
         </div>
