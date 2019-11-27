@@ -1,4 +1,4 @@
-<div class="connection-due d-flex text-white align-items-center">
+<div class="connection-due d-flex text-white align-items-center fade-in-bottom">
   <%= connection_image_tag(connection, { height: 60, width: 60, crop: :scale, class: "checkin-av" } ) %>
   <p>
     <%= link_to full_name(connection), connection_path(connection) %> <%= checkin_deadline_display(connection)%>
