@@ -1,5 +1,6 @@
 <% if connection %>
-  <div class="top-connection-interface">
+<p class="text-white">Here are your most recently imported potential connections. You can select their check-in frequency or save them for later. </p>
+  <div class="top-connection-interface d-flex justify-content-between align-items-center">
     <%= render 'connections/onboard/left_form', connection: connection %>
     <div class="slide-in-blurred-bottom">
       <%= link_to connection_path(connection) do %>
