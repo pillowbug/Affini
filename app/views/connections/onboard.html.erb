@@ -5,7 +5,7 @@
     <div class="breadcrumbs">
         <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %>
     </div>
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between onboard-title">
       <h1 id="connections-onboard-count" class="text-white"><%= pluralize_with_no("Pending Connection", @connections.count).titleize %></h1>
       <%= render "shared/connectionmodal" %>
       <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
@@ -13,12 +13,5 @@
     <div id="connections-onboard-section">
       <%= render 'connections/onboard/section', connection: @connections.first %>
     </div>
-    <!-- <div class="connection-cards">
-      <%# @connections.offset(1).limit(3).each do |connection| %>
-        <%#= link_to connection_path(connection) do %>
-            <%#= render 'shared/connection_card', connection: connection %>
-        <%# end %>
-      <%# end %>
-    </div> -->
   </div>
 </div>

@@ -1,16 +1,15 @@
+.onboard-title {
+
+}
+
 .top-connection-interface {
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
   padding-top: 16px;
+  width: 64%;
+  margin: 0 auto;
 }
 
 .top-connection-frequencies {
-  width: 25%;
-  // TODO: there must be a better way here
-  margin-left: 15px;
-  margin-right: 40px;
-  margin-top: -8px;
+  margin-top: 32px;
 
   button {
     text-decoration: none !important;
@@ -23,8 +22,9 @@
   }
 
   h2 {
-    font-weight: bold;
+    opacity: 0.7;
     margin-bottom: 30px !important;
+    transition: ease-in-out .2s;
   }
 
   i {
@@ -39,3 +39,26 @@
     margin-top: 52px;
   }
 }
+
+.top-connection-frequencies h2:hover {
+  opacity: 1;
+  transition: ease-in-out .2s;
+}
+
+.top-connection-frequencies h2:after {
+  display: block;
+  content: '';
+  border-bottom: 2px solid #fff;
+  transform: scaleX(0);
+  transition: transform .2s ease-in-out;
+  padding-bottom: 4px;
+}
+
+.top-connection-frequencies h2:hover:after { transform: scaleX(1); }
+.top-connection-frequencies h2.fromRight:after{ transform-origin:100% 50%; }
+.top-connection-frequencies h2.fromLeft:after{  transform-origin:  0% 50%; }
+
+.top-connection-frequencies .fas {
+  font-size: 24px;
+}
+
