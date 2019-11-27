@@ -36,11 +36,30 @@ class Connection < ApplicationRecord
 
   def checkin_deadline
     # returns date by which next checkin shall be scheduled
-    # nil if no target frequency, creation time stamp
-    return nil if frequency.nil?
+    # nil if neither live nor frequency set
+    # reference date is last_checkin if exists, otherwise live
+    return nil unless live? && frequency?
 
-    last_time = last_checkin&.time || created_at
+    last_time = last_checkin&.time || live
     last_time.in frequency
+  end
+
+  def checkin_time_sortable
+    # returns date in all cases, for sorting purpose
+    # if checkin_deadline is nil, (live || created_at) in 200.years
+    # if last_checkin in the future, last_checkin in 100.years
+    # otherwise checkin_deadline
+    cddt = checkin_deadline
+    if cddt
+      lc = last_checkin
+      if lc && lc.time > Time.now
+        lc.time.in 100.years
+      else
+        cddt
+      end
+    else
+      (live || created_at).in 200.years
+    end
   end
 
   def to_s
