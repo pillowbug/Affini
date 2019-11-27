@@ -5,12 +5,15 @@ function refreshForm(innerHTML) {
 
 function addConnection(connectionHTML) {
   const connections = document.querySelector('.connection-cards');
-  connections.insertAdjacentHTML('afterbegin', connectionHTML);
-  document.querySelector('#connection-close-button').click();
+  if (connections) {
+   connections.insertAdjacentHTML('afterbegin', connectionHTML);
+  }
 }
 
 <% if @connection.errors.any? %>
   refreshForm("<%= j render 'connections/form', connection: @connection %>");
 <% else %>
   addConnection("<%= j render 'shared/connection_card', connection: @connection %>");
+  refreshForm("<%= j render 'connections/form', connection: Connection.new %>");
+  document.querySelector('#connection-close-button').click();
 <% end %>

@@ -4,7 +4,9 @@
 .round { border-radius: 24px; }
 .list-none { list-style-type: none; }
 .breadcrumbs { margin: 24px 0; }
-
+.show-left {
+  padding-right: 32px;
+}
 // text styles
 .text-left { text-align: left; }
 .text-right { text-align: right; }
@@ -52,8 +54,23 @@
 .fl-reverse {flex-direction: row-reverse;}
 
 // content backgrounds
-.gradient-bg { background: linear-gradient(156deg, rgba(139,198,225,1) 0%, rgba(156,141,188,1) 75%, rgba(171,92,155,1) 100%); }
-.content { min-height: 100vh; height: 100%; width: 66%; position: absolute; padding-top: 40px; margin-left: 320px; z-index: 1; }
+
+.gradient-bg {
+  background: linear-gradient(156deg, rgba(139,198,225,1) 0%, rgba(156,141,188,1) 75%, rgba(171,92,155,1) 100%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content {
+  min-height: 100vh;
+  height: 100%;
+  width: 66%;
+  position: relative;
+  padding-top: 40px;
+  margin-left: 64px;
+}
 
 //spacing
 .split { display: flex; margin-top: 32px; }

@@ -52,52 +52,18 @@
       <% if @connection.live? %>
         <div class="split mb-5">
           <div class="show-left float66 d-flex flex-column">
-          <div class="mail-section">
-            <h2 class="text-white">Send an e-mail</h2>
-            <% if @connection.email %>
-            <% else %>
-              <p class="text-white faded">Add an email address for <%= @connection.first_name%> to send them a message through Affini.</p>
-            <% end %>
-          </div>
 
-          <div class="checkins d-flex justify-content-between align-items-center">
-            <h3 class="text-white">Feedback</h3>
-            <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
-          </div>
-          <div class="show-left d-flex flex-column">
-            <% if @connection.checkins.past.incomplete.any? %>
-              <% @connection.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
-                <%= render "/shared/checkins", :checkin => checkin %>
-              <% end %>
-            <% else %>
-              <p class="text-white faded">You're up to date with <%= @connection.first_name%>. Nice job! </p>
-            <% end %>
-          </div>
-
-          <div class="checkins d-flex justify-content-between align-items-center">
-            <h3 class="text-white">Upcoming</h3>
-          </div>
-          <div class="show-left d-flex flex-column" id="upcoming-checkins-display">
-            <% if @connection.checkins.future.any?  %>
-              <% @connection.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
-                 <%= render "/shared/checkins", :checkin => checkin %>
-              <% end %>
-            <% else %>
-              <p class="text-white faded" id="no-upcoming-checkins">You have no upcoming check-ins with <%= @connection.first_name%>. Why not schedule one? </p>
-            <% end %>
-          </div>
-
-          <h3 class="text-white">Past</h3>
-            <div class="show-left d-flex flex-column">
-              <% if @connection.checkins.past.any? %>
-                <% @connection.checkins.past.order(time: :desc).completed.limit(3).each do |checkin| %>
-                   <%= render "/shared/checkins", :checkin => checkin %>
-                <% end %>
+            <div class="mail-section">
+              <h2 class="text-white">Send an e-mail</h2>
+              <% if @connection.email %>
+                <%= render '/shared/connectionmailform' %>
               <% else %>
-              <p class="text-white faded">This is where you will see previously completed check-ins.</p>
+                <p class="text-white faded">Add an email address for <%= @connection.first_name%> to send them a message through Affini.</p>
               <% end %>
+              <%= render "shared/checkinmodal" %>
+            <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+            <%= render '/shared/accordion', :checkins => @connection.checkins, :past_checkins => @connection.checkins.past %>
             </div>
-
           </div>
           <div class="show-right float33 d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center">
@@ -134,30 +100,14 @@
   </div>
 </div>
 
-<%= render "shared/checkinmodal" %>
-<%= render '/shared/connectionmailform' %>
-<%= render "shared/notesmodal" %>
-<%= render "shared/detailsmodal" %>
-
-<% @user.checkins.past.order(time: :asc).limit(3).each do |checkin| %>
-  <% if checkin.completed? %>
-  <div class="faded">
-  <% end %>
-  <%= render "/shared/editcheckinmodal", :checkin => checkin %>
-  <% if checkin.completed? %>
-  </div>
-  <% end %>
-<% end %>
-
-<% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
-  <%= render "/shared/editcheckinmodal", :checkin => checkin %>
-<% end %>
-
-<% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
-  <%= render "/shared/editcheckinmodal", :checkin => checkin %>
-<% end %>
-
-
-
+<script>
+  // accordion
+  const items = document.querySelectorAll(".checkin-accordion a");
+  function toggleAccordion(){
+    this.classList.toggle('active');
+    this.nextElementSibling.classList.toggle('active');
+  }
+  items.forEach(item => item.addEventListener('click', toggleAccordion));
+</script>
 
 

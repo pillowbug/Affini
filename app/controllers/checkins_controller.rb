@@ -8,7 +8,7 @@ class CheckinsController < ApplicationController
 
     @event_json = []
     @checkins.each do |checkin|
-      @event_json << { start: checkin.time.strftime('%Y-%m-%d'), title: checkin.connections.first.first_name,
+      @event_json << { start: checkin.time.strftime('%Y-%m-%d'), title: checkin.connections.count == 0 ? '(no attendee)' : checkin.connections.first.first_name,
                         time: checkin.time.strftime('%m-%h'), description: checkin.description
                       }
     end
@@ -37,18 +37,19 @@ class CheckinsController < ApplicationController
     if user_signed_in?
       @checkin = Checkin.new(checkin_params)
       @user = current_user
-      @connection = Connection.find(whitelist_connections)
+      connections = Connection.find(whitelist_connections)
       @checkin.user = @user
-      @checkin.connections << @connection
-      @checkin.time.past? ? @checkin.completed = true : @checkin.completed = false
+      @checkin.connections = connections
+      @checkin.completed = @checkin.time.past?
       authorize @checkin
       if @checkin.save
         respond_to do |format|
-          format.html { redirect_to connection_path(@connection), notice: "Checkin was successfully added" }
+          format.html { redirect_to connection_path(connections.first), notice: "Checkin was successfully added" }
           format.js
         end
       else
-        render 'new'
+        # hopefully we never arrive here
+        render 'checkins/_new'
       end
     else
       redirect_to new_user_session_path
@@ -80,7 +81,7 @@ class CheckinsController < ApplicationController
     if params[:checkin][:connections].class == Array
       params[:checkin][:connections].reject{ |id| id.blank? }
     else
-      params[:checkin][:connections]
+      [ params[:checkin][:connections] ]
     end
   end
 

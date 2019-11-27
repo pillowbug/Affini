@@ -12,76 +12,17 @@
       <div class="d-flex float66 flex-column">
           <p class="text-white">Need to keep track of your upcoming activities? Visit the calendar to help you get organized.</p>
           <a href="/checkins" class="btn-green">Visit the Calendar</a>
-
-        <div class="checkin-accordion d-flex flex-column">
-          <div class="accordion-item">
-            <a class="active">
-              <h3 class="text-white spaced-header">
-                <i class="far fa-comment-dots text-white">
-                </i>
-                Feedback
-              </h3>
-              <div class="numberCircle">
-                <%= @user.checkins.past.incomplete.count %>
-              </div>
-            </a>
-            <div class="accordion-content show-left d-flex flex-column active" id="feedback">
-              <% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
-                <%= render "/shared/checkins", :checkin => checkin %>
-              <% end %>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <a>
-              <h3 class="text-white spaced-header">
-                <i class="far fa-calendar-alt text-white">
-                </i>
-                Upcoming
-              </h3>
-              <div class="numberCircle">
-                <%= @user.checkins.future.where('time < ?', 1.week.after).count %>
-              </div>
-            </a>
-            <div class="accordion-content show-left d-flex flex-column" id="upcoming">
-              <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
-                <%= render "/shared/checkins", :checkin => checkin %>
-              <% end %>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <a>
-              <h3 class="text-white spaced-header">
-                <i class="fas fa-user-clock text-white">
-                </i>
-                Past
-              </h3>
-              <div class="numberCircle">
-                <%= @connections_checkin.count %>
-              </div>
-            </a>
-            <div class="accordion-content show-left d-flex flex-column" id="awaiting">
-              <% @user.checkins.past.order(time: :asc).limit(3).each do |checkin| %>
-                <% if checkin.completed? %>
-                <div class="faded">
-                <% end %>
-                <%= render "/shared/checkins", :checkin => checkin %>
-                <% if checkin.completed? %>
-                </div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render '/shared/accordion', :checkins => @user.checkins, :past_checkins => @connections_checkin %>
+    </div>
       <div class="float33 reminders">
         <% if @connections_checkin %>
-        <h3 class="text-white pl-3">People to check-in with</h3>
+          <h3 class="text-white pl-3">People to check-in with</h3>
           <% @connections_checkin.each do |connection| %>
             <%= render "/shared/connection_due", :connection => connection %>
           <% end %>
         <% end %>
       </div>
-      </div>
+    </div>
 </div>
 
 <%= render "shared/connectionmodal" %>
