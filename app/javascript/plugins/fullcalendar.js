@@ -1,3 +1,5 @@
+import Tooltip from 'bootstrap/js/dist/tooltip';
+
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -19,16 +21,26 @@ const fetchTime = () => {
 
 const getCalendar = (data) => {
   const calendarEl = document.getElementById('calendar');
+
   const calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
     selectable: true,
     events: data,
-    eventClick: function(event, jsEvent, view) {
-    console.log('EVENT CLICK ' + event.start);
+    header: {
+      left:   'title',
+      center: '',
+      right:  'prev,next'
     },
-    eventMouseover: function(event, domEvent) {
-    console.log('EVENT Hover ');
-  }
+    eventTextColor: '#ffffff',
+    eventColor: '#2C3E50',
+    eventRender: function(info) {
+      var tooltip = new Tooltip(info.el, {
+        title: info.event.extendedProps.description,
+        placement: 'top',
+        trigger: 'hover',
+        container: 'body'
+      });
+    }
   });
 
   calendar.render();
