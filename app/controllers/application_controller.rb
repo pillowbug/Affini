@@ -20,6 +20,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
+  def storable_location?
+    request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
+  end
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || root_path
+  end
+
   private
 
   def skip_pundit?
