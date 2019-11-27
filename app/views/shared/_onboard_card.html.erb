@@ -1,0 +1,15 @@
+<div class="connection-card shadow">
+  <%= link_to connection_path(connection) do %>
+    <div class="connection-card-img-onboard" style="background-image: url('<%= connection_image_path(connection) %>')"></div>
+    <div class="connection-card-info onboard-info general">
+      <div class="full-name"><h2><%= full_name(connection) %></h2></div>
+      <% if connection.tags %>
+        <div class="connection-tags">
+          <% connection.tags.each do |tag| %>
+            <p class="badge badge-primary"><%=tag.value%></p>
+          <% end %>
+        </div>
+      <% end %>
+  </div>
+  <% end %>
+</div>

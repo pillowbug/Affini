@@ -11,19 +11,48 @@
   }
 }
 
-.connection-card-img {
+.connection-card-img-onboard {
   height: 50%;
   background-size: cover;
 }
 
+.connection-card-av-background {
+  height: 25%;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  background: linear-gradient(156deg, rgba(139,198,225,1) 0%, rgba(156,141,188,1) 75%, rgba(171,92,155,1) 100%);
+}
+
+.connection-card-av {
+  position: absolute;
+  bottom: -60px;
+  z-index: 1;
+}
+
+.light-faded {
+  opacity: 0.8;
+}
+
+.onboard-info {
+  padding-top: 8px !important;
+  h2 {
+    font-size: 40px !important;
+  }
+}
+
 .connection-card-info {
-  height: 50%;
-  color: white;
+  height: 75%;
+  color: black;
   padding: 16px;
+  padding-top: 56px;
 
   h2 {
+    font-weight: bold;
     margin-top: 8px;
     font-size: 24px;
+    color: $green;
+    text-align: center;
   }
 
   h3 {
@@ -32,12 +61,16 @@
   }
 }
 
+.badge-primary {
+  color: white !important;
+}
+
 .check-in-link {
   z-index: 4;
 }
 
 .general {
-  background-color: $pink;
+  background-color: $light-blue;
 }
 
 .personal {
@@ -90,6 +123,15 @@
   ul:hover li:nth-child(n+2) {
      margin-left: -25px;
   }
+}
+
+.connection-card-info {
+  position: relative;
+}
+
+.connection-tags {
+  position: absolute;
+  bottom: 0;
 }
 
 .checkin-av {

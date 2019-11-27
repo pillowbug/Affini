@@ -1,24 +1,29 @@
-<div class="connection-card shadow">
+<% if connection.live? && connection.frequency? %>
+  <div class="connection-card shadow">
+<% else %>
+  <div class="connection-card shadow light-faded">
+<% end %>
   <%= link_to connection_path(connection) do %>
-    <div class="connection-card-img personal" style="background-image: url('<%= connection_image_path(connection) %>')">
+    <div class="connection-card-av-background">
+      <div class="connection-card-av"><%= connection_image_tag(connection, :width => 400, :crop => "pad", :class => "avatar-connection-card") %></div>
     </div>
     <div class="connection-card-info general">
-      <h2><%= full_name(connection) %></h2>
-      <% if connection.tags %>
-      <h3>
-      <% connection.tags.each do |tag| %>
-          #<%=tag.value%>
-      <% end %>
-      </h3>
-      <% end %>
+      <div class="full-name"><h2><%= full_name(connection) %></h2></div>
       <% connection_status(connection).each do |entry| %>
-        <h3>
-          <%= entry[0] %>
+        <p>
+          <strong><%= entry[0] %></strong>
         <% if entry[1] %>
           <%= entry[1] %>
         <% end %>
-        </h3>
+        </p>
       <% end %>
+      <% if connection.tags %>
+        <div class="connection-tags">
+          <% connection.tags.each do |tag| %>
+            <p class="badge badge-primary"><%=tag.value%></p>
+          <% end %>
+        </div>
+    <% end %>
   </div>
   <% end %>
 </div>
