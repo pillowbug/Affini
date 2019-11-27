@@ -8,6 +8,7 @@
       <h1 class="text-white">Your Connections</h1>
       <div class="add-connection-buttons">
         <%= link_to "Import connections +", onboard_connections_path, class: "btn-white" %>
+        <%= render "shared/connectionmodal" %>
         <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
       </div>
     </div>
@@ -18,5 +19,3 @@
     </div>
   </div>
 </div>
-
-<%= render "shared/connectionmodal" %>
