@@ -1,9 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
-#added
-gem 'letter_opener', group: :development
-
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
@@ -24,9 +21,11 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'pundit'
 gem 'pg_search', '~> 2.3.0'
+gem 'postmark-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'letter_opener'
 end
 
 group :development, :test do
