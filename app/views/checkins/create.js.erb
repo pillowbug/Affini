@@ -1,0 +1,17 @@
+function refreshForm(innerHTML) {
+  const newCheckinForm = document.getElementById('new_checkin');
+  newCheckinForm.innerHTML = innerHTML;
+}
+
+function addCheckin(checkinHTML) {
+  const checkins = document.querySelector('#upcoming-checkins-display');
+  checkins.insertAdjacentHTML('afterbegin', checkinHTML);
+  document.querySelector('#no-upcoming-checkins').style.display = "none";
+  document.querySelector('#checkin-close-button').click();
+}
+
+<% if @checkin.errors.any? %>
+ refreshForm("<%= j render 'checkins/new', checkin: @checkin %>");
+<% else %>
+  addCheckin("<%= j render 'shared/checkins', checkin: @checkin %>");
+<% end %>

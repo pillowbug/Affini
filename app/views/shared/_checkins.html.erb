@@ -1,7 +1,8 @@
 <%= render "/shared/editcheckinmodal", :checkin => checkin %>
 <div class="d-flex checkin-card-relative" data-toggle="modal" data-target="#editCheckinModal-<%= checkin.id %>">
   <div class="d-flex checkin-card section round shadow" id="checkin-card">
-    <div class="checkin-card-content">
+    <div class="checkin-card-content justify-content-between">
+      <div class="sliding-avatars">
         <ul>
           <% checkin.connections.each do |c| %>
             <li>
@@ -11,6 +12,7 @@
             </li>
           <% end %>
         </ul>
+      </div>
       <p><%= "#{checkin.description} - #{date_display(checkin.time, missing = "Never")}" %></p>
       <% if checkin.rating.present? %>
         <p class="rating">
