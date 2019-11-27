@@ -136,6 +136,8 @@ class ConnectionsController < ApplicationController
       when 'checkin' then connections = connections.sort_by(&:checkin_time_sortable)
       else connections = connections.order(live: :desc)
       end
+    else
+      connections = connections.order(live: :desc)
     end
     return connections
   end
