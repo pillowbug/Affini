@@ -6,7 +6,6 @@
     </div>
     <div class="split justify-content-between">
       <h1 class="text-white">Hello, <%= @user.first_name %>!</h1>
-      <%= render "shared/connectionmodal" %>
       <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
     </div>
     <div class="split fade-in-bottom">
@@ -25,6 +24,28 @@
       </div>
     </div>
 </div>
+
+<%= render "shared/connectionmodal" %>
+<!-- modals logic -->
+<% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
+  <%= render "/shared/editcheckinmodal", :checkin => checkin %>
+<% end %>
+
+<% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
+  <%= render "/shared/editcheckinmodal", :checkin => checkin %>
+<% end %>
+
+<% @user.checkins.past.order(time: :asc).limit(3).each do |checkin| %>
+  <% if checkin.completed? %>
+  <div class="faded">
+  <% end %>
+  <%= render "/shared/editcheckinmodal", :checkin => checkin %>
+  <% if checkin.completed? %>
+  </div>
+  <% end %>
+<% end %>
+
+
 <script>
   // accordion
   const items = document.querySelectorAll(".checkin-accordion a");

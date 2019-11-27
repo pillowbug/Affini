@@ -6,7 +6,6 @@
     </div>
   <div class="headers d-flex align-items-center justify-content-between" >
     <h1 class= "text-white">Check-ins</h1>
-    <%= render "shared/checkinmodal" %>
     <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "btn-white" %>
   </div>
   <div class="checkin-content fade-in-bottom">
@@ -77,3 +76,5 @@
   </div>
   </div>
 </div>
+
+  <%= render "shared/checkinmodal" %>
