@@ -52,7 +52,7 @@ class Connection < ApplicationRecord
     cddt = checkin_deadline
     if cddt
       lc = last_checkin
-      if lc && lc.time > Time.current
+      if lc && lc.time > Time.now
         lc.time.in 100.years
       else
         cddt
