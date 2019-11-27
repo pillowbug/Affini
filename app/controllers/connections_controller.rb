@@ -112,6 +112,7 @@ class ConnectionsController < ApplicationController
   end
 
   def set_connection
+    raise
     @connection = Connection.find(params[:id])
   end
 

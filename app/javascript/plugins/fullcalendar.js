@@ -12,7 +12,7 @@ import '@fullcalendar/timegrid/main.css';
 import '@fullcalendar/list/main.css';
 
 const fetchTime = () => {
-  fetch('./checkins.json')
+  fetch('/checkins.json')
   .then(response => response.json())
   .then((data) => {
     getCalendar(data);
@@ -21,29 +21,30 @@ const fetchTime = () => {
 
 const getCalendar = (data) => {
   const calendarEl = document.getElementById('calendar');
+  if (calendarEl) {
+    const calendar = new Calendar(calendarEl, {
+      plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
+      selectable: true,
+      events: data,
+      header: {
+        left:   'title',
+        center: '',
+        right:  'prev,next'
+      },
+      eventTextColor: '#ffffff',
+      eventColor: '#2C3E50',
+      eventRender: function(info) {
+        var tooltip = new Tooltip(info.el, {
+          title: info.event.extendedProps.description,
+          placement: 'top',
+          trigger: 'hover',
+          container: 'body'
+        });
+      }
+    });
 
-  const calendar = new Calendar(calendarEl, {
-    plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
-    selectable: true,
-    events: data,
-    header: {
-      left:   'title',
-      center: '',
-      right:  'prev,next'
-    },
-    eventTextColor: '#ffffff',
-    eventColor: '#2C3E50',
-    eventRender: function(info) {
-      var tooltip = new Tooltip(info.el, {
-        title: info.event.extendedProps.description,
-        placement: 'top',
-        trigger: 'hover',
-        container: 'body'
-      });
-    }
-  });
-
-  calendar.render();
+    calendar.render();
+  };
 };
 
 fetchTime();
