@@ -10,16 +10,10 @@
     <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "btn-white" %>
   </div>
   <div class="checkin-content">
-    <div class="float50">
+    <div class="float66">
       <div class="calendar">
-        <%= month_calendar events: @checkins do |date, checkins| %>
-          <div class ="calendar-items">
-            <%= date.day %>
-            <% checkins.each do |checkin| %>
-              <i class="far fa-bell"></i>
-            <% end %>
-          </div>
-        <% end %>
+        <div id='calendar'>
+        </div>
       </div>
       <ul>
         <div class="upcoming-checkins d-flex flex-column">

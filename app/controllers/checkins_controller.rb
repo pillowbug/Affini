@@ -5,6 +5,18 @@ class CheckinsController < ApplicationController
     @user = current_user
     @checkins = policy_scope(Checkin)
     @checkin = Checkin.new
+
+    @event_json = []
+    @checkins.each do |checkin|
+      @event_json << { start: checkin.time.strftime('%Y-%m-%d'), title: checkin.connections.first.first_name,
+                        time: checkin.time.strftime('%m-%h'), description: checkin.description
+                      }
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @event_json }
+    end
   end
 
   def show
