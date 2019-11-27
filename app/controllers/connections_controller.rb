@@ -6,21 +6,7 @@ class ConnectionsController < ApplicationController
     @user = current_user
     @connection = Connection.new(frequency: 1.month)
     # for page proper
-    @connections = policy_scope(Connection).live
-    if params[:query].present?
-      sql_query = " \
-        connections.first_name @@ :query \
-        OR connections.last_name @@ :query \
-        OR connections.description @@ :query \
-        OR connections.email @@ :query \
-        OR connections.facebook @@ :query \
-        OR connections.linkedin @@ :query \
-        OR connections.instagram @@ :query \
-        OR connections.twitter @@ :query \
-        "
-      @connections = @connections.where(sql_query, query: "%#{params[:query]}%")
-    end
-    @connections = @connections.order(live: :desc)
+    @connections = process_query(policy_scope(Connection).live)
   end
 
   def show
@@ -119,10 +105,38 @@ class ConnectionsController < ApplicationController
       params[:connection][:frequency] = params[:other][:frequency_value].to_i.zero? ?
         nil : params[:other][:frequency_value].to_i.send(params[:other][:frequency_unit].to_sym)
     end
-    params.require(:connection).permit(:first_name, :last_name, :description, :birthday, :live, :frequency, :email, :facebook, :linkedin, :instagram, :twitter, :photo)
+    params.require(:connection).permit(:first_name, :last_name, :description,
+                                       :birthday, :live, :frequency, :email,
+                                       :facebook, :linkedin, :instagram, :twitter,
+                                       :photo)
   end
 
   def set_connection
     @connection = Connection.find(params[:id])
+  end
+
+  def process_query(connections)
+    if params[:query].present?
+      sql_query = " \
+        connections.first_name @@ :query \
+        OR connections.last_name @@ :query \
+        OR connections.description @@ :query \
+        OR connections.email @@ :query \
+        OR connections.facebook @@ :query \
+        OR connections.linkedin @@ :query \
+        OR connections.instagram @@ :query \
+        OR connections.twitter @@ :query \
+        "
+      connections = connections.where(sql_query, query: "%#{params[:query]}%")
+    end
+    # this must be the last step because for some cases we lose the ActiveRecord::Relation
+    if params[:sort].present?
+      case params[:sort]
+      when 'live' then connections = connections.order(live: :desc)
+      when 'checkin' then connections = connections.sort_by(&:checkin_time_sortable)
+      else connections = connections.order(live: :desc)
+      end
+    end
+    return connections
   end
 end
