@@ -1,0 +1,11 @@
+<% if connection %>
+  <div class="top-connection-interface">
+    <%= render 'connections/onboard/left_form', connection: connection %>
+    <%= link_to connection_path(connection) do %>
+      <%= render 'shared/connection_card', connection: connection %>
+    <% end %>
+    <%= render 'connections/onboard/right_form', connection: connection %>
+  </div>
+<% end %>
+
+
