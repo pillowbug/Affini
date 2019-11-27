@@ -22,8 +22,15 @@ const getCalendar = (data) => {
   const calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
     selectable: true,
-    events: data
-  })
+    events: data,
+    eventClick: function(event, jsEvent, view) {
+    console.log('EVENT CLICK ' + event.start);
+    },
+    eventMouseover: function(event, domEvent) {
+    console.log('EVENT Hover ');
+  }
+  });
+
   calendar.render();
 };
 
