@@ -7,7 +7,7 @@
     </div>
     <div class="d-flex align-items-center justify-content-between">
       <h1 id="connections-onboard-count" class="text-white"><%= pluralize_with_no("Pending Connection", @connections.count).titleize %></h1>
-      <%= render "shared/connectionmodal" %>
+
       <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
     </div>
     <div id="connections-onboard-section">
@@ -22,3 +22,5 @@
     </div> -->
   </div>
 </div>
+
+<%= render "shared/connectionmodal" %>
