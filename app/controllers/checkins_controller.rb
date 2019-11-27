@@ -21,7 +21,7 @@ class CheckinsController < ApplicationController
     end
   end
 
-   def create
+  def create
     if user_signed_in?
       @checkin = Checkin.new(checkin_params)
       @user = current_user
@@ -31,7 +31,10 @@ class CheckinsController < ApplicationController
       @checkin.time.past? ? @checkin.completed = true : @checkin.completed = false
       authorize @checkin
       if @checkin.save
-        redirect_to checkins_path, notice: "Checkin was successfully added"
+        respond_to do |format|
+          format.html { redirect_to connection_path(@connection), notice: "Checkin was successfully added" }
+          format.js
+        end
       else
         render 'new'
       end
