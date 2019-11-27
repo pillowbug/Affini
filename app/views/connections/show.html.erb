@@ -6,6 +6,7 @@
     </div>
     <div class="show-content">
       <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white text-right">
+      <%= render "shared/detailsmodal" %>
       <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn text-right" %>
       <div class="namebox section round shadow">
         <div class="d-flex">
@@ -68,6 +69,7 @@
           <div class="show-right float33 d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center">
               <h2 class="text-white">Notes</h2>
+              <%= render "shared/notesmodal" %>
               <%= link_to "+ Add notes", "#notesModal", "data-toggle" => "modal", class: "text-white" %>
             </div>
             <div class="d-flex notes section round shadow mb-4">
