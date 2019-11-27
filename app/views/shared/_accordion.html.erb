@@ -1,0 +1,60 @@
+<div class="checkin-accordion d-flex flex-column">
+  <div class="accordion-item">
+    <a class="active">
+      <h3 class="text-white spaced-header">
+      <i class="far fa-comment-dots text-white">
+      </i>
+      Feedback
+      </h3>
+      <div class="numberCircle">
+        <%= checkins.past.incomplete.count %>
+      </div>
+    </a>
+    <div class="accordion-content show-left d-flex flex-column active" id="feedback">
+      <% checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
+        <%= render "/shared/checkins", :checkin => checkin %>
+      <% end %>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <a>
+      <h3 class="text-white spaced-header">
+        <i class="far fa-calendar-alt text-white">
+        </i>
+        Upcoming
+      </h3>
+      <div class="numberCircle">
+        <%= checkins.future.where('time < ?', 1.week.after).count %>
+      </div>
+    </a>
+    <div class="accordion-content show-left d-flex flex-column" id="upcoming">
+      <% checkins.future.order(time: :asc).limit(3).each do |checkin| %>
+        <%= render "/shared/checkins", :checkin => checkin %>
+      <% end %>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <a>
+      <h3 class="text-white spaced-header">
+        <i class="fas fa-user-clock text-white">
+        </i>
+        Past
+      </h3>
+      <div class="numberCircle">
+        <%= past_checkins.count %>
+      </div>
+    </a>
+    <div class="accordion-content show-left d-flex flex-column" id="awaiting">
+      <% checkins.past.order(time: :asc).limit(3).each do |checkin| %>
+        <% if checkin.completed? %>
+          <div class="faded">
+        <% end %>
+        <%= render "/shared/checkins", :checkin => checkin %>
+        <% if checkin.completed? %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
