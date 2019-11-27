@@ -8,7 +8,7 @@ class CheckinsController < ApplicationController
 
     @event_json = []
     @checkins.each do |checkin|
-      @event_json << { start: checkin.time.strftime('%Y-%m-%d'), title: checkin.connections.first.first_name,
+      @event_json << { start: checkin.time.strftime('%Y-%m-%d'), title: checkin.connections.count == 0 ? '(no attendee)' : checkin.connections.first.first_name,
                         time: checkin.time.strftime('%m-%h'), description: checkin.description
                       }
     end
