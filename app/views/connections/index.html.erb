@@ -11,7 +11,7 @@
         <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
       </div>
     </div>
-    <div class="connection-cards fade-in-bottom">
+    <div class="connection-cards fade-in-bottom-disabled">
       <% @connections.each do |connection| %>
         <%= render 'shared/connection_card', connection: connection %>
       <% end %>
