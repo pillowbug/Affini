@@ -5,7 +5,7 @@
         <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %> >> <%= link_to full_name(@connection), connection_path(@connection) %>
     </div>
     <h1 class="text-white"><%= full_name(@connection) %></h1 class="text-white text-right">
-    <div class="show-content fade-in-bottom">
+    <div class="show-content fade-in-bottom-disabled">
         <%= render "shared/detailsmodal" %>
       <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn text-right" %>
       <div class="namebox section round shadow">
