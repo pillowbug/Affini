@@ -3,6 +3,8 @@ ruby '2.6.3'
 
 #added
 gem 'letter_opener', group: :development
+gem 'turbolinks'
+gem 'postmark-rails'
 
 gem 'bootsnap', require: false
 gem 'devise'

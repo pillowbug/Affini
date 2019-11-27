@@ -4,7 +4,7 @@
     <div class="breadcrumbs">
       <a href="#">Dashboard</a>
     </div>
-    <div class="split justify-content-between">
+    <div class="split justify-content-between" id="particles">
       <h1 class="text-white">Hello, <%= @user.first_name %>!</h1>
       <%= render "shared/connectionmodal" %>
       <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>

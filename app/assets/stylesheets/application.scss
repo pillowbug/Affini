@@ -11,3 +11,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+#particles-js {
+  width: 100%;
+  height: 500px;
+  background: #333;
+}
