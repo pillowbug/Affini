@@ -5,13 +5,19 @@ function refreshForm(innerHTML) {
 
 function addCheckin(checkinHTML) {
   const checkins = document.querySelector('#upcoming-checkins-display');
-  checkins.insertAdjacentHTML('afterbegin', checkinHTML);
-  document.querySelector('#no-upcoming-checkins').style.display = "none";
-  document.querySelector('#checkin-close-button').click();
+  if checkins {
+    checkins.insertAdjacentHTML('afterbegin', checkinHTML);
+  }
+  const noUpcomingCheckins = document.querySelector('#no-upcoming-checkins');
+  if noUpcomingCheckins {
+    noUpcomingCheckins.style.display = "none";
+  }
 }
 
 <% if @checkin.errors.any? %>
  refreshForm("<%= j render 'checkins/new', checkin: @checkin %>");
 <% else %>
   addCheckin("<%= j render 'shared/checkins', checkin: @checkin %>");
+  refreshForm("<%= j render 'checkins/new', checkin: Checkin.new %>");
+  document.querySelector('#checkin-close-button').click();
 <% end %>

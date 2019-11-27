@@ -1,6 +1,6 @@
-<%= simple_form_for [@checkin], remote: true do |f| %>
-  <% if @checkin.description %>
-    <%= f.input :description, input_html: { require: true, value: @checkin.description } %>
+<%= simple_form_for [checkin], remote: false do |f| %>
+  <% if checkin.description %>
+    <%= f.input :description, input_html: { require: true, value: checkin.description } %>
   <% else %>
     <%= f.input :description, input_html: { require: true } %>
   <% end %>

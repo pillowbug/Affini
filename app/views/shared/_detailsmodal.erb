@@ -7,8 +7,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body modal-bg">
-        <%= render "connections/form" %>
+      <div class="modal-body modal-bg" id="new_connection">
+        <%= render "connections/form", connection: @connection %>
       </div>
     </div>
   </div>
