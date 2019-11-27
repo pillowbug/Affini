@@ -19,7 +19,13 @@ class Connection < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search,
-                  against: %i[description facebook linkedin email twitter first_name last_name],
+                  against:
+                  [
+                    [:first_name, 'A'], [:last_name, 'A'],
+                    [:email, 'B'],
+                    [:description, 'C'],
+                    [:facebook, 'D'], [:linkedin, 'D'], [:instagram, 'D'], [:twitter, 'D']
+                  ],
                   using: {
                     tsearch: { prefix: true } # <-- now `superman batm` will return something!
                   }

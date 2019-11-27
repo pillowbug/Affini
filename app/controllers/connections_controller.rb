@@ -117,17 +117,7 @@ class ConnectionsController < ApplicationController
 
   def process_query(connections)
     if params[:query].present?
-      sql_query = " \
-        connections.first_name @@ :query \
-        OR connections.last_name @@ :query \
-        OR connections.description @@ :query \
-        OR connections.email @@ :query \
-        OR connections.facebook @@ :query \
-        OR connections.linkedin @@ :query \
-        OR connections.instagram @@ :query \
-        OR connections.twitter @@ :query \
-        "
-      connections = connections.where(sql_query, query: "%#{params[:query]}%")
+      connections = connections.search(params[:query])
     end
     # this must be the last step because for some cases we lose the ActiveRecord::Relation
     if params[:sort].present?
