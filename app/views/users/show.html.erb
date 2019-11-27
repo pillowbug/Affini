@@ -9,15 +9,15 @@
       <%= render "shared/connectionmodal" %>
       <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
     </div>
-    <div class="split fade-in-bottom">
-      <div class="d-flex float66 flex-column fade-in-bottom">
+    <div class="split fade-in-bottom-disabled">
+      <div class="d-flex float66 flex-column fade-in-bottom-disabled">
           <p class="text-white">Need to keep track of your upcoming activities? Visit the calendar to help you get organized.</p>
           <a href="/checkins" class="btn-green">Visit the Calendar</a>
       <%= render '/shared/accordion', :checkins => @user.checkins, :past_checkins => @connections_checkin %>
     </div>
       <div class="float33 reminders">
         <% if @connections_checkin %>
-        <h3 class="text-white pl-3 fade-in-bottom">People to check-in with</h3>
+        <h3 class="text-white pl-3 fade-in-bottom-disabled">People to check-in with</h3>
           <% @connections_checkin.each do |connection| %>
             <%= render "/shared/connection_due", :connection => connection %>
           <% end %>
