@@ -1,4 +1,4 @@
-<%= simple_form_for @checkin do |f| %>
+<%= simple_form_for [@checkin], remote: true do |f| %>
   <% if @checkin.description %>
     <%= f.input :description, input_html: { require: true, value: @checkin.description } %>
   <% else %>
@@ -13,7 +13,7 @@
   <%= f.input :completed, as: :boolean %>
   <%= f.input :time, as: :string, input_html: { class: "datetimepicker", require: true } %>
   <%= f.submit "Submit", :class => "btn btn-primary" %>
-  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="checkin-close-button">Close</button>
 <% end %>
 
 

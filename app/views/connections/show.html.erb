@@ -80,13 +80,13 @@
           <div class="checkins d-flex justify-content-between align-items-center">
             <h3 class="text-white">Upcoming</h3>
           </div>
-          <div class="show-left d-flex flex-column">
+          <div class="show-left d-flex flex-column" id="upcoming-checkins-display">
             <% if @connection.checkins.future.any?  %>
               <% @connection.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
                 <%= render "/shared/checkins", :checkin => checkin %>
               <% end %>
             <% else %>
-              <p class="text-white faded">You have no upcoming check-ins with <%= @connection.first_name%>. Why not schedule one? </p>
+              <p class="text-white faded" id="no-upcoming-checkins">You have no upcoming check-ins with <%= @connection.first_name%>. Why not schedule one? </p>
             <% end %>
           </div>
 

@@ -51,11 +51,8 @@ class ConnectionsController < ApplicationController
           format.html { redirect_to connections_path, notice: "Connection was successfully added" }
           format.js
         end
-        else
-          respond_to do |format|
-          format.html { render 'new' }
-          format.js
-        end
+      else
+        render 'new'
       end
     else
       redirect_to new_user_session_path
