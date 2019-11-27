@@ -1,6 +1,8 @@
 <div class="v-nav shadows">
     <div class="nav-content">
-      <h1 class="logo">affini</h1>
+      <%= link_to home_path do %>
+        <h1 class="logo">affini</h1>
+      <% end %>
       <%= render "shared/searchbar" %>
       <ul>
         <% if current_user %>

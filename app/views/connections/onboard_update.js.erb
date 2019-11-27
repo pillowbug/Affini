@@ -1,0 +1,11 @@
+function refreshCount(innerText) {
+  const count = document.getElementById('connections-onboard-count');
+  count.innerText = innerText;
+}
+function refreshSection(innerHTML) {
+  const section = document.getElementById('connections-onboard-section');
+  section.innerHTML = innerHTML;
+}
+
+refreshCount('<%= j pluralize_with_no("Pending Connection", @connections.count).titleize %>');
+refreshSection('<%= j render "connections/onboard/section", connection: @connections.first %>');

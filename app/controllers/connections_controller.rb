@@ -86,9 +86,7 @@ class ConnectionsController < ApplicationController
     @user = current_user
     @connection = Connection.new(frequency: 1.month)
     # for page proper
-    connections = policy_scope(Connection).pending.order(created_at: :desc)
-    @top_connection = connections[0]
-    @remaining_connections = connections.offset(1)
+    @connections = policy_scope(Connection).pending.order(created_at: :desc)
   end
 
   def onboard_update
@@ -107,7 +105,12 @@ class ConnectionsController < ApplicationController
         # all good
       end
     end
-    redirect_to onboard_connections_path
+    respond_to do |format|
+      format.html { redirect_to onboard_connections_path }
+      format.js do
+        @connections = policy_scope(Connection).pending.order(created_at: :desc)
+      end
+    end
   end
 
   private
