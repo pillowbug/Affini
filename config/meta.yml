@@ -1,0 +1,5 @@
+meta_product_name: "Affini"
+meta_title: "Affini - A relationship builder that starts with you"
+meta_description: "Connect: Good, Not Connect: Bad"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_tags: "connections, checkins, schedule, contacts, friends, not-tinder, cool, fun, networking"
