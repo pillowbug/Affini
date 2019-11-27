@@ -52,7 +52,7 @@
 .fl-reverse {flex-direction: row-reverse;}
 
 // content backgrounds
-.gradient-bg { background: linear-gradient(156deg, rgba(139,198,225,1) 0%, rgba(156,141,188,1) 75%, rgba(171,92,155,1) 100%); }
+.gradient-bg { background: linear-gradient(156deg, rgba(139,198,225,1) 0%, rgba(156,141,188,1) 75%, rgba(171,92,155,1) 100%); position: absolute; }
 .content { min-height: 100vh; height: 100%; width: 66%; position: relative; padding-top: 40px; margin-left: 320px; }
 
 //spacing

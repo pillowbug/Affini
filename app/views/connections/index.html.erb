@@ -1,22 +1,21 @@
 <div class="gradient-bg d-flex">
-  <%= render 'shared/vnav'%>
-
-  <div class="content pr-5">
-    <div class="breadcrumbs">
-        <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %>
-    </div>
-    <div class="d-flex align-items-center justify-content-between">
-      <h1 class="text-white">Your Connections</h1>
-      <div class="add-connection-buttons">
-        <%= link_to "Import connections +", onboard_connections_path, class: "btn-white" %>
-        <%= render "shared/connectionmodal" %>
-        <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
+    <%= render 'shared/vnav'%>
+    <div class="content pr-5">
+      <div class="breadcrumbs">
+          <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %>
+      </div>
+      <div class="d-flex align-items-center justify-content-between">
+        <h1 class="text-white">Your Connections</h1>
+        <div class="add-connection-buttons">
+          <%= link_to "Import connections +", onboard_connections_path, class: "btn-white" %>
+          <%= render "shared/connectionmodal" %>
+          <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
+        </div>
+      </div>
+      <div class="connection-cards">
+        <% @connections.each do |connection| %>
+          <%= render 'shared/connection_card', connection: connection %>
+        <% end %>
       </div>
     </div>
-    <div class="connection-cards">
-      <% @connections.each do |connection| %>
-        <%= render 'shared/connection_card', connection: connection %>
-      <% end %>
-    </div>
-  </div>
 </div>
