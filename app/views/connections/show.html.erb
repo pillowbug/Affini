@@ -11,7 +11,7 @@
       <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn text-right" %>
       <div class="namebox section round shadow">
         <div class="d-flex">
-          <div class="float25"><%= connection_image_tag(@connection, :width => 400, :crop => "pad", :class => "avatar-xl") %></div>
+          <div class="float25"><%= connection_image_tag(@connection, {width: 400, class: "avatar-xl"}) %></div>
           <div class="namebox-content float50">
             <ul>
               <li><strong>Last Met:</strong> <%= checkin_date_display(@connection.last_completed_past_checkin) %></li>
