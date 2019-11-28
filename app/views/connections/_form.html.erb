@@ -1,21 +1,28 @@
 <%= simple_form_for [connection], remote: (connection.id ? false : true)   do |f| %>
-  <%= f.input :first_name, input_html: { require: true } %>
-  <%= f.input :last_name, input_html: { require: true } %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <div class="d-flex justify-content-start">
-    <%= simple_fields_for :other do |o| %>
-      <%= o.input :frequency_value, as: :integer, label:'Frequency', input_html: { value: duration_value(@connection.frequency), min: 0 }, class: "flex-fill"  %>
-      <%= o.input :frequency_unit, as: :select, label: '', collection: duration_units, include_blank: false, selected: duration_unit_index(@connection.frequency), class: "flex-fill" %>
-    <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 pr-3">
+        <%= f.input :first_name, input_html: { require: true } %>
+        <%= f.input :last_name, input_html: { require: true } %>
+        <%= f.input :phone_number %>
+        <div class="d-flex justify-content-start">
+          <%= simple_fields_for :other do |o| %>
+            <%= o.input :frequency_value, as: :integer, label:'Frequency', input_html: { value: duration_value(@connection.frequency), min: 0 }, class: "flex-fill"  %>
+            <%= o.input :frequency_unit, as: :select, label: '', collection: duration_units, include_blank: false, selected: duration_unit_index(@connection.frequency), class: "flex-fill" %>
+          <% end %>
+        </div>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+      </div>
+      <div class="col-md-6 pl-3">
+        <%= f.input :email, label: false, wrapper_html: { class: 'fas fa-envelope-square' } %>
+        <%= f.input :facebook, label: false, wrapper_html: { class: 'fab fa-facebook-square'} %>
+        <%= f.input :twitter, label: false, wrapper_html: { class: 'fab fa-twitter-square'}  %>
+        <%= f.input :instagram, label: false, wrapper_html: { class: 'fab fa-instagram'} %>
+        <%= f.input :linkedin, label: false, wrapper_html: { class: 'fab fa-linkedin'}  %>
+        <%= f.input :birthday, as: :string, input_html: { class: "datepicker" }, label: false, wrapper_html: { class: 'fas fa-birthday-cake'}  %>
+        <%= f.submit "Submit", :class => "btn btn-outline-primary" %>
+       </div>
+      </div>
   </div>
-  <%= f.input :email %>
-  <%= f.input :phone_number %>
-  <%= f.input :facebook %>
-  <%= f.input :twitter %>
-  <%= f.input :instagram %>
-  <%= f.input :linkedin %>
-  <%= f.input :birthday, as: :string, input_html: { class: "datepicker" } %>
-  <%= f.submit "Submit", :class => "btn btn-primary" %>
-  <button type="button" id='connection-close-button' class="btn btn-secondary" data-dismiss="modal">Close</button>
 <% end %>
