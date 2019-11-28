@@ -3,14 +3,15 @@ class ConnectionMailController < ApplicationController
 
   def send_connection_email
     authorize @connection
-    ConnectionMailMailer.with(
-      user_id: current_user.id,
-      connection_id: @connection.id,
-      subject: params[:email][:subject],
-      body: params[:email][:body]
-    ).hello.deliver_now
+    # ConnectionMailMailer.with(
+    #   user_id: current_user.id,
+    #   connection_id: @connection.id,
+    #   subject: params[:email][:subject],
+    #   body: params[:email][:body]
+    # ).hello.deliver_now
     create_email_checkin
     redirect_to connection_path(@connection)
+    flash.now[:notice] = "Email sent to #{@connection.first_name}"
   end
 
   def create_email_checkin
