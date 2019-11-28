@@ -5,7 +5,7 @@
 <% end %>
   <%= link_to connection_path(connection) do %>
     <div class="connection-card-av-background">
-      <div class="connection-card-av"><%= connection_image_tag(connection, :width => 400, :crop => "pad", :class => "avatar-connection-card") %></div>
+      <div class="connection-card-av"><%= connection_image_tag(connection, {width: 400, class: "avatar-connection-card"}) %></div>
     </div>
     <div class="connection-card-info general">
       <div class="full-name"><h2><%= full_name(connection) %></h2></div>
