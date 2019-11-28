@@ -96,6 +96,7 @@
               <% end %>
             </div>
           </div>
+
           <div class="show-right float33 d-flex flex-column">
             <% if @connection.diligence %>
             <h2 class="text-white">Detailed Statistics</h2>
@@ -137,21 +138,13 @@
     </div>
   </div>
 </div>
-<script>
-  // accordion
-  const items = document.querySelec torAll(".checkin-accordion a");
-  function toggleAccordion(){
-    this.classList.toggle('active');
-    this.nextElementSibling.classList.toggle('active');
-  }
-  items.forEach(item => item.addEventListener('click', toggleAccordion));
-</script>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var rawData = '<%= connection_checkin_moving_average(@connection).to_json.html_safe %>'
-dataset = JSON.parse(rawData);
-var myChart = new Chart(ctx, {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var rawData = '<%= connection_checkin_moving_average(@connection).to_json.html_safe %>'
+  dataset = JSON.parse(rawData);
+  var myChart = new Chart(ctx, {
     type: 'line',
     data: dataset,
     options: {
@@ -163,7 +156,6 @@ var myChart = new Chart(ctx, {
             }]
         }
     }
-});
+  });
 </script>
-
 
