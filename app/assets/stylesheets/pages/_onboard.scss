@@ -92,7 +92,7 @@
 }
 
 
-.card-stack .onboard-card:nth-child(2) {
+.card-stack .onboard-card:nth-child(1) {
   opacity: 1;
   z-index: 4;
   position: absolute;
@@ -100,7 +100,7 @@
   transition: all 0.1s ease-in-out;
 }
 
-.card-stack .onboard-card:nth-child(3) {
+.card-stack .onboard-card:nth-child(2) {
   opacity: .9;
   z-index: 3;
   position: absolute;
@@ -110,7 +110,7 @@
   transition: all 0.1s ease-in-out;
 }
 
-.card-stack .onboard-card:nth-child(4) {
+.card-stack .onboard-card:nth-child(3) {
   opacity: .8;
   z-index: 2;
   position: absolute;
@@ -121,11 +121,11 @@
   transition: all 0.1s ease-in-out;
 }
 
-.card-stack .onboard-card:nth-child(5) {
-  opacity: 0;
-  position: absolute;
-  z-index:1;
-  transition: all 0.1s ease-in-out;
-  transform: scale(0.7);
-}
+// .card-stack .onboard-card:nth-child(4) {
+//   opacity: 0;
+//   position: absolute;
+//   z-index:1;
+//   transition: all 0.1s ease-in-out;
+//   transform: scale(0.7);
+// }
 
