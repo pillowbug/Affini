@@ -1,18 +1,4 @@
-import "bootstrap";
-
-import "../plugins/flatpickr";
-
-import "../plugins/set_timeout"
-
-import "../plugins/fullcalendar";
-
-// import {cardTransition} from "../components/onboard_animation";
-
-
-import "particles.js"
-import "../plugins/particles";
-
-var cardTransition = () => {
+const cardTransition = () => {
   const forms = document.querySelectorAll('form');
   forms.forEach((form) => {
     form.addEventListener('click', function(){
@@ -23,4 +9,13 @@ var cardTransition = () => {
   });
 }
 
-cardTransition();
+// user clicks on option
+// trigger fade out top on the first card
+// timeout in JS to remove the first card
+
+
+// get first object
+// on click apply "fade out top"
+// set timeOut for removal
+
+export { cardTransition }

@@ -106,7 +106,7 @@
               <% end %>
               <%= render "shared/checkinmodal" %>
             <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
-            <%= render '/shared/accordion', :checkins => @connection.checkins, :past_checkins => @connection.checkins.past %>
+            <%= render '/shared/accordion', :checkins => @connection.checkins %>
             </div>
           </div>
           <div class="show-right float33 d-flex flex-column">

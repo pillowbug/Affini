@@ -1,3 +1,7 @@
+<% ci_feedback = checkins.past.incomplete %>
+<% ci_upcoming = checkins.future.where('time < ?', 1.week.after) %>
+<% ci_past = checkins.past %>
+
 <div class="checkin-accordion d-flex flex-column">
   <div class="accordion-item">
     <a class="active">
@@ -7,11 +11,11 @@
       Feedback
       </h3>
       <div class="numberCircle">
-        <%= checkins.past.incomplete.count %>
+        <%= ci_feedback.count %>
       </div>
     </a>
     <div class="accordion-content show-left d-flex flex-column active" id="feedback">
-      <% checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
+      <% ci_feedback.order(time: :desc).limit(3).each do |checkin| %>
         <%= render "/shared/checkins", :checkin => checkin %>
       <% end %>
     </div>
@@ -24,11 +28,11 @@
         Upcoming
       </h3>
       <div class="numberCircle">
-        <%= checkins.future.where('time < ?', 1.week.after).count %>
+        <%= ci_upcoming.count %>
       </div>
     </a>
     <div class="accordion-content show-left d-flex flex-column" id="upcoming">
-      <% checkins.future.order(time: :asc).limit(3).each do |checkin| %>
+      <% ci_upcoming.order(time: :asc).limit(3).each do |checkin| %>
         <%= render "/shared/checkins", :checkin => checkin %>
       <% end %>
     </div>
@@ -41,11 +45,11 @@
         Past
       </h3>
       <div class="numberCircle">
-        <%= past_checkins.count %>
+        <%= ci_past.count %>
       </div>
     </a>
     <div class="accordion-content show-left d-flex flex-column" id="awaiting">
-      <% checkins.past.order(time: :asc).limit(3).each do |checkin| %>
+      <% ci_past.order(time: :asc).limit(3).each do |checkin| %>
         <% if checkin.completed? %>
           <div class="faded">
         <% end %>

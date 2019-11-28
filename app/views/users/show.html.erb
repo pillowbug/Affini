@@ -13,7 +13,7 @@
       <div class="d-flex float66 flex-column fade-in-bottom-disabled">
           <p class="text-white">Need to keep track of your upcoming activities? Visit the calendar to help you get organized.</p>
           <a href="/checkins" class="btn-green">Visit the Calendar</a>
-      <%= render '/shared/accordion', :checkins => @user.checkins, :past_checkins => @connections_checkin %>
+      <%= render '/shared/accordion', :checkins => @user.checkins %>
     </div>
       <div class="float33 reminders">
         <% if @connections_checkin %>

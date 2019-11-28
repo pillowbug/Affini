@@ -1,11 +1,32 @@
 .modal-header-bg {
-  background: $blue;
-  color: white;
+  background: $dark-blue;
+  color: $light-blue;
   border-style: none;
 }
 
 .modal-bg {
   color: $light-blue;
   background: $dark-blue;
-  font-size: 14px;
+  font-size: 18px;
+}
+
+.modal-header {
+  border-radius: 0;
+  padding: 2em 2em 0 2em;
+}
+
+.modal-body {
+  padding: 0.5em 2em 2em;
+}
+
+.modal-content {
+  border-radius: 0;
+  border: 0;
+}
+.btn {
+  margin-right: 4px;
+}
+
+.form-control {
+  margin-top: 3px;
 }

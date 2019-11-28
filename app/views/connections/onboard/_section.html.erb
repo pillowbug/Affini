@@ -3,12 +3,19 @@
 <% connections_next = connections.offset(1).first(2) %>
 <p class="text-white">Here are your most recently imported potential connections. Please select the frequency at which you would like to check-in with this person.</p>
   <div class="top-connection-interface d-flex justify-content-between align-items-center">
-    <%= render 'connections/onboard/left_form', connection: connection %>
-    <div class="slide-in-blurred-bottom">
+    <div id="left-controls">
+      <%= render 'connections/onboard/left_form', connection: connection %>
+    </div>
+    <div class="card-stack">
       <%= link_to connection_path(connection) do %>
         <%= render 'shared/onboard_card', connection: connection %>
       <% end %>
+      <% connections_next.each do |c| %>
+        <%= render 'shared/onboard_card', connection: c %>
+      <% end %>
     </div>
-    <%= render 'connections/onboard/right_form', connection: connection %>
+    <div id="right-controls">
+      <%= render 'connections/onboard/right_form', connection: connection %>
+    </div>
   </div>
 <% end %>
