@@ -83,33 +83,41 @@
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s ease-in-out;
 }
 
 
 .card-stack .onboard-card:nth-child(2) {
   opacity: 1;
-  z-index: 3;
+  z-index: 4;
   position: absolute;
   right: -72px;
 }
 
 .card-stack .onboard-card:nth-child(3) {
   opacity: .9;
-  z-index: 2;
+  z-index: 3;
   position: absolute;
   filter: greyscale(5);
-  animation-delay: 1s;
+  animation-delay: .1s;
   left: -128px;
+  transform: scale(0.9);
 }
 
 .card-stack .onboard-card:nth-child(4) {
   opacity: .8;
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   width: 240px;
-  filter: grayscale(7);
-  animation-delay: 2s;
+  filter: grayscale(6);
+  transform: scale(0.8);
+  animation-delay: .2s;
   left: -80px;
 }
 
+.card-stack .onboard-card:nth-child(5) {
+  opacity: 0;
+  position: absolute;
+  z-index:1;
+}
 
