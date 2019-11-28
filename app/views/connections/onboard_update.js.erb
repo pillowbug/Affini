@@ -2,10 +2,34 @@ function refreshCount(innerText) {
   const count = document.getElementById('connections-onboard-count');
   count.innerText = innerText;
 }
+
+function addCard(card) {
+  document.querySelector('.card-stack').insertAdjacentHTML('beforeend', card);
+}
+
+function refreshControls() {
+  document.getElementById('left-controls').innerHTML = `<%= render 'connections/onboard/left_form', connection: @connections.first %>`
+  document.getElementById('right-controls').innerHTML = `<%= render 'connections/onboard/right_form', connection: @connections.first %>`
+}
+
 function refreshSection(innerHTML) {
   const section = document.getElementById('connections-onboard-section');
   section.innerHTML = innerHTML;
 }
 
-refreshCount('<%= j pluralize_with_no("Pending Connection", @connections.count).titleize %>');
-refreshSection('<%= j render "connections/onboard/section", connections: @connections %>');
+refreshCount(`<%= j pluralize_with_no("Pending Connection", @connections.count).titleize %>`);
+addCard(`<%= j render "shared/onboard_card", connection: @connections[3] %>`);
+refreshControls();
+
+var cardTransition = () => {
+  const forms = document.querySelectorAll('form');
+  forms.forEach((form) => {
+    form.addEventListener('click', function(){
+      const firstCard = document.querySelector('.card-stack .onboard-card:nth-child(2)');
+      firstCard.classList.add('fade-out-top');
+      setTimeout( () => firstCard.remove(), 500 )
+    });
+  });
+}
+
+cardTransition();
