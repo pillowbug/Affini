@@ -15,5 +15,5 @@ function addConnection(connectionHTML) {
 <% else %>
   addConnection("<%= j render 'shared/connection_card', connection: @connection %>");
   refreshForm("<%= j render 'connections/form', connection: Connection.new %>");
-  document.querySelector('#connection-close-button').click();
+  document.querySelector('button.close').click();
 <% end %>

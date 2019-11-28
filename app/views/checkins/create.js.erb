@@ -19,5 +19,5 @@ function addCheckin(checkinHTML) {
 <% else %>
   addCheckin("<%= j render 'shared/checkins', checkin: @checkin %>");
   refreshForm("<%= j render 'checkins/new', checkin: Checkin.new %>");
-  document.querySelector('#checkin-close-button').click();
+  document.querySelector('button.close').click();
 <% end %>
