@@ -1,6 +1,5 @@
 .top-connection-interface {
   padding-top: 16px;
-  width: 64%;
   margin: 0 auto;
 }
 
@@ -57,4 +56,60 @@
 .top-connection-frequencies .fas {
   font-size: 24px;
 }
+
+.onboard-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.onboard-card {
+  margin-right: 16px;
+  margin-bottom: 16px;
+  height: 400px;
+  width: 240px;
+  border-radius: 24px;
+  box-shadow: 4, 4, 16px, rgba(0,0,0,1);
+  overflow: hidden;
+  a {
+    text-decoration: none !important;
+  }
+  color: $pink;
+}
+
+.card-stack {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card-stack .onboard-card:nth-child(2) {
+  opacity: 1;
+  z-index: 3;
+  position: absolute;
+  right: -72px;
+}
+
+.card-stack .onboard-card:nth-child(3) {
+  opacity: .9;
+  z-index: 2;
+  position: absolute;
+  filter: greyscale(5);
+  animation-delay: 1s;
+  left: -128px;
+}
+
+.card-stack .onboard-card:nth-child(4) {
+  opacity: .8;
+  z-index: 1;
+  position: absolute;
+  width: 240px;
+  filter: grayscale(7);
+  animation-delay: 2s;
+  left: -80px;
+}
+
 
