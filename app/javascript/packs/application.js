@@ -24,3 +24,5 @@ var cardTransition = () => {
 }
 
 cardTransition();
+
+import "..components/accordion"
