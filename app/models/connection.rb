@@ -68,6 +68,34 @@ class Connection < ApplicationRecord
     end
   end
 
+  def diligence(window = nil)
+    # a mesure from of user's matching the objective of frequency vs actual checkins.
+    # a value of 1 means the objective is attained (this is the max)
+    # Implemented as a ratio. A better, less exploitable, not requiring forcing max at 1.0,
+    # but more complex to implement measure = ratio of time in window covered by
+    # (possibly overlapping) 1-period spreads around checkin dates.
+
+    # if not live or no frequency set, nil
+    return nil unless live? && frequency?
+
+    # heuristic : default window = min(1.year, 10 * frequency)
+    window ||= [1.year, 10 * frequency].min
+
+    window_end = Time.now.since(frequency) # consider checkins up to 1 period in the future
+    window_start = [Time.now.since(-window), live].max # cannot go further back in time than live
+    actual_window = window_end - window_start
+    # objective is the integer quotient & should be at least 1 since actual window has at least 1 period
+    # (this is enforced to avoid rounding issues)
+    objective = [actual_window.to_i / frequency.to_i, 1].max
+    # number of past completed checkins and scheduled future ones in the window
+    n_checkins = checkins.past.completed.where('time >= ?', window_start).count +
+                 checkins.future.where('time <= ?', window_end).count
+    # Keep below for quick debugging:
+    # p [ window_start, window_end, live, actual_window, frequency, objective, n_checkins]
+
+    return [n_checkins / objective.to_f, 1.0].min
+  end
+
   def to_s
     first_name
   end
