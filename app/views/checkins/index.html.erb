@@ -20,7 +20,7 @@
     <div class="float33">
       <ul>
         <div class="upcoming-checkins d-flex flex-column">
-          <h3 class="text-white spaced-header">Feedback</h3>
+          <h3 class="text-white spaced-header border-bottom">Feedback</h3>
           <div class="show-left d-flex flex-column">
             <% @user.checkins.past.incomplete.order(time: :desc).limit(3).each do |checkin| %>
               <%= render "/shared/editcheckinmodal", :checkin => checkin %>
@@ -39,7 +39,7 @@
       </ul>
       <ul>
         <div class="upcoming-checkins d-flex flex-column">
-          <h3 class="text-white spaced-header">Upcoming</h3>
+          <h3 class="text-white spaced-header border-bottom">Upcoming</h3>
           <div class="show-left d-flex flex-column">
             <% @user.checkins.future.order(time: :asc).limit(3).each do |checkin| %>
               <%= link_to "#editCheckinModal", "data-toggle" => "modal" do %>
@@ -57,7 +57,7 @@
       </ul>
       <ul>
         <div class="upcoming-checkins d-flex flex-column">
-          <h3 class="text-white spaced-header">Past</h3>
+          <h3 class="text-white spaced-header border-bottom">Past</h3>
           <div class="show-left d-flex flex-column">
             <% @user.checkins.past.completed.order(time: :asc).limit(3).each do |checkin| %>
               <%= link_to "#editCheckinModal", "data-toggle" => "modal" do %>

@@ -8,15 +8,19 @@
       <h3 class="text-white spaced-header">
       <i class="far fa-comment-dots text-white">
       </i>
-      Feedback
+      Leave Feedback
       </h3>
       <div class="numberCircle">
         <%= ci_feedback.count %>
       </div>
     </a>
     <div class="accordion-content show-left d-flex flex-column active" id="feedback">
-      <% ci_feedback.order(time: :desc).limit(3).each do |checkin| %>
-        <%= render "/shared/checkins", :checkin => checkin %>
+      <% if checkins.past.incomplete.any? %>
+        <% ci_feedback.order(time: :desc).limit(3).each do |checkin| %>
+          <%= render "/shared/checkins", :checkin => checkin %>
+        <% end %>
+      <% else %>
+        <p class="text-white faded">You're up to date! Keep it up.</p>
       <% end %>
     </div>
   </div>
@@ -25,16 +29,20 @@
       <h3 class="text-white spaced-header">
         <i class="far fa-calendar-alt text-white">
         </i>
-        Upcoming
+        Upcoming Check-Ins
       </h3>
       <div class="numberCircle">
         <%= ci_upcoming.count %>
       </div>
     </a>
     <div class="accordion-content show-left d-flex flex-column" id="upcoming">
+
+
       <% ci_upcoming.order(time: :asc).limit(3).each do |checkin| %>
         <%= render "/shared/checkins", :checkin => checkin %>
       <% end %>
+
+
     </div>
   </div>
   <div class="accordion-item">
@@ -42,7 +50,7 @@
       <h3 class="text-white spaced-header">
         <i class="fas fa-user-clock text-white">
         </i>
-        Past
+        Past Check-Ins
       </h3>
       <div class="numberCircle">
         <%= ci_past.count %>

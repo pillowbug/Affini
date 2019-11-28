@@ -82,15 +82,15 @@
           <div class="show-left float66 d-flex flex-column">
 
             <div class="mail-section">
-              <h2 class="text-white">Send an e-mail</h2>
+            <%= render "shared/checkinmodal" %>
+            <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+            <%= render '/shared/accordion', :checkins => @connection.checkins %>
+            <h2 class="text-white">Send an e-mail</h2>
               <% if @connection.email %>
                 <%= render '/shared/connectionmailform' %>
               <% else %>
                 <p class="text-white faded">Add an email address for <%= @connection.first_name%> to send them a message through Affini.</p>
               <% end %>
-              <%= render "shared/checkinmodal" %>
-            <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
-            <%= render '/shared/accordion', :checkins => @connection.checkins %>
             </div>
           </div>
           <div class="show-right float33 d-flex flex-column">
