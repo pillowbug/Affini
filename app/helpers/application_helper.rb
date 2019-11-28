@@ -106,19 +106,19 @@ module ApplicationHelper
   #   "You " + actions.to_sentence + "."
   # end
 
-  def checkin_moving_average(checkins, pstart: nil, pend: Time.now, frequency: nil, offset: 1.month, avg_window: 4)
+  def checkin_moving_average(checkins, pstart: nil, pend: Time.now, frequency: nil, offset: 1.month, avg_width: 4)
     return nil unless frequency && pstart && pend && !checkins.empty? && pstart < pend
 
     periods = []
     period_count = 0
-    while (pend.in(-period_count*offset -avg_window*frequency) >= pstart) do
-      periods << {start: pend.in(-period_count*offset -avg_window*frequency), end: pend.in(-period_count*offset) }
+    while (pend.in(-period_count*offset -avg_width*frequency) >= pstart) do
+      periods << {start: pend.in(-period_count*offset -avg_width*frequency), end: pend.in(-period_count*offset) }
       period_count += 1
     end
     return nil if periods.empty?
 
     periods.each do |period|
-      period[:avg_n_checkin] = checkins.where('time > ? and time <= ?', period[:start], period[:end]).count / avg_window.to_f
+      period[:avg_n_checkin] = checkins.where('time > ? and time <= ?', period[:start], period[:end]).count / avg_width.to_f
     end
     periods.reverse!
 
@@ -134,5 +134,14 @@ module ApplicationHelper
       ]
     }
     return data
+  end
+
+  def connection_checkin_moving_average(connection, pstart: nil, pend: Time.now, offset: 1.month, avg_width: 4)
+    return checkin_moving_average(connection.checkins,
+                                  pstart: pstart || [1.year.ago, connection.live].max,
+                                  pend: pend,
+                                  frequency: connection.frequency,
+                                  offset: offset,
+                                  avg_width: avg_width)
   end
 end
