@@ -1,5 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
+<div id="particles-js"></div>
 <div class="dashboard gradient-bg">
   <%= render "shared/vnav" %>
   <div class="content">
@@ -150,7 +149,6 @@
     </div>
   </div>
 </div>
-
 <script>
   // accordion
   const items = document.querySelec torAll(".checkin-accordion a");
@@ -160,7 +158,7 @@
   }
   items.forEach(item => item.addEventListener('click', toggleAccordion));
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
 var rawData = '<%= connection_checkin_moving_average(@connection).to_json.html_safe %>'
