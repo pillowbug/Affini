@@ -11,7 +11,7 @@
       <%= link_to "New connection +", "#connectionModal", "data-toggle" => "modal", class: "btn-white" %>
     </div>
     <div id="connections-onboard-section">
-      <%= render 'connections/onboard/section', connection: @connections.first %>
+      <%= render 'connections/onboard/section', connections: @connections %>
     </div>
   </div>
 </div>

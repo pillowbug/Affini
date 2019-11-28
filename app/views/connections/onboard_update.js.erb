@@ -8,4 +8,4 @@ function refreshSection(innerHTML) {
 }
 
 refreshCount('<%= j pluralize_with_no("Pending Connection", @connections.count).titleize %>');
-refreshSection('<%= j render "connections/onboard/section", connection: @connections.first %>');
+refreshSection('<%= j render "connections/onboard/section", connections: @connections %>');
