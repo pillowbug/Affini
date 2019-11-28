@@ -105,4 +105,34 @@ module ApplicationHelper
   #   end
   #   "You " + actions.to_sentence + "."
   # end
+
+  def checkin_moving_average(checkins, pstart: nil, pend: Time.now, frequency: nil, offset: 1.month, avg_window: 4)
+    return nil unless frequency && pstart && pend && !checkins.empty? && pstart < pend
+
+    periods = []
+    period_count = 0
+    while (pend.in(-period_count*offset -avg_window*frequency) >= pstart) do
+      periods << {start: pend.in(-period_count*offset -avg_window*frequency), end: pend.in(-period_count*offset) }
+      period_count += 1
+    end
+    return nil if periods.empty?
+
+    periods.each do |period|
+      period[:avg_n_checkin] = checkins.where('time > ? and time <= ?', period[:start], period[:end]).count / avg_window.to_f
+    end
+    periods.reverse!
+
+    data = {
+      labels: periods.map { |period| period[:end].strftime('%b %y') },
+      datasets: [
+        {
+          label: 'Check-in moving average',
+          backgroundColor: "rgba(220,220,220,0.2)",
+          borderColor: "rgba(220,220,220,1)",
+          data: periods.map { |period| period[:avg_n_checkin]}
+        }
+      ]
+    }
+    return data
+  end
 end
