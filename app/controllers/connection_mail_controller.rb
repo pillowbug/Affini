@@ -9,9 +9,9 @@ class ConnectionMailController < ApplicationController
     #   subject: params[:email][:subject],
     #   body: params[:email][:body]
     # ).hello.deliver_now
+    flash[:notice] = "Email sent to #{@connection.first_name}"
     create_email_checkin
     redirect_to connection_path(@connection)
-    flash.now[:notice] = "Email sent to #{@connection.first_name}"
   end
 
   def create_email_checkin
