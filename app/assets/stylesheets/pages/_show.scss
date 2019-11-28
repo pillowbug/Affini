@@ -10,8 +10,19 @@
 
 .namebox-content {
   padding-right: 32px;
+  display: flex;
+  position: relative;
   ul {
     list-style: none;
+  }
+}
+
+.connection-level {
+  position: absolute;
+  right: -10px;
+  width: 50%;
+  p {
+    width: 90%;
   }
 }
 

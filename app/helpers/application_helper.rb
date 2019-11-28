@@ -127,8 +127,8 @@ module ApplicationHelper
       datasets: [
         {
           label: 'Check-in moving average',
-          backgroundColor: "rgba(220,220,220,0.2)",
-          borderColor: "rgba(220,220,220,1)",
+          backgroundColor: "#FAFCFF",
+          borderColor: "#62B1FA",
           data: periods.map { |period| period[:avg_n_checkin]}
         }
       ]
@@ -144,20 +144,5 @@ module ApplicationHelper
                                   offset: offset,
                                   avg_width: avg_width)
   end
-    
-  def dilligence_messages(connection)
-    level1 = ['Baby steps..', 'Good start!', 'Keep at it!']
-    level2 = ['Moving up!', 'Getting there!', 'Press on!']
-    level3 = ['Almost there!', 'Great work!', 'Hurray!']
-    level4 = ['You did it!', 'Rad!', 'Nice job!']
-    if connection.diligence > 0.75
-      return level4.sample
-    elsif connection.diligence > 0.50
-      return level3.sample
-    elsif connection.diligence > 0.25
-      return level2.sample
-    else
-      return level1.sample
-    end
-  end
+
 end

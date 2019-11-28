@@ -36,16 +36,25 @@
   }
 }
 
-.dilligence-msg {
-  fill: #666;
-  text-align: center;
-  font-family: sans-serif;
+
+.percentage {
+  fill: $blue;
+  font-weight: bold;
   font-size: 0.5em;
   text-anchor: middle;
-  width:100px;
-  position: absolute;
-  left: 50%;
-  margin-left: -50px;
-  top: 50%;
-  margin-top: -50px;
+}
+
+// .dilligence-msg {
+//   font-size: 90px;
+//   width:100px;
+//   position: absolute;
+//   left: 50%;
+//   margin-left: -45px;
+//   top: 50%;
+//   margin-top: -65px;
+// }
+
+.line-chart {
+  background: $light-blue;
+  padding: 16px;
 }
