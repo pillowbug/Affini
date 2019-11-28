@@ -92,7 +92,7 @@ class Connection < ApplicationRecord
     n_checkins = checkins.past.completed.where('time >= ?', window_start).count +
                  checkins.future.where('time <= ?', window_end).count
     # Keep below for quick debugging:
-    # p [ window_start, window_end, live, actual_window, frequency, objective, n_checkins]
+    # p [ window_start, window_end, history_start, actual_window, frequency, objective, n_checkins]
 
     return [n_checkins / objective.to_f, 1.0].min
   end
