@@ -1,3 +1,7 @@
+.show-left{
+  padding-right: 16px;
+}
+
 .namebox {
   width: 100%;
   height: 240px;
@@ -9,21 +13,25 @@
 }
 
 .namebox-content {
-  padding-right: 32px;
   display: flex;
   position: relative;
   ul {
     list-style: none;
+    padding: 0;
   }
 }
 
+.affini {
+  color: $green;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.affini-graph {
+  padding: 16px;
+}
+
 .connection-level {
-  position: absolute;
-  right: -32px;
-  width: 50%;
-  p {
-    width: 90%;
-  }
+  padding: 0px 8px;
 }
 
 .tag-list p {

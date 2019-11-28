@@ -4,7 +4,7 @@
 .round { border-radius: 24px; }
 .list-none { list-style-type: none; }
 .breadcrumbs { margin: 24px 0; }
-.show-left { padding-right: 32px; }
+.show-left { padding-right: 48px; }
 .border-bottom { padding-bottom: 8px; border-bottom: 1px solid white;}
 
 // text styles
@@ -80,6 +80,7 @@
 .spaced-header { margin: 16px 0 16px; }
 .full-height { min-height: 100vh; }
 .margin-auto { margin: 0 auto; }
+.block { display: block; }
 
 body {
   min-height: 100vh;

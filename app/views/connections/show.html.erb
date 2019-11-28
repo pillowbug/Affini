@@ -5,14 +5,16 @@
     <div class="breadcrumbs">
         <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %> >> <%= link_to full_name(@connection), connection_path(@connection) %>
     </div>
-    <h1 class="text-white text-right"><%= full_name(@connection) %></h1>
+    <h1 class="text-white text-left"><%= full_name(@connection) %></h1>
     <div class="show-content fade-in-bottom-disabled">
       <%= render "shared/detailsmodal" %>
-      <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn text-right" %>
+      <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-right block" %>
       <div class="namebox section round shadow">
         <div class="d-flex">
-          <div class="float25"><%= connection_image_tag(@connection, :width => 400, :crop => "pad", :class => "avatar-xl") %></div>
-          <div class="namebox-content float50">
+          <div class="connection-image float25">
+            <%= connection_image_tag(@connection, :width => 400, :crop => "pad", :class => "avatar-xl") %>
+          </div>
+          <div class="namebox-content float25">
             <ul>
               <li><strong>Last Met:</strong> <%= checkin_date_display(@connection.last_completed_past_checkin) %></li>
               <li><strong>Frequency:</strong> <%= frequency_display(@connection.frequency) %></li>
@@ -48,13 +50,13 @@
                 <% end %>
               <% end %>
             </ul>
-            <div class="connection-level">
-              <strong><p>Affinity</p></strong>
+          </div>
+           <div class="float25 connection-level">
+              <strong><p class="affini">Affinity</p></strong>
               <p>Your Affinity level represents how often you've made an effort to meet your frequency targets to check-in with your connection.</p>
             </div>
-          </div>
-          <% if @connection.diligence %>
-          <div class="flex-wrapper float25">
+          <div class="float25">
+            <% if @connection.diligence %>
             <div class="single-chart">
               <svg viewBox="0 0 36 36" class="circular-chart">
                 <defs>
@@ -86,7 +88,7 @@
 
             <div class="mail-section">
             <%= render "shared/checkinmodal" %>
-            <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+            <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white block text-right mt-4" %>
             <%= render '/shared/accordion', :checkins => @connection.checkins %>
             <h2 class="text-white">Send an e-mail</h2>
               <% if @connection.email %>
