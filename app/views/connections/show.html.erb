@@ -148,12 +148,31 @@
     type: 'line',
     data: dataset,
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
+      layout: {
+        padding: {
+          left: 16,
+          right: 32,
+          top: 32,
+          bottom: 8
+        }
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          gridLines: {
+            drawOnChartArea: false
+          },
+        ticks: {
+            beginAtZero: true
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              drawOnChartArea: false
+            }
+          }]
         }
     }
   });
