@@ -144,11 +144,11 @@ module ApplicationHelper
                                   offset: offset,
                                   avg_width: avg_width)
   end
-    
+
   def dilligence_messages(connection)
-    level1 = ['Baby steps..', 'Good start!', 'Keep at it!']
-    level2 = ['Moving up!', 'Getting there!', 'Press on!']
-    level3 = ['Almost there!', 'Great work!', 'Hurray!']
+    level1 = ['Baby steps...', 'Attention needed']
+    level2 = ['Moving up!', 'Keep at it!', 'Press on!']
+    level3 = ['Almost there!', 'Great work!']
     level4 = ['You did it!', 'Rad!', 'Nice job!']
     if connection.diligence > 0.75
       return level4.sample
