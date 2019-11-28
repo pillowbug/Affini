@@ -90,6 +90,61 @@ module ApplicationHelper
     return status
   end
 
+  # def dashboard_message(args = {})
+  #   return "Nothing requires your immediate attention. Good job!" if args.empty? || args.sum{ |_, n| n }.zero?
+
+  #   actions = []
+  #   if args[:n_feedbacks] && args[:n_feedbacks].positive?
+  #     actions << ("have " + pluralize_with_no("past check-in", args[:n_feedbacks]) + " to give feedback on")
+  #   end
+  #   if args[:n_connections_checkin] && args[:n_connections_checkin].positive?
+  #     actions << ("should get back in touch with " + pluralize_with_no("connection", args[:n_connections_checkin]))
+  #   end
+  #   if args[:n_upcomings] && args[:n_upcomings].positive?
+  #     actions << ("have " + pluralize_with_no("upcoming check-in", args[:n_upcomings]) + " next week")
+  #   end
+  #   "You " + actions.to_sentence + "."
+  # end
+
+  def checkin_moving_average(checkins, pstart: nil, pend: Time.now, frequency: nil, offset: 1.month, avg_width: 4)
+    return nil unless frequency && pstart && pend && !checkins.empty? && pstart < pend
+
+    periods = []
+    period_count = 0
+    while (pend.in(-period_count*offset -avg_width*frequency) >= pstart) do
+      periods << {start: pend.in(-period_count*offset -avg_width*frequency), end: pend.in(-period_count*offset) }
+      period_count += 1
+    end
+    return nil if periods.empty?
+
+    periods.each do |period|
+      period[:avg_n_checkin] = checkins.where('time > ? and time <= ?', period[:start], period[:end]).count / avg_width.to_f
+    end
+    periods.reverse!
+
+    data = {
+      labels: periods.map { |period| period[:end].strftime('%b %y') },
+      datasets: [
+        {
+          label: 'Check-in moving average',
+          backgroundColor: "rgba(220,220,220,0.2)",
+          borderColor: "rgba(220,220,220,1)",
+          data: periods.map { |period| period[:avg_n_checkin]}
+        }
+      ]
+    }
+    return data
+  end
+
+  def connection_checkin_moving_average(connection, pstart: nil, pend: Time.now, offset: 1.month, avg_width: 4)
+    return checkin_moving_average(connection.checkins,
+                                  pstart: pstart || [1.year.ago, connection.live].max,
+                                  pend: pend,
+                                  frequency: connection.frequency,
+                                  offset: offset,
+                                  avg_width: avg_width)
+  end
+    
   def dilligence_messages(connection)
     level1 = ['Baby steps..', 'Good start!', 'Keep at it!']
     level2 = ['Moving up!', 'Getting there!', 'Press on!']
