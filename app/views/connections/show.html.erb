@@ -5,14 +5,16 @@
     <div class="breadcrumbs">
         <%= link_to "Dashboard", root_path %> >> <%= link_to "Connections", connections_path %> >> <%= link_to full_name(@connection), connection_path(@connection) %>
     </div>
-    <h1 class="text-white text-right"><%= full_name(@connection) %></h1>
+    <h1 class="text-white text-left"><%= full_name(@connection) %></h1>
     <div class="show-content fade-in-bottom-disabled">
       <%= render "shared/detailsmodal" %>
-      <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-btn text-right" %>
+      <%= link_to "+ Add Details", "#detailsModal", "data-toggle" => "modal", class: "text-white text-right block" %>
       <div class="namebox section round shadow">
         <div class="d-flex">
-          <div class="float25"><%= connection_image_tag(@connection, {width: 400, class: "avatar-xl"}) %></div>
-          <div class="namebox-content float50">
+          <div class="connection-image float25">
+            <%= connection_image_tag(@connection, {width: 400, class: "avatar-xl"}) %>
+          </div>
+          <div class="namebox-content float25">
             <ul>
               <li><strong>Last Met:</strong> <%= checkin_date_display(@connection.last_completed_past_checkin) %></li>
               <li><strong>Frequency:</strong> <%= frequency_display(@connection.frequency) %></li>
@@ -48,13 +50,13 @@
                 <% end %>
               <% end %>
             </ul>
-            <div class="connection-level">
-              <strong><p>Affinity</p></strong>
+          </div>
+           <div class="float25 connection-level">
+              <strong><p class="affini">Affinity</p></strong>
               <p>Your Affinity level represents how often you've made an effort to meet your frequency targets to check-in with your connection.</p>
             </div>
-          </div>
-          <% if @connection.diligence %>
-          <div class="flex-wrapper float25">
+          <div class="float25">
+            <% if @connection.diligence %>
             <div class="single-chart">
               <svg viewBox="0 0 36 36" class="circular-chart">
                 <defs>
@@ -73,7 +75,7 @@
                   d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
                     a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                <text x="18" y="20.35" class="percentage"><%= @connection.diligence.to_i * 100 %>%</text>
+                <text x="18" y="20.35" class="percentage"><%= (@connection.diligence * 100).to_i  %>%</text>
               </svg>
             </div>
           </div>
@@ -86,7 +88,7 @@
 
             <div class="mail-section">
             <%= render "shared/checkinmodal" %>
-            <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white text-btn" %>
+            <%= link_to "+ Add a Check-in", "#checkinModal", "data-toggle" => "modal", class: "text-white block text-right mt-4" %>
             <%= render '/shared/accordion', :checkins => @connection.checkins %>
             <h2 class="text-white">Send an e-mail</h2>
               <% if @connection.email %>
@@ -96,6 +98,7 @@
               <% end %>
             </div>
           </div>
+
           <div class="show-right float33 d-flex flex-column">
             <% if @connection.diligence %>
             <h2 class="text-white">Detailed Statistics</h2>
@@ -137,21 +140,13 @@
     </div>
   </div>
 </div>
-<script>
-  // accordion
-  const items = document.querySelec torAll(".checkin-accordion a");
-  function toggleAccordion(){
-    this.classList.toggle('active');
-    this.nextElementSibling.classList.toggle('active');
-  }
-  items.forEach(item => item.addEventListener('click', toggleAccordion));
-</script>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var rawData = '<%= connection_checkin_moving_average(@connection).to_json.html_safe %>'
-dataset = JSON.parse(rawData);
-var myChart = new Chart(ctx, {
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var rawData = '<%= connection_checkin_moving_average(@connection).to_json.html_safe %>'
+  dataset = JSON.parse(rawData);
+  var myChart = new Chart(ctx, {
     type: 'line',
     data: dataset,
     options: {
@@ -163,7 +158,6 @@ var myChart = new Chart(ctx, {
             }]
         }
     }
-});
+  });
 </script>
-
 

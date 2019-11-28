@@ -1,4 +1,4 @@
-<div class="section round shadow" style="width: 90%;">
+<div class="section round shadow">
   <%= simple_form_for :email, url: connection_send_connection_email_path(@connection)  do |e| %>
     <%= e.input :subject, class: "round" %>
     <%= e.input :body, as: :text, class: "round" %>

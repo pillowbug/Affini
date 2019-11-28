@@ -28,8 +28,8 @@ connections:
     last_name: Niblo
     live: <%= 3.year.ago.to_s %>
     frequency: <%= 1.week.iso8601 %>
-    _birthday: '23 September'
-    description: 'Coding Scotsman'
+    _birthday: '29 November'
+    description: 'Met at Le Wagon Boot Camp. From Scotland and living in Japan. He does not like Italian food or seafood.'
     email : ogtknmwq@sharklasers.com
     linkedin: 'https://www.linkedin.com/in/lum555/'
     instagram: 'https://www.instagram.com/tlum555/'
@@ -38,10 +38,15 @@ connections:
       - friend
       - work
     _glances:
-      - question: 'Weaknesses'
+      - question: 'Dislikes'
         answer: 'Mushrooms, raw tomatoes'
-      - question: 'Motto'
-        answer: 'Eat, Sleep, Code'
+      - question: 'Likes'
+        answer: 'Video games, izikayas, painting'
+      - question: 'Favourite Restaurant'
+        answer: 'Outback Steakhouse'
+      - question: 'Favourite Series'
+        answer: 'Warhammer 40,000'
+
   # - _slug: gerard
   #   first_name: Gerard
   #   last_name: Cabarse
@@ -68,17 +73,23 @@ connections:
     live: <%= 6.month.ago.to_s %>
     frequency: <%= 1.year.iso8601 %>
     _birthday: '4 December'
-    description: 'Undercover leader of a secret society.'
+    description: 'Lives in France. Met at Le Wagon Boot Camp. Can speak pretty good Japanese and knows a lot about Tokyo.'
     facebook: 'https://www.facebook.com/jko420'
     instagram: 'https://www.instagram.com/jy_ko/'
     email: erwoqurpdf@sharklasers.com
     remote_photo_url: 'https://avatars0.githubusercontent.com/u/53289659?s=460&v=4'
     _tags:
-      - acquaintance
+      - friend
       - school
     _glances:
       - question: 'Favourite Food?'
-        answer: 'Pizza'
+        answer: 'Ice cream'
+      - question: 'Dislikes'
+        answer: 'Birds'
+      - question: 'Languages'
+        answer: 'English, Korean, Japanese, French'
+      - question: 'Smoker?'
+        answer: 'No'
   - _slug: maxime
     _user_slug: usr
     first_name: Maxime
@@ -150,3 +161,102 @@ checkins:
     _connection_slugs:
       - tom
     _time: 2.months.after.noon - 4.hour
+  - _usr_slug: usr
+    description: 'Beach party'
+    _connection_slugs:
+      - tom
+      - maxime
+      - jy
+    _time: 4.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Barbecue'
+    _connection_slugs:
+      - tom
+      - jy
+    _time: 3.months.ago.noon - 8.hour
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Torikizoku'
+    _connection_slugs:
+      - tom
+    _time: 3.months.ago.noon - 6.hour
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Kamakura Trip'
+    _connection_slugs:
+      - tom
+      - jy
+    _time: 1.month.ago.noon - 7.hour
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Team Lab Borderless!'
+    _connection_slugs:
+      - maxime
+    _time: 1.month.ago.noon - 9.hour
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Jiro Ramen'
+    _connection_slugs:
+      - maxime
+    _time: 5.months.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Movie night'
+    _connection_slugs:
+      - tom
+    _time: 5.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Game jam'
+    _connection_slugs:
+      - maxime
+      - tom
+    _time: 5.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Yoyogi picnic'
+    _connection_slugs:
+      - jy
+      - maxime
+      - tom
+    _time: 5.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Ramen museum'
+    _connection_slugs:
+      - tom
+    _time: 6.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Izikaya night'
+    _connection_slugs:
+      - tom
+    _time: 6.months.ago.noon
+    rating: 4
+    completed: true  -
+  - _usr_slug: usr
+    description: 'Mario Cart Party!'
+    _connection_slugs:
+      - maxime
+      - tom
+    _time: 7.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Group study'
+    _connection_slugs:
+      - maxime
+    _time: 7.months.ago.noon
+    rating: 4
+    completed: true
