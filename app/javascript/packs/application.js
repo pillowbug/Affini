@@ -25,4 +25,4 @@ var cardTransition = () => {
 
 cardTransition();
 
-import "..components/accordion"
+import "../components/accordion";
