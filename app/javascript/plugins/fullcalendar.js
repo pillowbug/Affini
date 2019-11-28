@@ -21,6 +21,7 @@ const fetchTime = () => {
 
 const getCalendar = (data) => {
   const calendarEl = document.getElementById('calendar');
+  console.log(calendarEl)
   if (calendarEl) {
     const calendar = new Calendar(calendarEl, {
       plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
