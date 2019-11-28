@@ -11,7 +11,7 @@
       <div class="namebox section round shadow">
         <div class="d-flex">
           <div class="float25"><%= connection_image_tag(@connection, :width => 400, :crop => "pad", :class => "avatar-xl") %></div>
-          <div class="namebox-content float75 flex-column">
+          <div class="namebox-content float50 flex-column">
             <ul>
               <li><strong>Last Met:</strong> <%= checkin_date_display(@connection.last_completed_past_checkin) %></li>
               <li><strong>Frequency:</strong> <%= frequency_display(@connection.frequency) %></li>
@@ -47,6 +47,34 @@
               <% end %>
             </ul>
           </div>
+          <% if @connection.diligence %>
+          <div class="flex-wrapper float25">
+            <div class="single-chart">
+              <svg viewBox="0 0 36 36" class="circular-chart">
+                <defs>
+                  <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#8bc6e1" />
+                    <stop offset="50%" stop-color="#9c8dbc"/>
+                    <stop offset="100%" stop-color="#ab5c9b" />
+                  </linearGradient>
+                </defs>
+                <path class="circle-bg"
+                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <path class="circle"
+                  stroke ="url(#gradient)" stroke-dasharray=" <%= (@connection.diligence * 100).to_i %>, 100"
+                  d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                <!-- <text x="18" y="20.35" class="percentage"><%= (@connection.diligence * 100).to_i %>%</text> -->
+              </svg>
+              <div class="dilligence-msg">
+                <h3><%= dilligence_messages(@connection) %></h3>
+              </div>
+            </div>
+          </div>
+          <% end %>
         </div>
       </div>
       <% if @connection.live? %>
