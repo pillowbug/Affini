@@ -51,12 +51,12 @@
               <% end %>
             </ul>
           </div>
-           <div class="float25 connection-level">
-              <strong><p class="affini">Affinity</p></strong>
-              <p>Your Affinity level represents how often you've made an effort to meet your frequency targets to check-in with your connection.</p>
-            </div>
+          <% if @connection.diligence %>
+          <div class="float25 connection-level">
+            <strong><p class="affini">Affinity</p></strong>
+            <p>Your Affinity level represents how often you've made an effort to meet your frequency targets to check-in with your connection.</p>
+          </div>
           <div class="float25">
-            <% if @connection.diligence %>
             <div class="single-chart">
               <svg viewBox="0 0 36 36" class="circular-chart">
                 <defs>
@@ -101,10 +101,10 @@
 
           <div class="show-right float33 d-flex flex-column">
             <% if @connection.diligence %>
-            <h2 class="text-white">Detailed Statistics</h2>
-            <div class="shadows round line-chart">
-              <canvas id="myChart" width="400" height="400"></canvas>
-            </div>
+              <h2 class="text-white">Detailed Statistics</h2>
+              <div class="shadows round line-chart">
+                <canvas id="myChart" width="400" height="400"></canvas>
+              </div>
             <% end %>
             <div class="d-flex justify-content-between align-items-center">
               <h2 class="text-white">Notes</h2>
@@ -141,34 +141,35 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<script>
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var rawData = '<%= connection_checkin_moving_average(@connection).to_json.html_safe %>'
-  dataset = JSON.parse(rawData);
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: dataset,
-    options: {
-      legend: {
-        display: false
-      },
-      scales: {
-        yAxes: [{
-          gridLines: {
-            drawOnChartArea: false
-          },
-        ticks: {
-            beginAtZero: true
-            }
-          }],
-          xAxes: [{
+<% if @connection.diligence %>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var rawData = '<%= connection_checkin_moving_average(@connection).to_json.html_safe %>'
+    dataset = JSON.parse(rawData);
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: dataset,
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          yAxes: [{
             gridLines: {
               drawOnChartArea: false
-            }
-          }]
-        }
-    }
-  });
-</script>
-
+            },
+          ticks: {
+              beginAtZero: true
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                drawOnChartArea: false
+              }
+            }]
+          }
+      }
+    });
+  </script>
+<% end %>
