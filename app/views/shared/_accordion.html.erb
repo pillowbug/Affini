@@ -36,13 +36,9 @@
       </div>
     </a>
     <div class="accordion-content show-left d-flex flex-column" id="upcoming">
-
-
       <% ci_upcoming.order(time: :asc).limit(3).each do |checkin| %>
         <%= render "/shared/checkins", :checkin => checkin %>
       <% end %>
-
-
     </div>
   </div>
   <div class="accordion-item">
@@ -57,7 +53,7 @@
       </div>
     </a>
     <div class="accordion-content show-left d-flex flex-column" id="awaiting">
-      <% ci_past.order(time: :asc).limit(3).each do |checkin| %>
+      <% ci_past.order(time: :desc).limit(3).each do |checkin| %>
         <% if checkin.completed? %>
           <div class="faded">
         <% end %>
