@@ -90,19 +90,19 @@ module ApplicationHelper
     return status
   end
 
-  # def dashboard_message(args = {})
-  #   return "Nothing requires your immediate attention. Good job!" if args.empty? || args.sum{ |_, n| n }.zero?
-
-  #   actions = []
-  #   if args[:n_feedbacks] && args[:n_feedbacks].positive?
-  #     actions << ("have " + pluralize_with_no("past check-in", args[:n_feedbacks]) + " to give feedback on")
-  #   end
-  #   if args[:n_connections_checkin] && args[:n_connections_checkin].positive?
-  #     actions << ("should get back in touch with " + pluralize_with_no("connection", args[:n_connections_checkin]))
-  #   end
-  #   if args[:n_upcomings] && args[:n_upcomings].positive?
-  #     actions << ("have " + pluralize_with_no("upcoming check-in", args[:n_upcomings]) + " next week")
-  #   end
-  #   "You " + actions.to_sentence + "."
-  # end
+  def dilligence_messages(connection)
+    level1 = ['Baby steps..', 'Good start!', 'Keep at it!']
+    level2 = ['Moving up!', 'Getting there!', 'Press on!']
+    level3 = ['Almost there!', 'Great work!', 'Hurray!']
+    level4 = ['You did it!', 'Rad!', 'Nice job!']
+    if connection.diligence > 0.75
+      return level4.sample
+    elsif connection.diligence > 0.50
+      return level3.sample
+    elsif connection.diligence > 0.25
+      return level2.sample
+    else
+      return level1.sample
+    end
+  end
 end
