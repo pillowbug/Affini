@@ -81,8 +81,9 @@ class Connection < ApplicationRecord
     # heuristic : default window = min(1.year, 10 * frequency)
     window ||= [1.year, 10 * frequency].min
 
+    history_start = [checkins.past.order(time: :asc).first&.time || live, live].min
     window_end = Time.now.since(frequency) # consider checkins up to 1 period in the future
-    window_start = [Time.now.since(-window), live].max # cannot go further back in time than live
+    window_start = [Time.now.since(-window), history_start].max # cannot go further back in time than initial known contact
     actual_window = window_end - window_start
     # objective is the integer quotient & should be at least 1 since actual window has at least 1 period
     # (this is enforced to avoid rounding issues)
