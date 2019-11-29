@@ -68,6 +68,14 @@ class Connection < ApplicationRecord
     end
   end
 
+  def history_start
+    # history starts usually at onboarding (live), but can be earlier if prior
+    # check-ins where recorded
+    return nil unless live?
+
+    [checkins.past.order(time: :asc).first&.time || live, live].min
+  end
+
   def diligence(window = nil)
     # a mesure from of user's matching the objective of frequency vs actual checkins.
     # a value of 1 means the objective is attained (this is the max)
@@ -81,7 +89,6 @@ class Connection < ApplicationRecord
     # heuristic : default window = min(1.year, 10 * frequency)
     window ||= [1.year, 10 * frequency].min
 
-    history_start = [checkins.past.order(time: :asc).first&.time || live, live].min
     window_end = Time.now.since(frequency) # consider checkins up to 1 period in the future
     window_start = [Time.now.since(-window), history_start].max # cannot go further back in time than initial known contact
     actual_window = window_end - window_start
