@@ -112,13 +112,16 @@ module ApplicationHelper
     periods = []
     period_count = 0
     while pend.in(-period_count * offset - avg_width * frequency) >= pstart
-      periods << { start: pend.in(-period_count * offset - avg_width * frequency),
+      periods << { start: [pend.in(-period_count * offset - avg_width * frequency), pend.in(-(period_count+1) * offset)].min,
                    end: pend.in(-period_count * offset) }
       period_count += 1
     end
     return nil if periods.empty?
 
     periods.each do |period|
+      local_avg_width = (period[:end] - period[:start]) / frequency
+      local_avg_width = avg_width if local_avg_width < 0.1
+
       period[:avg_n_checkin] = checkins.where('time > ? and time <= ?', period[:start], period[:end]).count /
                                avg_width.to_f
     end
@@ -142,7 +145,7 @@ module ApplicationHelper
     return nil unless connection.live?
 
     return checkin_moving_average(connection.checkins,
-                                  pstart: pstart || [1.year.ago, connection.live].max,
+                                  pstart: pstart || [1.year.ago, connection.history_start].max,
                                   pend: pend,
                                   frequency: connection.frequency,
                                   offset: offset,
