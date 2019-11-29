@@ -91,8 +91,8 @@ end
 # Make Sylvain the 3rd pending user
 usr = User.find_by(first_name: 'Gerard')
 syl = Connection.search('Sylvain Pierre').first
-third_pending = usr.connections.pending.order(created_at: :desc).limit(2).last
 if syl&.is_a? Connection
+  third_pending = usr.connections.pending.order(created_at: :desc).where.not(id: syl.id).limit(2).last
   if third_pending&.is_a? Connection
     syl.update(created_at: third_pending.created_at - 0.001.second)
   end
