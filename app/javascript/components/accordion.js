@@ -4,7 +4,6 @@ const accordion = () => {
     this.classList.toggle('active');
     this.nextElementSibling.classList.toggle('active');
   }
-  console.log('hello');
   items.forEach(item => item.addEventListener('click', toggleAccordion));
 }
 accordion();

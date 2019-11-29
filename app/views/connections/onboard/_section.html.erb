@@ -7,9 +7,7 @@
       <%= render 'connections/onboard/left_form', connection: connection %>
     </div>
     <div class="card-stack">
-      <%= link_to connection_path(connection) do %>
-        <%= render 'shared/onboard_card', connection: connection %>
-      <% end %>
+      <%= render 'shared/onboard_card', connection: connection %>
       <% connections_next.each do |c| %>
         <%= render 'shared/onboard_card', connection: c %>
       <% end %>
