@@ -103,7 +103,11 @@
             <% if @connection.diligence %>
               <h2 class="text-white">Detailed Statistics</h2>
               <div class="shadows round line-chart">
+              <% if connection_checkin_moving_average(@connection).nil? %>
+                <h5 class="faded">Not enough data yet.</h5>
+              <% else %>
                 <canvas id="myChart" width="400" height="400"></canvas>
+              <% end %>
               </div>
             <% end %>
             <div class="d-flex justify-content-between align-items-center">
