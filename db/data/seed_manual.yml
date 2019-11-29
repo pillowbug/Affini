@@ -171,12 +171,79 @@ checkins:
     rating: 4
     completed: true
   - _usr_slug: usr
+    description: 'Ramen night'
+    _connection_slugs:
+      - maxime
+    _time: 4.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Nikko trip'
+    _connection_slugs:
+      - tom
+    _time: 4.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
     description: 'Barbecue'
     _connection_slugs:
       - tom
       - jy
     _time: 3.months.ago.noon - 8.hour
     rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Bowling'
+    _connection_slugs:
+      - tom
+      - maxime
+    _time: 3.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Board games'
+    _connection_slugs:
+      - tom
+    _time: 3.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Rugby world cup'
+    _connection_slugs:
+      - tom
+    _time: 3.months.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Karaoke'
+    _connection_slugs:
+      - tom
+      - maxime
+    _time: 3.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Summer picnic'
+    _connection_slugs:
+      - tom
+      - jy
+    _time: 2.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Billiards'
+    _connection_slugs:
+      - tom
+      - maxime
+    _time: 2.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Shibuya street festival'
+    _connection_slugs:
+      - jy
+    _time: 2.months.ago.noon
+    rating: 4
     completed: true
   - _usr_slug: usr
     description: 'Torikizoku'
@@ -190,7 +257,21 @@ checkins:
     _connection_slugs:
       - tom
       - jy
-    _time: 1.month.ago.noon - 7.hour
+    _time: 1.month.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Ice skating'
+    _connection_slugs:
+      - tom
+    _time: 1.month.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Futsal'
+    _connection_slugs:
+      - tom
+    _time: 1.month.ago.noon
     rating: 5
     completed: true
   - _usr_slug: usr
@@ -218,7 +299,6 @@ checkins:
     description: 'Game jam'
     _connection_slugs:
       - maxime
-      - tom
     _time: 5.months.ago.noon
     rating: 4
     completed: true
@@ -227,9 +307,16 @@ checkins:
     _connection_slugs:
       - jy
       - maxime
-      - tom
     _time: 5.months.ago.noon
     rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Aquarium'
+    _connection_slugs:
+      - maxime
+      - jy
+    _time: 5.months.ago.noon
+    rating: 5
     completed: true
   - _usr_slug: usr
     description: 'Ramen museum'
@@ -254,9 +341,208 @@ checkins:
     rating: 4
     completed: true
   - _usr_slug: usr
-    description: 'Group study'
+    description: 'Japanese Study'
     _connection_slugs:
       - maxime
     _time: 7.months.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'French study'
+    _connection_slugs:
+      - maxime
+    _time: 7.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Soba restaurant'
+    _connection_slugs:
+      - jy
+    _time: 7.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Gaming night'
+    _connection_slugs:
+      - tom
+    _time: 8.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Ruby study'
+    _connection_slugs:
+      - tom
+    _time: 8.months.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Horror movie night'
+    _connection_slugs:
+      - tom
+      - maxime
+    _time: 8.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Spring drinking'
+    _connection_slugs:
+      - tom
+    _time: 8.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Enoshima trip'
+    _connection_slugs:
+      - tom
+    _time: 8.months.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Cinema'
+    _connection_slugs:
+      - tom
+    _time: 8.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'House party'
+    _connection_slugs:
+      - tom
+      - jy
+      - maxime
+    _time: 9.months.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'LAN party'
+    _connection_slugs:
+      - maxime
+    _time: 9.months.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Karaoke'
+    _connection_slugs:
+      - maxime
+    _time: 9.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Pizza and beer'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Italian restaurant'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Jiro ramen'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Akihabara trip'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Harajuku shopping'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Taco party'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Street festival'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Odawara castle'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Torikizoku'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Hiking trip'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 3
+    completed: true
+  - _usr_slug: usr
+    description: 'Camping'
+    _connection_slugs:
+      - tom
+    _time: 10.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Ruby study'
+    _connection_slugs:
+      - maxime
+    _time: 11.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Game jam'
+    _connection_slugs:
+      - maxime
+    _time: 11.months.ago.noon
+    rating: 5
+    completed: true
+  - _usr_slug: usr
+    description: 'Darts'
+    _connection_slugs:
+      - tom
+    _time: 11.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Crepe party'
+    _connection_slugs:
+      - maxime
+    _time: 11.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'New year celebration'
+    _connection_slugs:
+      - jy
+    _time: 12.months.ago.noon
+    rating: 4
+    completed: true
+  - _usr_slug: usr
+    description: 'Christmas dinner'
+    _connection_slugs:
+      - maxime
+    _time: 11.months.ago.noon
     rating: 4
     completed: true
