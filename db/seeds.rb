@@ -85,4 +85,20 @@ seed_data['checkins'].each do |ci_def|
   puts "  Added #{ci.description&.truncate(15)} | with #{ci_def['_connection_slugs']&.join(', ')}"
 end
 
+#===============================================================
+# Special Tasks ! ! FRAGILE ! !
+
+# Make Sylvain the 3rd pending user
+usr = User.find_by(first_name: 'Gerard')
+syl = Connection.search('Sylvain Pierre').first
+third_pending = usr.connections.pending.order(created_at: :desc).limit(2).last
+if syl&.is_a? Connection
+  if third_pending&.is_a? Connection
+    syl.update(created_at: third_pending.created_at - 0.001.second)
+  end
+  syl.update(live: nil)
+else
+  raise "Could not find Sylvain!!!!!"
+end
+
 puts "Finished seeding"
