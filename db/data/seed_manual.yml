@@ -71,7 +71,7 @@ connections:
     first_name: Jiyoung
     last_name: Ko
     live: <%= 6.month.ago.to_s %>
-    frequency: <%= 1.year.iso8601 %>
+    frequency: <%= 1.month.iso8601 %>
     _birthday: '4 December'
     description: 'Lives in France. Met at Le Wagon Boot Camp. Can speak pretty good Japanese and knows a lot about Tokyo.'
     facebook: 'https://www.facebook.com/jko420'
@@ -125,7 +125,7 @@ checkins:
   - _usr_slug: usr
     description: 'Drinks'
     _connection_slugs:
-      - tom
+      - maxime
     _time: 2.month.ago.noon + 8.hour
     rating: 4
     completed: true
@@ -133,7 +133,7 @@ checkins:
     description: 'Lunch'
     _connection_slugs:
       - jy
-      - tom
+      - maxime
     _time: 1.month.ago.noon
     rating: 5
     completed: true
@@ -153,18 +153,17 @@ checkins:
   - _usr_slug: usr
     description: 'Drinks'
     _connection_slugs:
-      - tom
+      - jy
       - maxime
     _time: 2.weeks.after.noon + 6.hour + 30.minute
   - _usr_slug: usr
     description: 'Ski Holidays!'
     _connection_slugs:
-      - tom
+      - jy
     _time: 2.months.after.noon - 4.hour
   - _usr_slug: usr
     description: 'Beach party'
     _connection_slugs:
-      - tom
       - maxime
       - jy
     _time: 4.months.ago.noon
@@ -180,7 +179,7 @@ checkins:
   - _usr_slug: usr
     description: 'Nikko trip'
     _connection_slugs:
-      - tom
+      - jy
     _time: 4.months.ago.noon
     rating: 4
     completed: true
@@ -195,7 +194,7 @@ checkins:
   - _usr_slug: usr
     description: 'Bowling'
     _connection_slugs:
-      - tom
+      - jy
       - maxime
     _time: 3.months.ago.noon
     rating: 3
@@ -203,21 +202,21 @@ checkins:
   - _usr_slug: usr
     description: 'Board games'
     _connection_slugs:
-      - tom
+      - jy
     _time: 3.months.ago.noon
     rating: 3
     completed: true
   - _usr_slug: usr
     description: 'Rugby world cup'
     _connection_slugs:
-      - tom
+      - jy
     _time: 3.months.ago.noon
     rating: 5
     completed: true
   - _usr_slug: usr
     description: 'Karaoke'
     _connection_slugs:
-      - tom
+      - jy
       - maxime
     _time: 3.months.ago.noon
     rating: 3
@@ -233,7 +232,7 @@ checkins:
   - _usr_slug: usr
     description: 'Billiards'
     _connection_slugs:
-      - tom
+      - jy
       - maxime
     _time: 2.months.ago.noon
     rating: 4
@@ -248,7 +247,7 @@ checkins:
   - _usr_slug: usr
     description: 'Torikizoku'
     _connection_slugs:
-      - tom
+      - jy
     _time: 3.months.ago.noon - 6.hour
     rating: 4
     completed: true
@@ -263,14 +262,14 @@ checkins:
   - _usr_slug: usr
     description: 'Ice skating'
     _connection_slugs:
-      - tom
+      - jy
     _time: 1.month.ago.noon
     rating: 3
     completed: true
   - _usr_slug: usr
     description: 'Futsal'
     _connection_slugs:
-      - tom
+      - jy
     _time: 1.month.ago.noon
     rating: 5
     completed: true
@@ -291,7 +290,7 @@ checkins:
   - _usr_slug: usr
     description: 'Movie night'
     _connection_slugs:
-      - tom
+      - jy
     _time: 5.months.ago.noon
     rating: 4
     completed: true
@@ -328,7 +327,7 @@ checkins:
   - _usr_slug: usr
     description: 'Izikaya night'
     _connection_slugs:
-      - tom
+      - jy
     _time: 6.months.ago.noon
     rating: 4
     completed: true  -
@@ -336,7 +335,7 @@ checkins:
     description: 'Mario Cart Party!'
     _connection_slugs:
       - maxime
-      - tom
+      - jy
     _time: 7.months.ago.noon
     rating: 4
     completed: true
@@ -364,7 +363,7 @@ checkins:
   - _usr_slug: usr
     description: 'Gaming night'
     _connection_slugs:
-      - tom
+      - jy
     _time: 8.months.ago.noon
     rating: 4
     completed: true
@@ -393,21 +392,20 @@ checkins:
   - _usr_slug: usr
     description: 'Enoshima trip'
     _connection_slugs:
-      - tom
+      - jy
     _time: 8.months.ago.noon
     rating: 5
     completed: true
   - _usr_slug: usr
     description: 'Cinema'
     _connection_slugs:
-      - tom
+      - jy
     _time: 8.months.ago.noon
     rating: 3
     completed: true
   - _usr_slug: usr
     description: 'House party'
     _connection_slugs:
-      - tom
       - jy
       - maxime
     _time: 9.months.ago.noon
@@ -437,14 +435,14 @@ checkins:
   - _usr_slug: usr
     description: 'Italian restaurant'
     _connection_slugs:
-      - tom
+      - jy
     _time: 10.months.ago.noon
     rating: 4
     completed: true
   - _usr_slug: usr
     description: 'Jiro ramen'
     _connection_slugs:
-      - tom
+      - jy
     _time: 10.months.ago.noon
     rating: 5
     completed: true
@@ -458,14 +456,14 @@ checkins:
   - _usr_slug: usr
     description: 'Harajuku shopping'
     _connection_slugs:
-      - tom
+      - jy
     _time: 10.months.ago.noon
     rating: 4
     completed: true
   - _usr_slug: usr
     description: 'Taco party'
     _connection_slugs:
-      - tom
+      - jy
     _time: 10.months.ago.noon
     rating: 3
     completed: true
@@ -479,14 +477,14 @@ checkins:
   - _usr_slug: usr
     description: 'Odawara castle'
     _connection_slugs:
-      - tom
+      - jy
     _time: 10.months.ago.noon
     rating: 3
     completed: true
   - _usr_slug: usr
     description: 'Torikizoku'
     _connection_slugs:
-      - tom
+      - jy
     _time: 10.months.ago.noon
     rating: 4
     completed: true
